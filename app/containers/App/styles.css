@@ -1,0 +1,66 @@
+/**
+ * styles.css
+ *
+ * App container styles
+ */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: #2F3034;
+  font-size: 14px;
+  height: 100%;
+  background-color: #FFF;
+}
+
+a {
+  outline: none !important;
+  text-transform: none !important;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+button {
+  text-transform: none !important;
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+span {
+  -webkit-appearance: none !important;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+.container {
+  display: block;
+}
