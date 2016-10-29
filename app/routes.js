@@ -54,7 +54,7 @@ export default function createRoutes(store) {
       onEnter: checkNRefreshToken(true),
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          System.import('containers/AuthPage'),
+          System.import('containers/HomePage'),
         ]);
 
         const renderRoute = loadModule(cb);
