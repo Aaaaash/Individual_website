@@ -45,19 +45,18 @@ export default function request(url, options) {
   const defaultOptions = {
     method: 'GET',
     headers: {
-      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
 
-  if (global.window.localStorage.access_token) {
-    defaultOptions.headers.Authorization = `Bearer ${global.window.localStorage.access_token}`;
-  }
+  // if (global.window.localStorage.access_token) {
+  //   defaultOptions.headers.Authorization = `Bearer ${global.window.localStorage.access_token}`;
+  // }
 
   const mergeOptions = _.merge({}, defaultOptions, options);
   return fetch(url, mergeOptions)
-    .then(parseJSON)
-    .then(parseData);
+    .then((data) => data)
+    .catch((err) => err);
 }
 
 export function get(urlString, params) {
