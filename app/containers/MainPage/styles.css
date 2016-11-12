@@ -1,0 +1,36 @@
+.main {
+  text-align: center;
+}
+
+.main_container {
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #FFF;
+  border-radius: 4px;
+  text-align: left
+}
+.main_container:hover {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12),0 1px 4px rgba(0, 0, 0, 0.12);
+  transition: all 450ms;
+}
+
+.main_container h4 {
+  color: #323232;
+  display: inline-block;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 45px;
+  cursor: pointer;
+}
+
+.main_container h4:hover {
+  color: rgb(255,56,88);
+  transition: all 450ms;
+}
+
+.main_container p {
+  font-size: 14px;
+  color: #666;
+  padding: 10px;
+  width: 95%;
+}

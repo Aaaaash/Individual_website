@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-
-import HeaderNav from 'components/HeaderNav';
-import CarouselFigure from 'components/CarouselFigure';
+import TopFixedNav from 'containers/TopFixedNav';
+import 'antd/dist/antd.min.css';
 
 class HomePage extends Component {
   render() {
+    const { children } = this.props;
     return (
       <div>
-        <HeaderNav />
-        <CarouselFigure />
+        <TopFixedNav />
+        <div style={{ padding: '45px', marginLeft: '75px' }}>
+          {children}
+        </div>
       </div>
     );
   }

@@ -3,5 +3,5 @@
  */
 
 let apiHost = global.window.location.origin;
-apiHost = apiHost.indexOf('localhost') !== -1 ? 'http://betag.clip.easub.com' : global.window.location.origin;
-export const API_BASE = `${apiHost}/api/v1`;
+apiHost = apiHost.indexOf('localhost') !== -1 ? 'https://api.douban.com' : global.window.location.origin;
+export const API_BASE = `${apiHost}/v2`;

@@ -50,8 +50,7 @@ export default function createRoutes(store) {
   return [
     {
       path: '/',
-      name: 'login',
-      onEnter: checkNRefreshToken(true),
+      name: 'index',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/HomePage'),
@@ -65,6 +64,47 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
+      childRoutes: [
+        {
+          indexRoute: {
+            name: 'mainpage',
+            getComponent(nextState, cb) {
+              const importModules = Promise.all([
+                System.import('containers/MainPage/reducer'),
+                System.import('containers/MainPage/sagas'),
+                System.import('containers/MainPage'),
+              ]);
+
+              const renderRoute = loadModule(cb);
+
+              importModules.then(([reducer, sagas, component]) => {
+                injectReducer('home', reducer.default);
+                injectSagas(sagas.default);
+                renderRoute(component);
+              });
+
+              importModules.catch(errorLoading);
+            },
+          }
+        },
+        {
+          path: '/code',
+          name: 'codepage',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              System.import('containers/CodePage'),
+            ]);
+
+            const renderRoute = loadModule(cb);
+
+            importModules.then(([component]) => {
+              renderRoute(component);
+            });
+
+            importModules.catch(errorLoading);
+          },
+        }
+      ]
     },
     {
       path: '*',

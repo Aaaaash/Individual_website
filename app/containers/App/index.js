@@ -13,6 +13,7 @@
 
 import React from 'react';
 import Helmet from 'react-helmet';
+import classNames from 'classnames';
 import { createStructuredSelector } from 'reselect';
 import { userinfoRequest } from './actions';
 import { connect } from 'react-redux';
@@ -35,7 +36,7 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
 
   render() {
     return (
-      <div className={styles.container}>
+      <div className={classNames(styles.container)}>
         <Helmet
           titleTemplate="%s - 大秀子"
           defaultTitle="大秀子"
