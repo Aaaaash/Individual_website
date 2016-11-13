@@ -8,7 +8,7 @@ class HomePage extends Component {
     return (
       <div>
         <TopFixedNav />
-        <div style={{ padding: '45px', marginLeft: '75px' }}>
+        <div style={{ padding: '35px', marginLeft: '85px' }}>
           {children}
         </div>
       </div>

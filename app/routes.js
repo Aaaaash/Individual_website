@@ -103,6 +103,23 @@ export default function createRoutes(store) {
 
             importModules.catch(errorLoading);
           },
+        },
+        {
+          path: '/photo',
+          name: 'photopage',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              System.import('containers/PhotoPage'),
+            ]);
+
+            const renderRoute = loadModule(cb);
+
+            importModules.then(([component]) => {
+              renderRoute(component);
+            });
+
+            importModules.catch(errorLoading);
+          },
         }
       ]
     },

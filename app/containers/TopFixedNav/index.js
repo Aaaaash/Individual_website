@@ -16,7 +16,7 @@ class TopFixedNav extends Component {
         <QueueAnim type="left" className={styles.nav_container} component="ul">
           <li key="demo1" onClick={() => browserHistory.push('/')}>首页</li>
           <li key="demo2" onClick={() => browserHistory.push('/code')}>代码</li>
-          <li key="demo3">照片</li>
+          <li key="demo3" onClick={() => browserHistory.push('/photo')}>照片</li>
           <li key="demo4">about</li>
         </QueueAnim>
       </div>

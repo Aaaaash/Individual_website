@@ -19,7 +19,7 @@ import {
 class MainPage extends Component {
 
   componentDidMount() {
-    // this.props.onFetchMovieList();
+    this.props.onFetchMovieList();
   }
 
   render() {
@@ -28,7 +28,7 @@ class MainPage extends Component {
       <div className={styles.main}>
         {
           requesting ?
-          <Spin /> :
+          <Spin size="large" /> :
           <QueueAnim
             type={['right', 'left']}
             ease={['easeOutQuart', 'easeInOutQuart']}
