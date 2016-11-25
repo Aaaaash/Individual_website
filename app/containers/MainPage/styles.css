@@ -1,36 +1,28 @@
-.main {
-  text-align: center;
-}
-
 .main_container {
-  padding: 15px;
-  margin-bottom: 15px;
-  background-color: #FFF;
-  border-radius: 4px;
-  text-align: left
-}
-.main_container:hover {
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12),0 1px 4px rgba(0, 0, 0, 0.12);
-  transition: all 450ms;
+  width: 100%;
+  min-height: 400px;
+  height: 60%;
+  position: fixed;
+  top: 0;
+  box-sizing: border-box;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.main_container h4 {
-  color: #323232;
-  display: inline-block;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 45px;
+.main_tit {
+  line-height: 350px;
+}
+
+.main_tit a {
+  color: #F8F8F8;
   cursor: pointer;
+  font-family: "Microsoft YaHei light";
+  font-size: 36px;
+  font-weight: normal;
+  text-decoration: none;
 }
 
-.main_container h4:hover {
-  color: rgb(255,56,88);
-  transition: all 450ms;
-}
-
-.main_container p {
-  font-size: 14px;
-  color: #666;
-  padding: 10px;
-  width: 95%;
+.main_tit a:hover {
+  color: #FFF;
 }

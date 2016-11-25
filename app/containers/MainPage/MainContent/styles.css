@@ -1,0 +1,40 @@
+.content {
+  width: 70%;
+  padding: 25px;
+  margin: 0 auto;
+  top: 250px;
+  position: relative;
+}
+
+.content_item {
+  background-color: #FFF;
+  border-radius: 2px;
+  padding: 25px 35px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.12);
+  margin-bottom: 15px;
+}
+
+.item_title {
+  font-size: 20px;
+  color: #4D4D4D;
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.item_title:hover {
+  color: #212121;
+}
+.item_content {
+  margin-top: 25px;
+  color: #757575;
+  text-indent: 2em;
+  font-size: 14px;
+}
+
+.item_link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #909090;
+  font-size: 12px;
+  cursor: pointer;
+}
