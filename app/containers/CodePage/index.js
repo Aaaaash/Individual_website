@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import showdown from 'showdown';
-import { markdown } from 'markdown';
+// import { markdown } from 'markdown';
 
 import styles from './styles.css';
 
