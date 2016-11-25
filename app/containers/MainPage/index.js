@@ -1,56 +1,28 @@
 import React, { Component } from 'react';
 import QueueAnim from 'rc-queue-anim';
-import { createStructuredSelector } from 'reselect';
-import { connect } from 'react-redux';
-import { List } from 'immutable';
-import { drop } from 'lodash';
-import Spin from 'antd/lib/spin';
+import { Parallax } from 'rc-scroll-anim';
 
+import MainContent from './MainContent';
 import styles from './styles.css';
-import {
-  fetchMovieList,
-} from './actions';
-import {
-  selectrMovieList,
-  selectRequesting,
-  selectError,
-} from './selectors';
+import bgImg from './bg.jpg';
 
 class MainPage extends Component {
-
-  componentDidMount() {
-    this.props.onFetchMovieList();
-  }
-
   render() {
-    const { requesting, movieList, error } = this.props;
     return (
-      <div className={styles.main}>
-        {
-          requesting ?
-          <Spin size="large" /> :
-          <QueueAnim
-            type={['right', 'left']}
-            ease={['easeOutQuart', 'easeInOutQuart']}
-          >
-            <p>{error}</p>
-          </QueueAnim>
-        }
-      </div>
-    )
+      <QueueAnim type="top">
+        <div
+          key="ani1"
+          className={styles.main_container}
+          style={{ backgroundImage: `url(${bgImg})` }}
+        >
+          <h3 className={styles.main_tit}>
+            <a>I look forward to the future.</a>
+          </h3>
+        </div>
+        <MainContent />
+      </QueueAnim>
+    );
   }
 }
 
-const mapStateToProps = createStructuredSelector({
-  movieList: selectrMovieList(),
-  requesting: selectRequesting(),
-  error: selectError(),
-});
-
-function mapDispatchToProps(dispatch) {
-  return {
-    onFetchMovieList: () => dispatch(fetchMovieList()),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default MainPage;

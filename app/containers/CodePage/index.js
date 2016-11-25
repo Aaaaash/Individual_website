@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
-import QueueAnim from 'rc-queue-anim';
+import showdown from 'showdown';
+import { markdown } from 'markdown';
 
 import styles from './styles.css';
 
-class CodePage extends Component {
+const converter = new showdown.Converter;
 
+class CodePage extends Component {
+  state = {
+    content: '',
+  }
+  handleChangeInput = (e) => {
+    const html = converter.makeHtml(e.target.value);
+    this.setState({
+      content: html,
+    })
+  }
   render() {
     return (
-      <QueueAnim
-        type={['right', 'left']}
-        ease={['easeOutQuart', 'easeInOutQuart']}
-      >
-      <div className={styles.code_container} key="code1" >
-        <p>this is code page</p>
+      <div>
+        <textarea className={styles.input_container} onChange={this.handleChangeInput}>
+
+        </textarea>
+        <div className={styles.markdownbody} dangerouslySetInnerHTML={{ __html: this.state.content }}>
+        </div>
       </div>
-      </QueueAnim>
-    )
+    );
   }
 }
 

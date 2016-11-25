@@ -1,0 +1,26 @@
+.app_container {
+  position: relative;
+}
+.menu_btn {
+  position: fixed;
+  right: 25px;
+  top: 25px;
+  width: 25px;
+  height: 25px;
+  outline: none;
+  cursor: pointer;
+  transition: all 250ms;
+  z-index: 1000;
+}
+
+.menu_btn:active {
+  transform: scale(1.25);
+}
+
+.menu_btn span {
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  display: inline-block;
+  background-repeat: no-repeat;
+}

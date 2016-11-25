@@ -53,43 +53,38 @@ export default function createRoutes(store) {
       name: 'index',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
+          System.import('containers/HomePage/reducer'),
           System.import('containers/HomePage'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
+        importModules.then(([reducer, component]) => {
+          injectReducer('home', reducer.default);
           renderRoute(component);
         });
 
         importModules.catch(errorLoading);
       },
+      indexRoute: {
+        getComponent(nextState, cb) {
+          const importModules = Promise.all([
+            System.import('containers/MainPage'),
+          ]);
+
+          const renderRoute = loadModule(cb);
+
+          importModules.then(([component]) => {
+            renderRoute(component);
+          });
+
+          importModules.catch(errorLoading);
+        },
+      },
       childRoutes: [
         {
-          indexRoute: {
-            name: 'mainpage',
-            getComponent(nextState, cb) {
-              const importModules = Promise.all([
-                System.import('containers/MainPage/reducer'),
-                System.import('containers/MainPage/sagas'),
-                System.import('containers/MainPage'),
-              ]);
-
-              const renderRoute = loadModule(cb);
-
-              importModules.then(([reducer, sagas, component]) => {
-                injectReducer('home', reducer.default);
-                injectSagas(sagas.default);
-                renderRoute(component);
-              });
-
-              importModules.catch(errorLoading);
-            },
-          }
-        },
-        {
-          path: '/code',
-          name: 'codepage',
+          path:'/code',
+          name: 'code',
           getComponent(nextState, cb) {
             const importModules = Promise.all([
               System.import('containers/CodePage'),
@@ -104,23 +99,6 @@ export default function createRoutes(store) {
             importModules.catch(errorLoading);
           },
         },
-        {
-          path: '/photo',
-          name: 'photopage',
-          getComponent(nextState, cb) {
-            const importModules = Promise.all([
-              System.import('containers/PhotoPage'),
-            ]);
-
-            const renderRoute = loadModule(cb);
-
-            importModules.then(([component]) => {
-              renderRoute(component);
-            });
-
-            importModules.catch(errorLoading);
-          },
-        }
       ]
     },
     {
