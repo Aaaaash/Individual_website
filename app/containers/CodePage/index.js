@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import showdown from 'showdown';
-<<<<<<< HEAD
 // import { markdown } from 'markdown';
-=======
 import { markdown } from 'markdown';
->>>>>>> 2b416719d127c8ef42cdf6920f508b9ade790d48
 
 import styles from './styles.css';
 
