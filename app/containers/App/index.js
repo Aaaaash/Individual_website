@@ -38,10 +38,10 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
     return (
       <div className={classNames(styles.container)}>
         <Helmet
-          titleTemplate="%s - 大秀子"
-          defaultTitle="大秀子"
+          titleTemplate="%s - BLOG"
+          defaultTitle="BLOG"
           meta={[
-            { name: 'description', content: '大秀子和小秀子' },
+            { name: 'description', content: '' },
           ]}
         />
         {React.Children.toArray(this.props.children)}

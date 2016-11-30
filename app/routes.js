@@ -50,56 +50,20 @@ export default function createRoutes(store) {
   return [
     {
       path: '/',
-      name: 'index',
+      name: 'login',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          System.import('containers/HomePage/reducer'),
-          System.import('containers/HomePage'),
+          System.import('containers/AuthLogin'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([reducer, component]) => {
-          injectReducer('home', reducer.default);
+        importModules.then(([component]) => {
           renderRoute(component);
         });
 
         importModules.catch(errorLoading);
       },
-      indexRoute: {
-        getComponent(nextState, cb) {
-          const importModules = Promise.all([
-            System.import('containers/MainPage'),
-          ]);
-
-          const renderRoute = loadModule(cb);
-
-          importModules.then(([component]) => {
-            renderRoute(component);
-          });
-
-          importModules.catch(errorLoading);
-        },
-      },
-      childRoutes: [
-        {
-          path:'/code',
-          name: 'code',
-          getComponent(nextState, cb) {
-            const importModules = Promise.all([
-              System.import('containers/CodePage'),
-            ]);
-
-            const renderRoute = loadModule(cb);
-
-            importModules.then(([component]) => {
-              renderRoute(component);
-            });
-
-            importModules.catch(errorLoading);
-          },
-        },
-      ]
     },
     {
       path: '*',

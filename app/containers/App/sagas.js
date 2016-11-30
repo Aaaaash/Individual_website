@@ -17,10 +17,9 @@ import { take, call, put } from 'redux-saga/effects';
 export function* requestUserInfo() {
   try {
     yield take(USERINFO_REQUESTING);
-    // const userInfo = yield call(appRequest.userinfoRequest);
-    // yield put(userinfoRequestSuccess(userInfo));
   } catch (error) {
-    // yield put(userinfoRequestError(error));
+    const userInfo = yield call(appRequest.userinfoRequest);
+    yield put(userinfoRequestSuccess(userInfo));
   }
 }
 

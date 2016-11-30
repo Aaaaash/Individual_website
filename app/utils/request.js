@@ -56,8 +56,8 @@ export default function request(url, options) {
 
   const mergeOptions = _.merge({}, defaultOptions, options);
   return fetch(url, mergeOptions)
-    .then(parseJSON)
-    .then(parseData);
+    .then((data) => data)
+    .catch((err) => err);
 }
 
 export function get(urlString, params) {
