@@ -41,13 +41,12 @@
 
 .auth_input:focus {
   border: 0.01rem solid #00BAD2;
-  box-shadow: 0 1px 1px 1px rgba(0, 186, 210, 0.2);
   transition: all 350ms;
 }
 
 .login_btn {
   width: 1.25rem;
-  height: 0.35rem;
+  height: 0.4rem;
   cursor: pointer;
   margin-top: 0.25rem;
   border-radius: 0.02rem;
@@ -83,12 +82,12 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
   .auth_cont {
     width: 95%;
-    margin: 0.75rem auto;
+    margin: 1.75rem auto;
     position: relative;
   }
   .login_btn {
     width: 2.25rem;
-    height: 0.45rem;
+    height: 0.5rem;
     font-size: 0.16rem;
   }
   .error_input {

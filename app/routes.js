@@ -53,60 +53,19 @@ export default function createRoutes(store) {
       name: 'login',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-<<<<<<< d347b6b9ed4b9a614c0dc94201255c92a635cdcb
-          System.import('containers/HomePage/reducer'),
-          System.import('containers/HomePage'),
-=======
+          System.import('containers/AuthLogin/reducer'),
           System.import('containers/AuthLogin'),
->>>>>>> login page
         ]);
 
         const renderRoute = loadModule(cb);
 
         importModules.then(([reducer, component]) => {
-          injectReducer('home', reducer.default);
+          injectReducer('auth', reducer.default);
           renderRoute(component);
         });
 
         importModules.catch(errorLoading);
       },
-<<<<<<< d347b6b9ed4b9a614c0dc94201255c92a635cdcb
-      indexRoute: {
-        getComponent(nextState, cb) {
-          const importModules = Promise.all([
-            System.import('containers/MainPage'),
-          ]);
-
-          const renderRoute = loadModule(cb);
-
-          importModules.then(([component]) => {
-            renderRoute(component);
-          });
-
-          importModules.catch(errorLoading);
-        },
-      },
-      childRoutes: [
-        {
-          path:'/code',
-          name: 'code',
-          getComponent(nextState, cb) {
-            const importModules = Promise.all([
-              System.import('containers/CodePage'),
-            ]);
-
-            const renderRoute = loadModule(cb);
-
-            importModules.then(([component]) => {
-              renderRoute(component);
-            });
-
-            importModules.catch(errorLoading);
-          },
-        },
-      ]
-=======
->>>>>>> login page
     },
     {
       path: '*',

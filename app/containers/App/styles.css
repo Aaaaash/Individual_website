@@ -5,7 +5,6 @@
  */
 html,
 body {
-<<<<<<< d347b6b9ed4b9a614c0dc94201255c92a635cdcb
   background-color: #ececec !important;
   -webkit-overflow-scrolling: touch;
 }
@@ -38,8 +37,6 @@ table { border-collapse:collapse; border-spacing:0; }
   height: 20px;
   border-radius: 4px;
   background-color: #616161;
-=======
-  height: 100%;
 }
 
 html {
@@ -110,6 +107,13 @@ input {
   outline: none;
 }
 
+input:-webkit-autofill {
+  background-color: rgb(255, 255, 255);
+  background-image: none;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  color: rgb(0, 0, 0);
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -119,7 +123,7 @@ li {
   list-style-type: none;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
   html {
     font-size: 535%;
   }
@@ -128,5 +132,4 @@ li {
 .container {
   display: block;
   overflow: hidden;
->>>>>>> login page
 }
