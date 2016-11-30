@@ -1,6 +1,11 @@
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
-body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+/**
+ * styles.css
+ *
+ * App container styles
+ */
+html,
 body {
+<<<<<<< d347b6b9ed4b9a614c0dc94201255c92a635cdcb
   background-color: #ececec !important;
   -webkit-overflow-scrolling: touch;
 }
@@ -33,4 +38,95 @@ table { border-collapse:collapse; border-spacing:0; }
   height: 20px;
   border-radius: 4px;
   background-color: #616161;
+=======
+  height: 100%;
+}
+
+html {
+  font-size: 625%;
+}
+
+body {
+  font-size: 14px;
+  height: 100%;
+  background-color: #EBEFF2;
+}
+
+html,
+body,
+a,
+p,
+div,
+button,
+span,
+textarea,
+input,
+ul,
+li,
+label {
+  font-family: Arial, 'Microsoft YaHei' !important;
+}
+
+a {
+  outline: none !important;
+  text-transform: none !important;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+button {
+  text-transform: none !important;
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+span {
+  -webkit-appearance: none !important;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  outline: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  html {
+    font-size: 535%;
+  }
+}
+
+.container {
+  display: block;
+  overflow: hidden;
+>>>>>>> login page
 }

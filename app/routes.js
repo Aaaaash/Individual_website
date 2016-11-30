@@ -50,11 +50,15 @@ export default function createRoutes(store) {
   return [
     {
       path: '/',
-      name: 'index',
+      name: 'login',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
+<<<<<<< d347b6b9ed4b9a614c0dc94201255c92a635cdcb
           System.import('containers/HomePage/reducer'),
           System.import('containers/HomePage'),
+=======
+          System.import('containers/AuthLogin'),
+>>>>>>> login page
         ]);
 
         const renderRoute = loadModule(cb);
@@ -66,6 +70,7 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
+<<<<<<< d347b6b9ed4b9a614c0dc94201255c92a635cdcb
       indexRoute: {
         getComponent(nextState, cb) {
           const importModules = Promise.all([
@@ -100,6 +105,8 @@ export default function createRoutes(store) {
           },
         },
       ]
+=======
+>>>>>>> login page
     },
     {
       path: '*',
