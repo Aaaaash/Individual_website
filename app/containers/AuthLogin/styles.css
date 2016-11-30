@@ -46,7 +46,6 @@
 
 .auth_input:focus {
   border: 0.01rem solid #00BAD2;
-  box-shadow: 0 1px 1px 1px rgba(0, 186, 210, 0.2);
   transition: all 350ms;
 }
 
