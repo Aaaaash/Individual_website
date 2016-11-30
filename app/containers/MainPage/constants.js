@@ -1,3 +1,0 @@
-export const FETCH_MOVIE_LIST = 'xmm/nav/FETCH_MOVIE_LIST';
-export const FETCH_MOVIE_LIST_SUCCESS = 'xmm/nav/FETCH_MOVIE_LIST_SUCCESS';
-export const FETCH_MOVIE_LIST_ERROR = 'xmm/nav/FETCH_MOVIE_LIST_ERROR';
