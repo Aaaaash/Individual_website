@@ -7,7 +7,7 @@ class Article extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.article}>
-          <h3>test title</h3>
+          <h3>測試標題啊</h3>
         </div>
       </div>
     );
