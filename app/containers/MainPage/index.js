@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 
-class MainPage extends Component {
+class MainPage extends Component {  // eslint-disable-line
   render() {
     return (
-      <div>this is main page!</div>
+      <div>
+        <button onTouchTap={() => browserHistory.push('/')}>zhuye</button>
+      </div>
     );
   }
 }

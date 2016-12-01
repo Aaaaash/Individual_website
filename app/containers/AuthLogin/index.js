@@ -1,68 +1,44 @@
 import React, { Component, PropTypes } from 'react';
-import QueueAnim from 'rc-queue-anim';
-import { browserHistory } from 'react-router';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
+import { browserHistory } from 'react-router';
+import QueueAnim from 'rc-queue-anim';
 
 import styles from './styles.css';
-import {
-  changeAuthAccountInfo,
-} from './actions';
+import CanvasBg from './CanvasBg';
 import {
   selectAuthBaseInfo,
   selectAuthError,
   selectLoading,
 } from './selector';
+import { changeAuthAccountInfo } from './actions';
 
 class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stateless-function
-  handleChangeAccount = (e) => this.props.onAuthBaseInfoChange({ account: e.target.value });
-
-  handleChangePassword = (e) => this.props.onAuthBaseInfoChange({ password: e.target.value });
-
-  handleToMainPage = (e) => browserHistory.push('/index');
-
+  handleOpenMainPage = () => {
+    browserHistory.push('/index');
+  }
   render() {
-    const { authBaseInfo, authBaseError } = this.props;
     return (
-      <QueueAnim
-        type="bottom"
-        animConfig={{ opacity: [1, 0], translateY: [-30, 0] }}
-        duration={450}
-      >
-        <canvas id="Mycanvas" style={{ position: 'fixed', top: 0}}></canvas>
-        <Helmet title="Login" />
-        <div
-          key="ani1"
-          className={styles.auth_cont}
-        >
-          <h3>Open source blog</h3>
-          <div className={styles.auth_form}>
-            <input
-              type="text"
-              value={authBaseInfo.account}
-              className={styles.auth_input}
-              placeholder="please input your account"
-              onChange={this.handleChangeAccount}
-            />
-            <span className={styles.error_input}>{authBaseError.accountErr}</span>
-            <input
-              type="password"
-              value={authBaseInfo.password}
-              className={styles.auth_input}
-              placeholder="please input your password"
-              onChange={this.handleChangePassword}
-            />
-            <span className={styles.error_input}>{authBaseError.passwordErr}</span>
-            <button
-              className={styles.login_btn}
-              onClick={this.handleToMainPage}
-            >
-              Login
-            </button>
+      <div style={{ width: '100%', height: '100%' }}>
+        <CanvasBg />
+        <QueueAnim type="bottom" className={styles.auth_ani}>
+          <div className={styles.auth_cont} key="a">
+            <h3>Open source blog</h3>
+            <div className={styles.auth_form}>
+              <input className={styles.auth_input} placeholder="please input your account" />
+              <span className={styles.error_input}>error</span>
+              <input className={styles.auth_input} placeholder="please input your password" />
+              <span className={styles.error_input}></span>
+              <button
+                onTouchTap={this.handleOpenMainPage}
+                className={styles.login_btn}
+              >
+                Login
+              </button>
+            </div>
           </div>
-        </div>
-      </QueueAnim>
+        </QueueAnim>
+      </div>
     );
   }
 }
@@ -72,7 +48,7 @@ AuthLogin.propTypes = {
   authBaseError: PropTypes.object,
   loading: PropTypes.bool,
   onAuthBaseInfoChange: PropTypes.func,
-}
+};
 
 const mapStateToProps = createStructuredSelector({
   authBaseInfo: selectAuthBaseInfo(),
@@ -83,7 +59,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchTpProps(dispatch) {
   return {
     onAuthBaseInfoChange: (val) => dispatch(changeAuthAccountInfo(val)),
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchTpProps)(AuthLogin);

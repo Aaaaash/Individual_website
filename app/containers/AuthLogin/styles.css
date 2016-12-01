@@ -1,17 +1,22 @@
-.auth_cont {
+.auth_ani {
   width: 4.5rem;
-  position: relative;
-  margin: 2.5rem auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   border-radius: 0.02rem;
-  padding: 0.12rem;
+  z-index: 1000;
 }
 
 .auth_cont h3 {
   text-align: center;
   font-size: 0.16rem;
   color: #4B4B4B;
-  line-height: 0.5rem;
-  height: 0.5rem;
+  line-height: 0.45rem;
+  height: 0.45rem;
   margin: auto;
   font-weight: normal;
 }
@@ -62,7 +67,7 @@
 
 .login_btn:active {
   background-color: #00BAD2;
-  box-shadow: 0 1px 6px rgba(0,0,0,.12),0 1px 4px rgba(0,0,0,.12);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2),0 1px 4px rgba(0, 0, 0, 0.2);
   transition: all 250ms;
 }
 
@@ -82,7 +87,6 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
   .auth_cont {
     width: 95%;
-    margin: 1.75rem auto;
     position: relative;
   }
   .login_btn {
