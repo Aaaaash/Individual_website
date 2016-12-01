@@ -1,24 +1,24 @@
 .container {
-  margin-left: 1.5rem;
+  margin-left: 2rem;
   margin-right: 0.5rem;
   overflow: hidden;
 }
 
 .article {
   position: relative;
-  width: 12rem;
+  width: 75%;
   margin: 0.5rem auto;
-  /*margin-left: 0.5rem;*/
   height: 5rem;
   background: #F5F5F5;
   border-radius: 2px;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  z-index: -1;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 }
 
 .article h3 {
-  font-size: 0.28rem;
+  font-size: 0.2rem;
   color: #656D78;
   font-weight: normal;
 }
