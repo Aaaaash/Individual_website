@@ -14,12 +14,12 @@ class LeftNav extends Component {
           <p className={styles.user_name}>Account</p>
         </div>
         <QueueAnim component="ul" type="bottom" className={styles.auth_nav}>
-          <li key="a">SomeSome</li>
-          <li key="b">SomeSome</li>
-          <li key="c">SomeSome</li>
-          <li key="d">SomeSome</li>
-          <li key="e">SomeSome</li>
-          <li key="f">SomeSome</li>
+          <li key="a"></li>
+          <li key="b"></li>
+          <li key="c"></li>
+          <li key="d"></li>
+          <li key="e"></li>
+          <li key="f"></li>
         </QueueAnim>
       </div>
     );

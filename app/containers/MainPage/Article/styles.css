@@ -6,8 +6,9 @@
 
 .article {
   position: relative;
+  width: 12rem;
   margin: 0.5rem auto;
-  margin-left: 0.5rem;
+  /*margin-left: 0.5rem;*/
   height: 5rem;
   background: #FFF;
   border-radius: 2px;
