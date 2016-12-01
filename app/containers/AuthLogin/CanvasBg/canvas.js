@@ -20,7 +20,7 @@ function init() {
   }
   circleArr = [];
   for (let i = 0; i < POINT; i += 1) {
-    circleArr.push(drawCricle(context, num(WIDTH), num(HEIGHT), num(8, 2), num(10, -10) / 40, num(10, -10) / 40));
+    circleArr.push(drawCricle(context, num(WIDTH), num(HEIGHT), num(8, 2), num(20, -10) / 40, num(20, -10) / 40));
   }
   draw();
   setInterval(() => {

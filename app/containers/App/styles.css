@@ -30,6 +30,8 @@ ul,
 li,
 label {
   font-family: Arial, 'Microsoft YaHei' !important;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -78,110 +80,11 @@ input {
 ul {
   margin: 0;
   padding: 0;
-}
-
-li {
-  list-style-type: none;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   html {
-    font-size: 535%;
-  }
-}
-
-.container {
-  overflow: hidden;
-  height: 100%;
-}
-
-html {
-  font-size: 625%;
-}
-
-body {
-  font-size: 14px;
-  height: 100%;
-  background-color: #EBEFF2;
-}
-
-html,
-body,
-a,
-p,
-div,
-button,
-span,
-textarea,
-input,
-ul,
-li,
-label {
-  font-family: Arial, 'Microsoft YaHei' !important;
-}
-
-a {
-  outline: none !important;
-  text-transform: none !important;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-  word-break: break-all;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-div {
-  margin: 0;
-  padding: 0;
-  word-break: break-all;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-button {
-  text-transform: none !important;
-  margin: 0;
-  padding: 0;
-  word-break: break-all;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-span {
-  -webkit-appearance: none !important;
-}
-
-input {
-  margin: 0;
-  padding: 0;
-  word-break: break-all;
-  word-wrap: break-word;
-  box-sizing: border-box;
-  outline: none;
-}
-
-input:-webkit-autofill {
-  background-color: rgb(255, 255, 255);
-  background-image: none;
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-  color: rgb(0, 0, 0);
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
-  html {
-    font-size: 535%;
+    font-size: 475%;
   }
 }
 

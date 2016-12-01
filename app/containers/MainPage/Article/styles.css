@@ -1,0 +1,31 @@
+.container {
+  margin-left: 1.5rem;
+  margin-right: 0.5rem;
+  overflow: hidden;
+}
+
+.article {
+  position: relative;
+  margin: 0.5rem auto;
+  margin-left: 0.5rem;
+  height: 5rem;
+  background: #FFF;
+  border-radius: 2px;
+  padding: 0.12rem;
+}
+
+.article h3 {
+  font-size: 0.28rem;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+  .container {
+    margin: 0;
+  }
+  .article {
+    width: auto;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    margin-top: 1rem;
+  }
+}

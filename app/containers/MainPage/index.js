@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
+import QueueAnim from 'rc-queue-anim';
+
+import LeftNav from './LeftNav';
+import Article from './Article';
 
 class MainPage extends Component {  // eslint-disable-line
   render() {
     return (
       <div>
-        <button onTouchTap={() => browserHistory.push('/')}>zhuye</button>
+        <LeftNav />
+        <Article />
       </div>
     );
   }

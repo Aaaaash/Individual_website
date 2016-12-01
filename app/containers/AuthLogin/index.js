@@ -26,14 +26,14 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
             <h3>Open source blog</h3>
             <div className={styles.auth_form}>
               <input className={styles.auth_input} placeholder="please input your account" />
-              <span className={styles.error_input}>error</span>
+              <span className={styles.error_input}>account error</span>
               <input className={styles.auth_input} placeholder="please input your password" />
-              <span className={styles.error_input}></span>
+              <span className={styles.error_input}>password error</span>
               <button
                 onTouchTap={this.handleOpenMainPage}
                 className={styles.login_btn}
               >
-                Login
+                登录
               </button>
             </div>
           </div>
