@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import QueueAnim from 'rc-queue-anim';
 
 import LeftNav from './LeftNav';
-import Article from './Article';
 
 class MainPage extends Component {  // eslint-disable-line
   render() {
+    const { children } = this.props;
     return (
-      <div>
+      <div style={{ width: '100%', height: '100%' }}>
         <LeftNav />
-        <Article />
+        {children}
       </div>
     );
   }

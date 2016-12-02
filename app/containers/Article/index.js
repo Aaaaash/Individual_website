@@ -5,12 +5,6 @@ import styles from './styles.css';
 const parser = new HyperDown();
 
 class Article extends Component {
-  state = {
-    html: '',
-  }
-  handleChangeContent = (e) => {
-    this.setState({ html: parser.makeHtml(e.target.value) });
-  }
   render() {
     return (
       <div className={styles.container}>
@@ -24,7 +18,7 @@ class Article extends Component {
                 className={styles.markdownBody}
                 // dangerouslySetInnerHTML={{ __html: this.state.html }}
               >
-                大大四大神兽所所所所所所所所所所所所所所所所所所
+                null
               </div>
             </div>
           </div>

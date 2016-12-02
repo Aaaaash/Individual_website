@@ -1,0 +1,106 @@
+.admin {
+  margin-left: 1.5rem;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.article_list {
+  width: 2.5rem;
+  height: 100%;
+  padding-top: 0.3rem;
+  background: #EBEDEE;
+}
+
+.article_list h3 {
+  margin: 0;
+  line-height: 0.64rem;
+  height: 0.64rem;
+  text-indent: 0.25rem;
+  font-size: 0.24rem;
+  color: #323232;
+  font-weight: normal;
+  position: relative;
+}
+
+.add_new {
+  position: absolute;
+  right: 0.25rem;
+  top: 0.16rem;
+  width: 0.32rem;
+  height: 0.32rem;
+  outline: none;
+  color: #666;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #CCC;
+}
+
+.add_new:hover {
+  color: #323232;
+}
+
+.add_new:active {
+  text-shadow: 0 2px 3px #666;
+  background: #666;
+  color: #F5F5F5;
+  transition: all 200ms;
+}
+
+.article_name {
+  margin-top: 0.25rem;
+  overflow-y: scroll;
+  height: 100%;
+}
+.article_name::-webkit-scrollbar{ width:0px }
+
+.article_name li {
+  padding-left: 0.25rem;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+}
+
+.article_name li:hover {
+  background-color: #F7F8FA;
+  box-shadow: 0 2px 4px rgba(153, 153, 153, 0.35);
+  color: #323232;
+  transition: all 450ms;
+}
+
+.article_name li h4 {
+  font-size: 0.2rem;
+  margin: 0;
+  line-height: 0.45rem;
+  height: 0.45rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.article_name li span {
+  font-size: 0.12rem;
+  color: #999;
+  margin-right: 0.15rem;
+}
+
+.article_editor {
+  flex-grow: 1;
+  display: flex;
+}
+
+.input {
+  width: 50%;
+  padding: 0.25rem;
+  outline: none;
+  resize: none;
+  font-size: 0.16rem;
+  border-right: 1px solid #CCC;
+  background-color: #FFF;
+  overflow-y: scroll;
+}
+
+.input::-webkit-scrollbar{ width:0px }
+
+.output_mark {
+  width: 50%;
+  padding: 0.25rem;
+}

@@ -14,7 +14,7 @@ html {
 
 body {
   font-size: 14px;
-  background-color: #EBEFF2;
+  background-color: #F7F8FA;
 }
 
 html,
@@ -91,4 +91,5 @@ ul {
 .container {
   display: block;
   overflow: hidden;
+  height: 100%;
 }
