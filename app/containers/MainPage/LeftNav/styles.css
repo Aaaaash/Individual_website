@@ -32,7 +32,7 @@
 }
 
 .auth_nav {
-  margin-top: 0.35rem;
+  margin: 0.35rem 0 0 0;
 }
 
 .auth_nav li {
@@ -42,10 +42,10 @@
   list-style: none;
   font-size: 0.14rem;
   cursor: pointer;
+  border-right: 2px solid #3C3B3D;
 }
 
 .auth_nav li:hover {
-  /*text-indent: 0.05rem;*/
   background-color: #323133;
   border-right: 2px solid #FF004F;
   transition: all 450ms;
@@ -66,25 +66,24 @@
     line-height: 0.64rem;
   }
   .auth_nav {
-    /*display: none;*/
+    display: none;
     z-index: 1000;
     background: #3C3B3D;
     width: 100%;
     position: absolute;
     top: 0.64rem;
     margin: 0;
+    box-shadow: 0 1px 2px #CCC;
   }
   .auth_nav li {
     margin: 0;
     padding: 0;
-    height: 0.36rem;
-    line-height: 0.36rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
     text-align: center;
-    border-bottom: 1px solid #3C3B3D;
   }
   .auth_nav li:hover {
     border-right: none;
-    border-bottom: 1px solid #FF004F;
   }
   .user_name {
     display: none;
