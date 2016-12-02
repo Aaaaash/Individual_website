@@ -38,6 +38,7 @@
 
 .add_new:hover {
   color: #323232;
+  box-shadow: 0 1px 2px #CCC;
 }
 
 .add_new:active {
@@ -62,9 +63,60 @@
 
 .article_name li:hover {
   background-color: #F7F8FA;
-  box-shadow: 0 2px 4px rgba(153, 153, 153, 0.35);
   color: #323232;
   transition: all 450ms;
+}
+
+.article_btn {
+  height: 1rem;
+  line-height: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.article_title {
+  padding: 0 0.25rem;
+  width: 50%;
+}
+
+.article_title input {
+  border-bottom: 1px solid #CCC;
+  line-height: 0.5rem;
+  font-size: 0.25rem;
+  padding: 0 0.15rem;
+  width: 100%;
+}
+
+.article_title input:focus {
+  border-bottom: 1px solid #00BAD2;
+  transition: all 450ms;
+}
+
+.btn {
+  padding: 0 0.25rem;
+  width: 50%;
+  display: flex;
+  line-height: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn button {
+  min-width: 0.85rem;
+  height: 0.36rem;
+  outline: none;
+  cursor: pointer;
+  color: #FFF;
+  border-radius: 2px;
+  margin-left: 0.4rem;
+}
+
+.save {
+  background-color: #E96900;
+}
+
+.release {
+  background-color: #42B983;
 }
 
 .article_name li h4 {
@@ -85,6 +137,12 @@
 .article_editor {
   flex-grow: 1;
   display: flex;
+  flex-direction: column;
+}
+
+.editor {
+  display: flex;
+  flex-grow: 1;
 }
 
 .input {
@@ -94,7 +152,6 @@
   resize: none;
   font-size: 0.16rem;
   border-right: 1px solid #CCC;
-  background-color: #FFF;
   overflow-y: scroll;
 }
 
@@ -103,4 +160,7 @@
 .output_mark {
   width: 50%;
   padding: 0.25rem;
+  overflow-y: scroll;
 }
+
+.output_mark::-webkit-scrollbar{ width:0px }

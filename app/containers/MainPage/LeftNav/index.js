@@ -9,7 +9,7 @@ class LeftNav extends Component {
     return (
       <div className={styles.left_nav}>
         <div className={styles.auth_avatar}>
-          <a className={styles.avatar}>
+          <a className={styles.avatar} href="/">
             <img src="http://i1.s2.dpfile.com/pc/8034d5820594534b15f121ec6aacaed5(700x700)/thumb.jpg" />
           </a>
           <p className={styles.user_name}>Account</p>
