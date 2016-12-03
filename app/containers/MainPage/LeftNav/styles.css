@@ -3,7 +3,7 @@
   width: 1.25rem;
   height: 100%;
   color: #E6E9ED;
-  background-color: #1D262B;
+  background-color: #384345;
   padding-top: 0.45rem;
   z-index: 1000;
 }
@@ -42,12 +42,12 @@
   list-style: none;
   font-size: 0.14rem;
   cursor: pointer;
-  border-left: 2px solid #1D262B;
+  border-left: 2px solid #384345;
 }
 
 .auth_nav li:hover {
-  background-color: #282c34;
-  border-left: 2px solid #F45B63;
+  background-color: #2e3738;
+  border-left: 2px solid #F45E6E;
   transition: all 450ms;
 }
 

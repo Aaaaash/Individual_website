@@ -79,7 +79,7 @@
 .line_item:last-child {
   margin-bottom: 0;
 }
-@media only screen and (min-width: 1170px) {
+/*@media only screen and (min-width: 1170px) {
   .line_item:nth-child(even) .cd-timeline-content {
     float: right;
   }
@@ -98,4 +98,4 @@
     right: 122%;
     text-align: right;
   }
-}
+}*/

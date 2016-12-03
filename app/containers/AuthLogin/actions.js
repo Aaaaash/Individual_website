@@ -20,6 +20,6 @@ export function authInputError (err) {
 
 export function authSendRequest() {
   return {
-    AUTH_SEND_REQUEST,
+    type: AUTH_SEND_REQUEST,
   };
 }

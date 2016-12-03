@@ -14,6 +14,14 @@
   z-index: 1000;
 }
 
+.auth_ani .loading {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  transition: all 500ms;
+}
+
 .auth_cont h3 {
   text-align: center;
   font-size: 0.16rem;
@@ -81,7 +89,7 @@
   display: inline-block;
   width: 85%;
   text-indent: 0.15rem;
-  color: #F16272;
+  color: #F45E6E;
   height: 0.14rem;
   line-height: 0.14rem;
   top: 0.05rem;

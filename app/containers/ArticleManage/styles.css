@@ -115,7 +115,7 @@
 }
 
 .btn button:active {
-  background-color: #00BAD2;
+  background-color: #05b2c8;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2),0 1px 4px rgba(0, 0, 0, 0.2);
   transition: all 150ms;
 }
@@ -182,7 +182,7 @@
   flex-grow: 1;
   padding: 0.15rem;
   overflow-y: scroll;
-  background-color: #FCFAF2;
+  background-color: #f4f6f0;
 }
 /*
 body > *:first-child {

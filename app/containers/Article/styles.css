@@ -19,10 +19,10 @@
 }
 
 .search input:focus {
-  border: 1px solid #00BAD2;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 186, 210, 0.35);
-  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 186, 210, 0.35);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(0, 186, 210, 0.35);
+  border: 1px solid #F45E6E;
+  -webkit-box-shadow: inset 0 1px 3px rgba(244, 94, 110, 0.26), 0 0 8px rgba(244, 94, 110, 0.26);
+  -moz-box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1), 0 0 8px rgba(244, 94, 110, 0.26);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1), 0 0 8px rgba(244, 94, 110, 0.26);
   transition: all 350ms;
 }
 
