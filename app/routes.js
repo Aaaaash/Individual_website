@@ -116,6 +116,23 @@ export default function createRoutes(store) {
             importModules.catch(errorLoading);
           },
         },
+        {
+          path: '/timeline',
+          name: 'timeline',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              System.import('containers/TimeLine'),
+            ]);
+
+            const renderRoute = loadModule(cb);
+
+            importModules.then(([component]) => {
+              renderRoute(component);
+            });
+
+            importModules.catch(errorLoading);
+          },
+        },
       ]
     },
     {

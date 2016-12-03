@@ -15,12 +15,12 @@ class LeftNav extends Component {
           <p className={styles.user_name}>Account</p>
         </div>
         <QueueAnim component="ul" type="bottom" className={styles.auth_nav}>
-          <li key="a">qwerty</li>
-          <li key="b">qwerty</li>
+          <li key="a" onTouchTap={() => browserHistory.push('/index')}>Index</li>
+          <li key="b" onTouchTap={() => browserHistory.push('/timeline')}>TimeLine</li>
           <li key="c">qwerty</li>
           <li key="d">qwerty</li>
           <li key="e">qwerty</li>
-          <li key="f" onTouchTap={() => browserHistory.push('/admin')}>后台编辑</li>
+          <li key="f" onTouchTap={() => browserHistory.push('/admin')}>Blog</li>
         </QueueAnim>
       </div>
     );
