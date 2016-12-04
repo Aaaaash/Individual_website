@@ -67,6 +67,24 @@
   transition: all 450ms;
 }
 
+.nav_btn {
+  display: none;
+  width: 0.36rem;
+  height: 0.36rem;
+  position: absolute;
+  top: 0.14rem;
+  right: 0.25rem;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  outline: none;
+  border-radius: 50%;
+}
+
+.auth_nav_mob {
+  /*display: none;*/
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
   .left_nav {
     width: 100%;
@@ -74,34 +92,62 @@
     padding: 0;
     transform: translateX(0);
   }
+  .avatar {
+    display: none;
+  }
   .auth_avatar {
     display: inline-block;
-    left: 0;
-    width: 0.64rem;
-    height: 0.64rem;
-    line-height: 0.64rem;
+    position: absolute;
+    text-align: left;
+    border-bottom: none;
+  }
+  .nav_btn {
+    display: inline-block;
+    z-index: 1;
+  }
+  .nav_btn:active {
+    transition: all 250ms;
+    box-shadow: rgba(231, 233, 237, 0.15) 0 0 0 10px;
   }
   .auth_nav {
     display: none;
-    z-index: 1000;
-    background: #3C3B3D;
+  }
+  .auth_nav_mob {
+    /*display: block;*/
+    background: rgba(255,255,255,0.9);
     width: 100%;
     position: absolute;
     top: 0.64rem;
+    color: #4D4D4D;
     margin: 0;
+    overflow: hidden;
     box-shadow: 0 1px 2px #CCC;
   }
-  .auth_nav li {
+  .auth_nav_mob li {
     margin: 0;
     padding: 0;
     height: 0.5rem;
     line-height: 0.5rem;
-    text-align: center;
+    text-align: left;
+    font-size: 0.18rem;
+    text-indent: 0.25rem;
+    border-left: none;
   }
-  .auth_nav li:hover {
-    border-right: none;
+  .auth_nav_mob li:hover {
+    border-left: none;
+    background-color: #FFF;
+  }
+  .auth_nav_mob li:active {
+    transition: all 250ms;
+    background-color: #FFF;
   }
   .user_name {
-    display: none;
+    display: inline-block;
+    position: absolute;
+    width: auto;
+    height: 0.64rem;
+    margin-left: 0.25rem;
+    font-size: 0.2rem;
+    line-height: 0.64rem;
   }
 }

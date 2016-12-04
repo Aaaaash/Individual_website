@@ -6,7 +6,7 @@
 
 .search {
   position: absolute;
-  right: 0;
+  left: 0;
 }
 
 .search input {
@@ -19,17 +19,14 @@
 }
 
 .search input:focus {
-  border: 1px solid #F45E6E;
-  -webkit-box-shadow: inset 0 1px 3px rgba(244, 94, 110, 0.26), 0 0 8px rgba(244, 94, 110, 0.26);
-  -moz-box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1), 0 0 8px rgba(244, 94, 110, 0.26);
-  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1), 0 0 8px rgba(244, 94, 110, 0.26);
+  border: 1px solid #00BAD2;
   transition: all 350ms;
 }
 
 .article {
   position: relative;
   width: 50%;
-  margin: 0.5rem auto;
+  margin: 0.25rem auto;
   border-radius: 2px;
 }
 
@@ -39,8 +36,10 @@
 }
 
 .article_item {
-  border-bottom: 1px solid #CCC;
   padding: 0.25rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2px;
+  background-color: #FFF;
 }
 
 .article_item h3 {
@@ -52,7 +51,7 @@
 .article_item .title {
   font-weight: normal;
   font-size: 0.2rem;
-  text-shadow: #e7e9ed 2px 2px;
+  text-shadow: #E7E9ED 2px 2px;
 }
 
 .article_about {
@@ -67,8 +66,7 @@
 .label {
   height: 0.2rem;
   margin-right: 0.05rem;
-  background-color: #F45E6E;
-  text-shadow: #F47785 1px 1px, #F47785 2px 2px;
+  background-color: #00BAD2;
   padding: 0.05rem;
   color: #F7F8FA;
   border-radius: 0.02rem;
@@ -81,7 +79,7 @@
 
 .author {
   margin-left: 0.08rem;
-  color: #F47785;
+  color: #00BAD2;
   font-weight: bold;
   font-size: 0.14rem;
 }
@@ -408,14 +406,14 @@
 }
 
 .article_item code {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family: monaco, "Liberation Mono", Consolas, Courier, monospace;
   font-size: 12px;
 }
 
 .article_item pre {
   margin-top: 0;
   margin-bottom: 0;
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font: 12px monaco, "Liberation Mono", Consolas, Courier, monospace;
 }
 
 .article_item .octicon {

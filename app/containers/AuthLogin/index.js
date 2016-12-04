@@ -20,7 +20,7 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
   handleOpenMainPage = () => {
     this.props.onAuthRequest();
     setTimeout(() => {
-      browserHistory.push('/timeline');
+      browserHistory.push('/index');
     }, 3000)
   }
   render() {
@@ -37,7 +37,7 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
             <div className={styles.auth_form}>
               <input className={styles.auth_input} placeholder="please input your account" />
               <span className={styles.error_input}></span>
-              <input className={styles.auth_input} placeholder="please input your password" />
+              <input type="password" className={styles.auth_input} placeholder="please input your password" />
               <span className={styles.error_input}></span>
               <button
                 onTouchTap={this.handleOpenMainPage}
