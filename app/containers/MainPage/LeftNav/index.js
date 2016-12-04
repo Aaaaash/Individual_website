@@ -10,9 +10,10 @@ class LeftNav extends Component {
       <div className={styles.left_nav}>
         <div className={styles.auth_avatar}>
           <a className={styles.avatar} href="/">
-            <img />
+            <img src="http://imgsrc.baidu.com/forum/pic/item/bad78583b5b4d7878c1029c9.jpg" />
           </a>
-          <p className={styles.user_name}>Account</p>
+          <p className={styles.user_name}>Account<a href="/timeline" className={styles.count}>2blog</a></p>
+          {/* <p>10篇</p> */}
         </div>
         <QueueAnim component="ul" type="bottom" className={styles.auth_nav}>
           <li key="a" onTouchTap={() => browserHistory.push('/index')}>Index</li>

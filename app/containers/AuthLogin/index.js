@@ -14,6 +14,7 @@ import {
   selectLoading,
 } from './selector';
 import { changeAuthAccountInfo, authSendRequest } from './actions';
+import account from './account.png';
 
 class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stateless-function
   handleOpenMainPage = () => {
