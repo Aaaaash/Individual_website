@@ -14,14 +14,13 @@ import {
   selectLoading,
 } from './selector';
 import { changeAuthAccountInfo, authSendRequest } from './actions';
-import account from './account.png';
 
 class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stateless-function
   handleOpenMainPage = () => {
     this.props.onAuthRequest();
     setTimeout(() => {
       browserHistory.push('/index');
-    }, 3000)
+    }, 3000);
   }
   render() {
     const { loading } = this.props;

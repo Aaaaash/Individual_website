@@ -136,6 +136,23 @@ export default function createRoutes(store) {
       ]
     },
     {
+      path: '/editor',
+      name: 'editor',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/Editor'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([component]) => {
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    },
+    {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

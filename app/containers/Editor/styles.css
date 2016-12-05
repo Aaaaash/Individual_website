@@ -1,0 +1,239 @@
+.editor {
+  width: 100%;
+  height: 100%;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor_title,
+.article_tag {
+  margin-bottom: 0.22rem;
+}
+
+.editor_input {
+  width: 100%;
+  height: 0.36rem;
+  line-height: 0.36rem;
+  padding: 0.07rem 0.1rem;
+  border: 1px solid #CCC;
+  background-color: #FFF;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  border-radius: 2px;
+  font-size: 0.16rem;
+  color: #4D4D4D;
+}
+
+.editor_input:focus {
+  border: 1px solid #00BAD2;
+}
+
+.editor_area {
+  border: 1px solid #CCC;
+  border-radius: 2px;
+  flex-grow: 2;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  position: relative;
+  background-color: #F7F8FA;
+}
+
+.edirot_tool_bar {
+  width: 100%;
+  position: absolute;
+  height: 0.36rem;
+  background-color: #FFF;
+  box-shadow: 0 0 1px #ccc;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #CCC;
+}
+
+.input_btn,
+.editor_btn {
+  display: flex;
+  overflow: hidden;
+  justify-content: flex-start;
+}
+
+.input_btn li,
+.editor_btn li {
+  width: 0.36rem;
+  height: 0.36rem;
+  line-height: 0.36rem;
+  list-style: none;
+  margin-left: 0.02rem;
+}
+
+.input_btn li:first-child,
+.editor_btn li:first-child {
+  margin-left: 0;
+}
+
+.edit_btn {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: #999;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.edit_btn:hover {
+  color: #00BAD2;
+  background-color: #EEE;
+  transition: background 300ms;
+}
+
+.edit_btn:active {
+  color: #00BAD2;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.text_output {
+  display: flex;
+  flex-grow: 2;
+  width: 100%;
+  height: 100%;
+  margin-top: 0.36rem;
+}
+
+.text_input,
+.output {
+  width: 50%;
+  flex-grow: 1;
+  top: 0;
+  transition: width 400ms;
+}
+
+.text_input {
+  background-color: #FFF;
+  border-right: 1px solid #CCC;
+}
+
+.output {
+  overflow-y: scroll;
+  padding: 0.25rem;
+}
+
+.text {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 0.14rem;
+  color: #4D4D4D;
+  resize: none;
+  padding: 0.25rem;
+}
+
+.editor_footer {
+  height: 0.36rem;
+  margin-top: 0.22rem;
+}
+
+.release {
+  background-color: #00BAD2;
+  width: 0.75rem;
+  height: 0.36rem;
+
+  color: #FFF;
+  border-radius: 2px;
+  cursor: pointer;
+  outline: none;
+  line-height: 0.36rem;
+  box-shadow: 0 1px 2px rgba(108, 108, 108, 0.24);
+}
+
+.release:hover {
+  background-color: #05b2c8;
+  transition: all 250ms;
+}
+
+.release:active {
+  background-color: #00BAD2;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2),0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: all 250ms;
+}
+
+
+.output h1, .output h2, .output h3, .output h4, .output h5, .output h6 {
+    margin: 9pt 0
+}
+
+.output h1, .output h2 {
+    margin-top: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px dotted #ccc
+}
+
+.output a {
+    color: #4682b4;
+    text-decoration: none
+}
+
+.output a:hover {
+    color: #0081ff
+}
+
+.output pre {
+    background-color: #eee;
+    color: #555;
+    border-radius: 3px;
+    padding: 10px;
+    max-height: 700px;
+    overflow: auto;
+    border: none;
+    font-size: .9em;
+    line-height: 1.33
+}
+
+.output pre code {
+    font-size: inherit;
+    color: inherit;
+    padding: 0;
+    background-color: transparent
+}
+
+.output code {
+    color: #d82451;
+    background-color: #f6f6f6;
+    font-size: .9em;
+    padding: 2px 4px;
+    margin: 0 2px
+}
+
+.output blockquote {
+    margin: 0;
+    padding: 5px 10px 5px 15px;
+    border-left: 5px solid #4682b4;
+    background-color: #eee
+}
+
+.output table {
+    border: 1px solid #ccc
+}
+
+.output table thead tr {
+    background-color: #eee
+}
+
+.output table tbody tr {
+    border-top: 1px solid #ccc;
+    background-color: #fff
+}
+
+.output table td, .output table th {
+    padding: 8px;
+    border-left: 1px solid #ccc
+}
+
+.output hr {
+    border-style: solid;
+    border-color: #ccc
+}
+
+.output img {
+    max-width: 80%
+}
