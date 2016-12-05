@@ -81,6 +81,11 @@
   outline: none;
 }
 
+.active_btn {
+  color: #00BAD2;
+  background-color: #EEE;
+}
+
 .edit_btn:hover {
   color: #00BAD2;
   background-color: #EEE;
@@ -114,7 +119,7 @@
 }
 
 .output {
-  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 0.25rem;
 }
 
@@ -126,6 +131,28 @@
   color: #4D4D4D;
   resize: none;
   padding: 0.25rem;
+  overflow-x: hidden;
+}
+
+.text_mode {
+  width: 100%;
+  border-right: none;
+}
+
+.out_mode {
+  width: 100%;
+}
+
+.noShow {
+  width: 0;
+  padding: 0;
+  border-right: none;
+  overflow: hidden;
+}
+
+.noShowOutPut {
+  width: 0;
+  padding: 0;
 }
 
 .editor_footer {
@@ -157,6 +184,36 @@
   transition: all 250ms;
 }
 
+@media only screen and (max-device-width: 1600px) {
+  .text,
+  .output {
+    padding: 0.15rem;
+  }
+  .text_mode {
+    width: 100%;
+    border-right: none;
+  }
+
+  .out_mode {
+    width: 100%;
+  }
+
+  .noShow {
+    width: 0;
+    padding: 0;
+    border-right: none;
+    overflow: hidden;
+  }
+
+  .noShowOutPut {
+    width: 0;
+    padding: 0;
+  }
+}
+
+/**
+ * Markdown样式
+ */
 
 .output h1, .output h2, .output h3, .output h4, .output h5, .output h6 {
     margin: 9pt 0
@@ -186,11 +243,13 @@
     overflow: auto;
     border: none;
     font-size: .9em;
-    line-height: 1.33
+    font-family: 'monaco';
+    line-height: 1.33;
 }
 
 .output pre code {
     font-size: inherit;
+    font-family: 'monaco';
     color: inherit;
     padding: 0;
     background-color: transparent

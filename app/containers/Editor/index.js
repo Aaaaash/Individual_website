@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HyperDown from 'hyperdown';
+import classNames from 'classnames';
 
 const parser = new HyperDown();
 import styles from './styles.css';
@@ -7,6 +8,7 @@ import styles from './styles.css';
 class Editor extends Component {
   state = {
     html: '',
+    editMode: 0,
   }
 
   insertFixedFormat = (start, template) => {
@@ -22,6 +24,23 @@ class Editor extends Component {
 
   handleRenderHTML = (e) => {
     this.setState({ html: parser.makeHtml(e.target.value) });
+  }
+
+  handleChangeEditMode = (mode) => this.setState({ editMode: mode });
+
+  handleTabsKeyDown = (e) => {
+    if (e.keyCode === 9) {
+      e.preventDefault();
+    }
+  }
+
+  insertTabs = (str, flg, sn) => {
+    let newstr = '';
+    for (let i = 0, v = str.length; i < v; i += sn) {
+      const tmp = str.substring(i, i + sn);
+      newstr += tmp + flg;
+    }
+    return newstr;
   }
 
   render() {
@@ -84,17 +103,26 @@ class Editor extends Component {
             </ul>
             <ul className={styles.editor_btn}>
               <li>
-                <button className={styles.edit_btn}>
+                <button
+                  className={classNames(styles.edit_btn, this.state.editMode === 1 ? styles.active_btn : '')}
+                  onTouchTap={() => this.handleChangeEditMode(1)}
+                >
                   <i className="fa fa-pencil"></i>
                 </button>
               </li>
               <li>
-                <button className={styles.edit_btn}>
+                <button
+                  className={classNames(styles.edit_btn, this.state.editMode === 0 ? styles.active_btn : '')}
+                  onTouchTap={() => this.handleChangeEditMode(0)}
+                >
                   <i className="fa fa-columns"></i>
                 </button>
               </li>
               <li>
-                <button className={styles.edit_btn}>
+                <button
+                  className={classNames(styles.edit_btn, this.state.editMode === 2 ? styles.active_btn : '')}
+                  onTouchTap={() => this.handleChangeEditMode(2)}
+                >
                   <i className="fa fa-eye"></i>
                 </button>
               </li>
@@ -106,15 +134,29 @@ class Editor extends Component {
             </ul>
           </div>
           <div className={styles.text_output}>
-            <div className={styles.text_input}>
+            <div
+              className={classNames(
+                styles.text_input,
+                this.state.editMode === 1 ? styles.text_mode : '',
+                this.state.editMode === 2 ? styles.noShow : ''
+              )}
+            >
               <textarea
                 className={styles.text}
                 onChange={this.handleRenderHTML}
+                onKeyDown={this.handleTabsKeyDown}
                 ref={(ref) => this.markInput = ref}         // eslint-disable-line  no-return-assign
               >
               </textarea>
             </div>
-            <div className={styles.output} dangerouslySetInnerHTML={{ __html: this.state.html }}>
+            <div
+              className={classNames(
+                styles.output,
+                this.state.editMode === 1 ? styles.noShowOutPut : '',
+                this.state.editMode === 2 ? styles.out_mode : ''
+              )}
+              dangerouslySetInnerHTML={{ __html: this.state.html }}
+            >
             </div>
           </div>
         </div>
