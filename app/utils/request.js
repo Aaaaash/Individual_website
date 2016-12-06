@@ -45,7 +45,7 @@ export default function request(url, options) {
   const defaultOptions = {
     method: 'GET',
     headers: {
-      Accept: 'application/json',
+      // Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
@@ -56,8 +56,8 @@ export default function request(url, options) {
 
   const mergeOptions = _.merge({}, defaultOptions, options);
   return fetch(url, mergeOptions)
-    .then((data) => data)
-    .catch((err) => err);
+    .then(parseJSON)
+    .then(parseData);
 }
 
 export function get(urlString, params) {

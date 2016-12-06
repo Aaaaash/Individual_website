@@ -23,3 +23,7 @@ export function authSendRequest() {
     type: AUTH_SEND_REQUEST,
   };
 }
+
+export {
+  showGlobalPrompt,
+} from '../App/actions';

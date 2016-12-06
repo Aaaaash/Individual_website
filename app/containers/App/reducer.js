@@ -8,6 +8,7 @@ import {
   USERINFO_REQUEST_ERROR,
   LOGOUT,
   GLOBAL_ERROR,
+  SHOW_GLOBAL_PROMPT,
 } from './constants';
 
 import {
@@ -28,6 +29,12 @@ const initialState = fromJS({
     error: '',
   },
   loggedIn: localStorage.access_token && Date.now() < localStorage.expires_in,
+  globalPrompt: {
+    type: '',
+    timeout: 3000,
+    open: false,
+    message: '默认消息',
+  },
 });
 
 function appReducer(state = initialState, action) {
@@ -55,6 +62,8 @@ function appReducer(state = initialState, action) {
           break;
       }
       return state;
+    case SHOW_GLOBAL_PROMPT:
+      return state.mergeDeep(fromJS({ globalPrompt: action.config }));
     default:
       return state;
   }

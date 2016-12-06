@@ -30,6 +30,11 @@ const selectName = () => createSelector(
   (userInfo) => userInfo.getIn('name')
 );
 
+const selectPromptConfig = () => createSelector(
+  selectGlobal(),
+  (globalState) => globalState.get('globalPrompt')
+);
+
 // selectLocationState expects a plain JS object for the routing state
 const selectLocationState = () => {
   let prevRoutingState;
@@ -54,4 +59,5 @@ export {
   selectEmail,
   selectName,
   selectLocationState,
+  selectPromptConfig,
 };

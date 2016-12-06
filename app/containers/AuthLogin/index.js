@@ -18,12 +18,15 @@ import { changeAuthAccountInfo, authSendRequest } from './actions';
 class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stateless-function
   handleOpenMainPage = () => {
     this.props.onAuthRequest();
-    setTimeout(() => {
-      browserHistory.push('/index');
-    }, 3000);
+    // setTimeout(() => {
+    //   browserHistory.push('/index');
+    // }, 3000);
   }
+  handleChangeAuthAccount = (e) => this.props.onAuthBaseInfoChange({ account: e.target.value });
+
+  handleChangeAuthPassword = (e) => this.props.onAuthBaseInfoChange({ password: e.target.value });
   render() {
-    const { loading } = this.props;
+    const { loading, authBaseInfo } = this.props;
     return (
       <div style={{ width: '100%', height: '100%' }}>
         <CanvasBg />
@@ -34,9 +37,20 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
           key="a">
             <h3>Open source blog</h3>
             <div className={styles.auth_form}>
-              <input className={styles.auth_input} placeholder="please input your account" />
+              <input
+                value={authBaseInfo.account}
+                className={styles.auth_input}
+                placeholder="please input your account"
+                onChange={this.handleChangeAuthAccount}
+              />
               <span className={styles.error_input}></span>
-              <input type="password" className={styles.auth_input} placeholder="please input your password" />
+              <input
+                value={authBaseInfo.password}
+                type="password"
+                className={styles.auth_input}
+                placeholder="please input your password"
+                onChange={this.handleChangeAuthPassword}
+              />
               <span className={styles.error_input}></span>
               <button
                 onTouchTap={this.handleOpenMainPage}

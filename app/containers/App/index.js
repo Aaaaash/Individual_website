@@ -15,10 +15,11 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import classNames from 'classnames';
 import { createStructuredSelector } from 'reselect';
-import { userinfoRequest } from './actions';
+import { userinfoRequest, showGlobalPrompt } from './actions';
 import { connect } from 'react-redux';
-import { selectLoggedIn, selectEmail } from './selectors';
+import { selectLoggedIn, selectEmail, selectPromptConfig } from './selectors';
 
+import GlobalPrompt from 'components/GlobalPrompt';
 import styles from './styles.css';
 
 class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -35,6 +36,8 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
   }
 
   render() {
+    const { changePromptConfig, globalPrompt } = this.props;
+    const config = globalPrompt.toJS();
     return (
       <div className={classNames(styles.container)}>
         <Helmet
@@ -44,6 +47,14 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
             { name: 'description', content: '' },
           ]}
         />
+        <GlobalPrompt
+          notificationCallback={changePromptConfig}
+          open={config.open}
+          timeout={config.timeout}
+          type={config.type}
+          message={config.message}
+        />
+
         {React.Children.toArray(this.props.children)}
       </div>
     );
@@ -55,16 +66,20 @@ App.propTypes = {
   requestUserInfo: React.PropTypes.func,
   loggedIn: React.PropTypes.bool,
   email: React.PropTypes.string,
+  globalPrompt: React.PropTypes.object,
+  changePromptConfig: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   loggedIn: selectLoggedIn(),
   email: selectEmail(),
+  globalPrompt: selectPromptConfig(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     requestUserInfo: () => dispatch(userinfoRequest()),
+    changePromptConfig: (val) => dispatch(showGlobalPrompt(val)),
   };
 }
 
