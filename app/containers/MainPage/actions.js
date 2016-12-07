@@ -15,3 +15,7 @@ export function setAuthInfo(data) {
     data,
   };
 }
+
+export {
+  showGlobalPrompt,
+} from '../App/actions';

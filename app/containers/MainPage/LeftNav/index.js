@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 import { browserHistory } from 'react-router';
@@ -15,6 +15,7 @@ class LeftNav extends Component {
     open: false,
   }
   render() {
+    const { authInfo } = this.props;
     return (
       <div className={styles.left_nav}>
         <button
@@ -25,10 +26,9 @@ class LeftNav extends Component {
         </button>
         <div className={styles.auth_avatar}>
           <a className={styles.avatar} href="/">
-            <img src="http://imgsrc.baidu.com/forum/pic/item/bad78583b5b4d7878c1029c9.jpg" />
+            <img src={authInfo.avatar} />
           </a>
-          <p className={styles.user_name}>Account</p>
-          {/* <p>10篇</p> */}
+          <p className={styles.user_name}>{authInfo.name}</p>
         </div>
           {this.state.open ?
             <TweenOne
@@ -57,5 +57,9 @@ class LeftNav extends Component {
     );
   }
 }
+
+LeftNav.propTypes = {
+  authInfo: PropTypes.object,
+};
 
 export default LeftNav;

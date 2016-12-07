@@ -1,16 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import QueueAnim from 'rc-queue-anim';
 import HyperDown from 'hyperdown';
 import styles from './styles.css';
+import { createStructuredSelector } from 'reselect';
+import { connect } from 'react-redux';
 
-const parser = new HyperDown();
 import Editor from '../Editor';
+import {
+  changeArticleInfo,
+  pushArticle,
+} from './actions';
+import {
+  selectAuthInfo,
+  selectArticleInfo,
+} from './selector';
+const parser = new HyperDown();
+
 class ArticleManage extends Component {
-  state = {
-    HTML: '',
-  }
-  handleRenderHTML = (e) => this.setState({ HTML: parser.makeHtml(e.target.value) });
   render() {
+    const { articleInfo, onArticleInfoChange, onArticlePush } = this.props;
     return (
       <div className={styles.admin}>
         <div className={styles.article_list} key="a">
@@ -43,10 +51,33 @@ class ArticleManage extends Component {
             </li>
           </QueueAnim>
         </div>
-        <Editor />
+        <Editor
+          articleInfo={articleInfo}
+          onArticleInfoChange={onArticleInfoChange}
+          onArticlePush={onArticlePush}
+        />
       </div>
     );
   }
 }
 
-export default ArticleManage;
+ArticleManage.propTypes = {
+  authInfo: PropTypes.object,
+  articleInfo: PropTypes.object,
+  onArticleInfoChange: PropTypes.func,
+  onArticlePush: PropTypes.func,
+};
+
+const mapStateToProps = createStructuredSelector({
+  authInfo: selectAuthInfo(),
+  articleInfo: selectArticleInfo(),
+});
+
+function mapDispatchTpProps(dispatch) {
+  return {
+    onArticleInfoChange: (val) => dispatch(changeArticleInfo(val)),
+    onArticlePush: () => dispatch(pushArticle()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchTpProps)(ArticleManage);

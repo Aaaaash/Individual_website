@@ -1,7 +1,7 @@
 import {
   FETCH_AUTH_INFO,
 } from './constants';
-import { setAuthInfo } from './actions';
+import { setAuthInfo, showGlobalPrompt } from './actions';
 import indexApi from './indexApi';
 
 import { takeLatest } from 'redux-saga';
@@ -10,7 +10,6 @@ import { fork, take, call, put, select } from 'redux-saga/effects';
 export function* fetchAuthInfo() {
   try {
     const data = yield call(indexApi.fetchAuth);
-    console.log(data);
     yield put(setAuthInfo({
       id: data._id,
       name: data.name,
@@ -19,8 +18,8 @@ export function* fetchAuthInfo() {
       email: data.email,
       gender: data.gender,
     }));
-  } catch(err) {
-    console.log(err);
+  } catch (err) {
+    yield put(showGlobalPrompt({ open: true, type: 'default', timeout: 3000, message: err.message }));
   }
 }
 

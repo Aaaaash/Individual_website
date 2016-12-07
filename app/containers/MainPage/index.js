@@ -15,10 +15,10 @@ class MainPage extends Component {  // eslint-disable-line
   }
 
   render() {
-    const { children } = this.props;
+    const { children, authInfo } = this.props;
     return (
       <div style={{ width: '100%', height: '100%' }}>
-        <LeftNav />
+        <LeftNav authInfo={authInfo} />
         {children}
       </div>
     );

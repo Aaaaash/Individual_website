@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import HyperDown from 'hyperdown';
 import classNames from 'classnames';
 
@@ -7,23 +7,27 @@ import styles from './styles.css';
 
 class Editor extends Component {
   state = {
-    html: '',
+    HTML: '',
     editMode: 0,
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.articleInfo.content !== this.props.articleInfo.content) {
+      this.setState({
+        HTML: parser.makeHtml(nextProps.articleInfo.content),
+      });
+    }
   }
 
   insertFixedFormat = (start, template) => {
     const cursorStart = this.markInput.selectionStart;
     const source = this.markInput.value;
     const insertTemplate = `${source}${template}`;
-    this.markInput.value = insertTemplate;
+    this.props.onArticleInfoChange({ content: insertTemplate });
     this.markInput.focus();
     this.markInput.selectionStart = cursorStart + start;
     this.markInput.selectionEnd = cursorStart + start;
-    this.setState({ html: parser.makeHtml(insertTemplate) });
-  }
-
-  handleRenderHTML = (e) => {
-    this.setState({ html: parser.makeHtml(e.target.value) });
+    this.setState({ HTML: parser.makeHtml(insertTemplate) });
   }
 
   handleChangeEditMode = (mode) => this.setState({ editMode: mode });
@@ -44,13 +48,26 @@ class Editor extends Component {
   }
 
   render() {
+    const { articleInfo, onArticlePush } = this.props;
     return (
       <div className={styles.editor}>
         <div className={styles.editor_title}>
-          <input type="text" className={styles.editor_input} placeholder="Title" />
+          <input
+            type="text"
+            className={styles.editor_input}
+            placeholder="Title"
+            value={articleInfo.title}
+            onChange={(e) => this.props.onArticleInfoChange({ title: e.target.value })}
+          />
         </div>
         <div className={styles.article_tag}>
-          <input type="text" className={styles.editor_input} placeholder="Tags" />
+          <input
+            type="text"
+            className={styles.editor_input}
+            placeholder="Tags"
+            value={articleInfo.tags}
+            onChange={(e) => this.props.onArticleInfoChange({ tags: e.target.value })}
+          />
         </div>
         <div className={styles.editor_area}>
           <div className={styles.edirot_tool_bar}>
@@ -143,8 +160,9 @@ class Editor extends Component {
             >
               <textarea
                 className={styles.text}
-                onChange={this.handleRenderHTML}
+                onChange={(e) => this.props.onArticleInfoChange({ content: e.target.value })}
                 onKeyDown={this.handleTabsKeyDown}
+                value={articleInfo.content}
                 ref={(ref) => this.markInput = ref}         // eslint-disable-line  no-return-assign
               >
               </textarea>
@@ -155,17 +173,28 @@ class Editor extends Component {
                 this.state.editMode === 1 ? styles.noShowOutPut : '',
                 this.state.editMode === 2 ? styles.out_mode : ''
               )}
-              dangerouslySetInnerHTML={{ __html: this.state.html }}
+              dangerouslySetInnerHTML={{ __html: this.state.HTML }}
             >
             </div>
           </div>
         </div>
         <div className={styles.editor_footer}>
-          <button className={styles.release}>发布</button>
+          <button
+            className={styles.release}
+            onTouchTap={onArticlePush}
+          >
+            发布
+          </button>
         </div>
       </div>
     );
   }
 }
+
+Editor.propTypes = {
+  onArticleInfoChange: PropTypes.func,
+  articleInfo: PropTypes.object,
+  onArticlePush: PropTypes.func,
+};
 
 export default Editor;
