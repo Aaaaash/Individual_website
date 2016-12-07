@@ -50,9 +50,9 @@ export default function request(url, options) {
     },
   };
 
-  // if (global.window.localStorage.access_token) {
-  //   defaultOptions.headers.Authorization = `Bearer ${global.window.localStorage.access_token}`;
-  // }
+  if (global.window.localStorage.token) {
+    defaultOptions.headers.Authorization = `${global.window.localStorage.token}`;
+  }
 
   const mergeOptions = _.merge({}, defaultOptions, options);
   return fetch(url, mergeOptions)

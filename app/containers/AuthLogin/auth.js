@@ -2,6 +2,15 @@ import { API_BASE } from 'common/constants';
 import request from 'utils/request';
 import sha1 from 'sha1';
 
+let localStorage;
+let accessToken;
+
+if (global.process && process.env.NODE_ENV === 'test') {
+  localStorage = require('localStorage'); // eslint-disable-line global-require
+} else {
+  localStorage = global.window.localStorage;
+}
+
 const auth = {
   login(username, password) {
     const options = {
@@ -9,16 +18,16 @@ const auth = {
       body: JSON.stringify({
         email: username,
         password: sha1(password),
-        // name: "misaka",
-        // gender: "m",
-        // bio: "I'm your father!",
-        // avatar: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1657183323,2974200416&fm=116&gp=0.jpg"
       }),
     };
     return request(`${API_BASE}/login`, options)
-      .then((data) => data)
+      .then((data) => {
+        localStorage.token = data.token;
+        localStorage.expiresIn = data.expiresIn;
+        return true;
+      })
       .catch((err) => {
-        throw new Error('登录失败！');
+        throw new Error(err.message);
       });
   },
 };

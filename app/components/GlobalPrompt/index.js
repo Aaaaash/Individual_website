@@ -26,6 +26,9 @@ const Prompt = styled.div`
   top: 0.15rem;
   padding: 0.15rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  transition: all 450ms;
+  animation-fill-mode:forwards;
+  animation: ${transformOpen} 0.25s;
 `;
 
 const Message = styled.p`
@@ -57,14 +60,13 @@ class GlobalPrompt extends Component {
   }
   render() {
     return (
-      <QueueAnim type={["top", "bottom"]}>
+      <div>
         {this.state.open ?
-          <Prompt type={this.state.type} key="11">
+          <Prompt type={this.state.type} open={this.state.open}>
             <Message>{this.state.message}</Message>
-          </Prompt>
-         : null
-        }
-      </QueueAnim>
+          </Prompt> :
+        null}
+      </div>
     );
   }
 }
