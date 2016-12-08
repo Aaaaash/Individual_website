@@ -24,13 +24,9 @@ export function* fetchAuthInfo() {
 }
 
 export function* watcherFetch() {
-  yield* takeLatest(FETCH_AUTH_INFO, fetchAuthInfo);
-}
-
-export function* root() {
-  yield fork(watcherFetch);
+  yield fork(takeLatest, FETCH_AUTH_INFO, fetchAuthInfo);
 }
 
 export default [
-  root,
+  watcherFetch,
 ];

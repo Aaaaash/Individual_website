@@ -29,4 +29,4 @@ export function* root() {
 
 export default [
   root,
-]
+];

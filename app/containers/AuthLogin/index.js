@@ -18,9 +18,6 @@ import { changeAuthAccountInfo, authSendRequest } from './actions';
 class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stateless-function
   handleOpenMainPage = () => {
     this.props.onAuthRequest();
-    // setTimeout(() => {
-    //   browserHistory.push('/index');
-    // }, 3000);
   }
   handleChangeAuthAccount = (e) => this.props.onAuthBaseInfoChange({ account: e.target.value });
 
@@ -32,9 +29,7 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
         <CanvasBg />
         <QueueAnim type="bottom" className={styles.auth_ani}>
           {loading ? <Loading /> : null}
-          <div
-          className={classNames(styles.auth_cont, loading ? styles.loading : '')}
-          key="a">
+          <div className={styles.auth_cont} key="a">
             <h3>Open source blog</h3>
             <div className={styles.auth_form}>
               <input
