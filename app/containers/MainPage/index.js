@@ -8,6 +8,9 @@ import {
   fetchAuthInfo,
 } from './actions';
 import { selectAuthInfo } from './selector';
+import {
+  MainPageContainer,
+} from './styledComponents';
 
 class MainPage extends Component {  // eslint-disable-line
   componentDidMount() {
@@ -17,10 +20,10 @@ class MainPage extends Component {  // eslint-disable-line
   render() {
     const { children, authInfo } = this.props;
     return (
-      <div style={{ width: '100%', height: '100%' }}>
+      <MainPageContainer>
         <LeftNav authInfo={authInfo} />
         {children}
-      </div>
+      </MainPageContainer>
     );
   }
 }

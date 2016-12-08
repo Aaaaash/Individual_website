@@ -272,7 +272,7 @@
 }
 
 .output blockquote {
-    margin: 0;
+    margin: 0.15rem 0;
     padding: 5px 10px 5px 15px;
     border-left: 4px solid #4682b4;
     background-color: #eee

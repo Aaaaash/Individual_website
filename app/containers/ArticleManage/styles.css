@@ -3,6 +3,7 @@
   height: 100%;
   overflow: hidden;
   display: flex;
+  flex-grow: 2;
 }
 
 .article_list {

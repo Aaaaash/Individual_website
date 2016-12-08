@@ -1,13 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router';
 import QueueAnim from 'rc-queue-anim';
-import classNames from 'classnames';
 
 import styles from './styles.css';
 import CanvasBg from './CanvasBg';
-import Loading from './Loading';
+import Loading from 'components/Loading';
 import {
   selectAuthBaseInfo,
   selectAuthError,

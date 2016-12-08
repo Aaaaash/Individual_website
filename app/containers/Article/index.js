@@ -43,11 +43,9 @@ class Article extends Component {
           <div className={styles.search}>
             <input placeholder="search some?" />
           </div>
-          <div className={styles.article_list}>
-            <QueueAnim type="bottom">
-              {requesting ? this.renderLoading() : this.renderArticleItem(articleList)}
-            </QueueAnim>
-          </div>
+          <QueueAnim  type="bottom" className={styles.article_list}>
+            {this.renderLoading()}
+          </QueueAnim>
         </div>
       </div>
     );
