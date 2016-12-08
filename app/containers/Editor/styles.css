@@ -124,7 +124,7 @@
 
 .output {
   overflow-x: hidden;
-  padding: 0.25rem;
+  padding: 0.15rem;
 }
 
 .text {
@@ -134,7 +134,7 @@
   font-size: 0.14rem;
   color: #4D4D4D;
   resize: none;
-  padding: 0.25rem;
+  padding: 0.15rem;
   overflow-x: hidden;
 }
 
@@ -189,10 +189,6 @@
 }
 
 @media only screen and (max-device-width: 1600px) {
-  .text,
-  .output {
-    padding: 0.15rem;
-  }
   .text_mode {
     width: 100%;
     border-right: none;

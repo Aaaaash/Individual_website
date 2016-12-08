@@ -1,7 +1,7 @@
 .container {
   margin-left: 1.75rem;
   margin-right: 0.5rem;
-  flex-grow: 2;
+  flex-grow: 1;
 }
 
 .search {
@@ -14,7 +14,7 @@
   height: 0.36rem;
   border-radius: 0.18rem;
   line-height: 0.36rem;
-  border: 1px solid #ccc;
+  border: 1px solid #E7E9ED;
   padding: 0 0.14rem;
 }
 
@@ -41,6 +41,7 @@
   margin-bottom: 0.25rem;
   border-radius: 2px;
   background-color: #FFF;
+  box-shadow: 0 1px 4px #E7E9ED;
 }
 
 .article_item h3 {
@@ -52,16 +53,13 @@
 .article_item .title {
   font-weight: normal;
   font-size: 0.2rem;
-  text-shadow: #E7E9ED 1px 1px;
 }
 
 .article_about {
-  /*height: 0.24rem;
-  line-height: 0.24rem;*/
   font-size: 0.12rem;
     line-height: 0.2rem;
   padding-bottom: 0.1rem;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #E7E9ED;
 }
 
 .label {
@@ -102,7 +100,7 @@
   }
 }
 
-.article_item {
+.markdownBody {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   line-height: 1.5;
@@ -110,35 +108,36 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
   line-height: 1.5;
+  margin-top: 0.15rem;
   word-wrap: break-word;
 }
-.article_item h1, .article_item h2, .article_item h3, .article_item h4, .article_item h5, .article_item h6 {
+.markdownBody h1, .markdownBody h2, .markdownBody h3, .markdownBody h4, .markdownBody h5, .markdownBody h6 {
   margin: 9pt 0
 }
 
-.article_item h1, .article_item h2 {
+.markdownBody h1, .markdownBody h2 {
   margin-top: 20px;
   padding-bottom: 8px;
-  border-bottom: 1px dotted #ccc
+  border-bottom: 1px dotted #E7E9ED
 }
 
-.article_item a {
+.markdownBody a {
   color: #339ba8;
   text-decoration: none
 }
 
-.article_item a:hover {
+.markdownBody a:hover {
   color: #00BAD2;
   text-decoration: underline;
 }
 
-.article_item p {
+.markdownBody p {
   line-height: 0.25rem;
 }
 
-.article_item pre {
-  background-color: #eee;
-  border: 1px solid #CCC;
+.markdownBody pre {
+  background-color: #FEF7F1;
+  border: 1px solid #E7E9ED;
   color: #555;
   border-radius: 3px;
   padding: 10px;
@@ -149,7 +148,7 @@
   line-height: 1.33;
 }
 
-.article_item pre code {
+.markdownBody pre code {
   font-size: inherit;
   font-family: 'monaco';
   color: inherit;
@@ -157,7 +156,7 @@
   background-color: transparent
 }
 
-.article_item code {
+.markdownBody code {
   color: #d82451;
   background-color: #f6f6f6;
   font-size: .9em;
@@ -165,41 +164,41 @@
   margin: 0 2px
 }
 
-.article_item blockquote {
+.markdownBody blockquote {
   margin: 0.15rem 0;
   padding: 5px 10px 5px 15px;
   border-left: 4px solid #00BAD2;
   background-color: #eee
 }
 
-.article_item table {
+.markdownBody table {
   margin: 0.1rem 0;
   border: 1px solid #ccc
 }
 
-.article_item table thead tr {
+.markdownBody table thead tr {
   background-color: #eee
 }
 
-.article_item table tbody tr {
+.markdownBody table tbody tr {
   border-top: 1px solid #ccc;
   background-color: #fff
 }
 
-.article_item table td, .article_item table th {
+.markdownBody table td, .markdownBody table th {
   padding: 8px;
   border-left: 1px solid #ccc
 }
 
-.article_item li {
+.markdownBody li {
   list-style-position: inside;
 }
 
-.article_item hr {
+.markdownBody hr {
   border-style: solid;
   border-color: #ccc
 }
 
-.article_item img {
+.markdownBody img {
   max-width: 80%
 }

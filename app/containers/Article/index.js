@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import HyperDown from 'hyperdown';
 import QueueAnim from 'rc-queue-anim';
 import { createStructuredSelector } from 'reselect';
@@ -43,9 +43,12 @@ class Article extends Component {
           <div className={styles.search}>
             <input placeholder="search some?" />
           </div>
-          <QueueAnim  type="bottom" className={styles.article_list}>
-            {this.renderLoading()}
+          <QueueAnim type="bottom" className={styles.article_list}>
+            {requesting ? this.renderLoading() : this.renderArticleItem(articleList)}
           </QueueAnim>
+          <div className={styles.article_footer}>
+            test
+          </div>
         </div>
       </div>
     );
@@ -62,5 +65,11 @@ function mapDispatchTpProps(dispatch) {
     onFetchAllArticle: () => dispatch(fetchAllArticle()),
   };
 }
+
+Article.propTypes = {
+  articleList: PropTypes.array,
+  requesting: PropTypes.bool,
+  onFetchAllArticle: PropTypes.func,
+};
 
 export default connect(mapStateToProps, mapDispatchTpProps)(Article);
