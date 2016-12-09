@@ -5,8 +5,15 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 
 import styles from './styles.css';
-import { fetchAllArticle } from './actions';
-import { selectArticleList, selectRequesting } from './selector';
+import {
+  fetchAllArticle,
+  changeSearchTitle,
+} from './actions';
+import {
+  selectArticleList,
+  selectRequesting,
+  selectSearchTitle,
+} from './selector';
 import Loading from 'components/Loading';
 const parser = new HyperDown();
 
@@ -15,18 +22,34 @@ class Article extends Component {
     this.props.onFetchAllArticle();
   }
 
+  getTime = (time) => {
+    if (time) {
+      const date = new Date(Number(time) * 1000);
+      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    }
+    return false;
+  };
+
+  handleSearchTitle = (ev) => {
+    if (ev.keyCode === 108 || ev.keyCode === 13) {
+      this.props.onFetchAllArticle();
+    }
+  }
+
   renderLoading = () =>
-    <Loading />
+    <div className={styles.loading_container}>
+      <Loading />
+    </div>
 
   renderArticleItem = (list) =>
     list.map((item, index) =>
       <div className={styles.article_item} key={index} >
-        <h3 className={styles.title}>{item.title}</h3>
+        <h3><button className={styles.title}>{item.title}</button></h3>
         <p className={styles.article_about}>
           {/* <span className={styles.label}>React</span> */}
           <span className={styles.label}>{item.tags}</span>
           <span className={styles.author}>{item.author}</span>
-          <span className={styles.create_time}>{item.createAt}</span>
+          <span className={styles.create_time}>{this.getTime(item.createAt)}</span>
         </p>
         <div    // eslint-disable-line
           className={styles.markdownBody}
@@ -35,19 +58,33 @@ class Article extends Component {
         </div>
       </div>
     );
+
   render() {
-    const { articleList, requesting } = this.props;
+    const {
+      articleList,
+      requesting,
+      searchTitle,
+      onSearchTitleChange,
+    } = this.props;
     return (
       <div className={styles.container}>
         <div className={styles.article}>
           <div className={styles.search}>
-            <input placeholder="search some?" />
+            <input
+              value={searchTitle}
+              placeholder="search some?"
+              onChange={(e) => onSearchTitleChange(e.target.value)}
+              onKeyDown={this.handleSearchTitle}
+            />
           </div>
-          <QueueAnim type="bottom" className={styles.article_list}>
-            {requesting ? this.renderLoading() : this.renderArticleItem(articleList)}
-          </QueueAnim>
+          {
+            requesting ?
+              this.renderLoading() :
+              <QueueAnim type="bottom" className={styles.article_list}>
+                {this.renderArticleItem(articleList)}
+              </QueueAnim>
+          }
           <div className={styles.article_footer}>
-            test
           </div>
         </div>
       </div>
@@ -58,11 +95,13 @@ class Article extends Component {
 const mapStateToProps = createStructuredSelector({
   articleList: selectArticleList(),
   requesting: selectRequesting(),
+  searchTitle: selectSearchTitle(),
 });
 
 function mapDispatchTpProps(dispatch) {
   return {
     onFetchAllArticle: () => dispatch(fetchAllArticle()),
+    onSearchTitleChange: (val) => dispatch(changeSearchTitle(val)),
   };
 }
 
@@ -70,6 +109,8 @@ Article.propTypes = {
   articleList: PropTypes.array,
   requesting: PropTypes.bool,
   onFetchAllArticle: PropTypes.func,
+  onSearchTitleChange: PropTypes.func,
+  searchTitle: PropTypes.string,
 };
 
 export default connect(mapStateToProps, mapDispatchTpProps)(Article);

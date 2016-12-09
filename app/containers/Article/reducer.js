@@ -2,6 +2,7 @@ import {
   FETCH_ALL_ARTICLE,
   FETCH_ALL_ARTICLE_SUCCESS,
   FETCH_ALL_ARTICLE_ERROR,
+  CHANGE_SEARCH_TITLE,
 } from './constants';
 
 import { fromJS, List } from 'immutable';
@@ -9,6 +10,7 @@ import { fromJS, List } from 'immutable';
 const initialState = fromJS({
   articleList: [],
   requesting: false,
+  searchTitle: '',
   err: '',
 });
 
@@ -22,6 +24,8 @@ function contentReducer(state = initialState, action) {
     case FETCH_ALL_ARTICLE_ERROR:
       return state.set('requesting', false)
         .set('err', action.err);
+    case CHANGE_SEARCH_TITLE:
+      return state.set('searchTitle', action.val);
     default:
       return state;
   }

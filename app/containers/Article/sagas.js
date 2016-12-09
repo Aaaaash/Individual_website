@@ -1,6 +1,9 @@
 import {
-  FETCH_ALL_ARTICLE
+  FETCH_ALL_ARTICLE,
 } from './constants';
+import {
+  selectSearchTitle,
+} from './selector';
 import {
   fetchAllArticleSuc,
   fetchAllArticleErr,
@@ -12,7 +15,8 @@ import { fork, take, call, put, select } from 'redux-saga/effects';
 
 export function* fetchAllArticle() {
   try {
-    const response = yield call(contentApi.fetchArticle);
+    const title = yield select(selectSearchTitle());
+    const response = yield call(contentApi.fetchArticle, title);
     yield put(fetchAllArticleSuc(response));
   } catch (err) {
     yield put(fetchAllArticleErr(err.message));

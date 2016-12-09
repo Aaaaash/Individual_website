@@ -5,8 +5,8 @@ import QueueAnim from 'rc-queue-anim';
 class Loading extends Component {
   render() {
     return (
-      <QueueAnim type="scaleX">
-        <div className={styles.loading} key="a">
+      <QueueAnim type="scaleX" className={styles.loading} >
+        <div key="a">
           <div className={styles.spinner}>
             <div className={styles.double_bounce1}></div>
             <div className={styles.double_bounce2}></div>

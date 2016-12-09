@@ -32,26 +32,20 @@ class LeftNav extends Component {
         </div>
           {this.state.open ?
             <TweenOne
-            className={styles.auth_nav_mob}
-            animation={this.animation}
-            component="ul"
-            style={{ height: '0' }}
+              className={styles.auth_nav_mob}
+              animation={this.animation}
+              component="ul"
+              style={{ height: '0' }}
             >
               <li onTouchTap={() => browserHistory.push('/index')}>Index</li>
               <li onTouchTap={() => browserHistory.push('/timeline')}>TimeLine</li>
-              <li>qwerty</li>
-              <li>qwerty</li>
-              <li>qwerty</li>
               <li onTouchTap={() => browserHistory.push('/admin')}>Blog</li>
             </TweenOne> :
           null}
         <QueueAnim component="ul" type="bottom" className={styles.auth_nav}>
           <li key="a" onTouchTap={() => browserHistory.push('/index')}>Index</li>
           <li key="b" onTouchTap={() => browserHistory.push('/timeline')}>TimeLine</li>
-          <li key="c">qwerty</li>
-          <li key="d">qwerty</li>
-          <li key="e">qwerty</li>
-          <li key="f" onTouchTap={() => browserHistory.push('/admin')}>Blog</li>
+          <li key="c" onTouchTap={() => browserHistory.push('/admin')}>Blog</li>
         </QueueAnim>
       </div>
     );

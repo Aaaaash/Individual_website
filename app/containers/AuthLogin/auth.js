@@ -3,7 +3,6 @@ import request from 'utils/request';
 import sha1 from 'sha1';
 
 let localStorage;
-let accessToken;
 
 if (global.process && process.env.NODE_ENV === 'test') {
   localStorage = require('localStorage'); // eslint-disable-line global-require

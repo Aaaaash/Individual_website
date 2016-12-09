@@ -1,3 +1,5 @@
 export const FETCH_ALL_ARTICLE = 'xmm/index/FETCH_ALL_ARTICLE';
 export const FETCH_ALL_ARTICLE_SUCCESS = 'xmm/index/FETCH_ALL_ARTICLE_SUCCESS';
 export const FETCH_ALL_ARTICLE_ERROR = 'xmm/index/FETCH_ALL_ARTICLE_ERROR';
+
+export const CHANGE_SEARCH_TITLE = 'xmm/index/CHANGE_SEARCH_TITLE';
