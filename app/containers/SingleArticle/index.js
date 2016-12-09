@@ -12,6 +12,7 @@ import {
   TimeLabel,
   Author,
   ArticleContent,
+  Text,
 } from './styledComponents';
 
 class SingleArticle extends Component {
@@ -21,17 +22,20 @@ class SingleArticle extends Component {
         <Article bg={bg}>
           <Titlt>测试标题</Titlt>
           <Label>
-            <Author>
-              Sakura
+            <div>
+              <Author>
+                Sakura
+              </Author>
+              <Text>发布于</Text>
               <TimeLabel>2016-12-07</TimeLabel>
-            </Author>
-            <Tags>
+            </div>
+            <div>
               <Tag>React</Tag>
               <Tag>JavaScript</Tag>
-            </Tags>
+            </div>
           </Label>
           <ArticleContent>
-            
+
           </ArticleContent>
         </Article>
       </ArticleContainer>

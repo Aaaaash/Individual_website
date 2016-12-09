@@ -28,13 +28,20 @@ export const Label = styled.p`
 
 export const Author = styled.span`
   font-size: 16px;
-  font-weight: bold;
   color: #3A3A3A;
   margin-right: 0.15rem;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+    color: #F45E6E;
+    transition: all 300ms;
+  }
 `;
 
-export const Tags = styled.span`
-
+export const Text = styled.span`
+  font-size: 14px;
+  color: #3A3A3A;
+  margin-left: 0.1rem;
 `;
 
 export const Tag = styled.span`
@@ -52,8 +59,7 @@ export const Tag = styled.span`
 `;
 
 export const TimeLabel = styled.span`
-  margin-left: 0.25rem;
-  font-weight: normal;
+  margin-left: 0.1rem;
   font-size: 14px;
   color: #B4B4B4;
   font-style: italic;
