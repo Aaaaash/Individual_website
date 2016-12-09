@@ -6,8 +6,12 @@ import { connect } from 'react-redux';
 import LeftNav from './LeftNav';
 import {
   fetchAuthInfo,
+  changeNavActive,
 } from './actions';
-import { selectAuthInfo } from './selector';
+import {
+  selectAuthInfo,
+  selectNavActive,
+} from './selector';
 import {
   MainPageContainer,
 } from './styledComponents';
@@ -18,10 +22,19 @@ class MainPage extends Component {  // eslint-disable-line
   }
 
   render() {
-    const { children, authInfo } = this.props;
+    const {
+      children,
+      authInfo,
+      navActive,
+      onNavActiveChange,
+    } = this.props;
     return (
       <MainPageContainer>
-        <LeftNav authInfo={authInfo} />
+        <LeftNav
+          authInfo={authInfo}
+          navActive={navActive}
+          onNavActiveChange={onNavActiveChange}
+        />
         {children}
       </MainPageContainer>
     );
@@ -32,15 +45,19 @@ MainPage.propTypes = {
   authInfo: PropTypes.object,
   onFetchAuthInfo: PropTypes.func,
   children: PropTypes.object,
+  navActive: PropTypes.number,
+  onNavActiveChange: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   authInfo: selectAuthInfo(),
+  navActive: selectNavActive(),
 });
 
 function mapDispatchTpProps(dispatch) {
   return {
     onFetchAuthInfo: () => dispatch(fetchAuthInfo()),
+    onNavActiveChange: (val) => dispatch(changeNavActive(val)),
   };
 }
 

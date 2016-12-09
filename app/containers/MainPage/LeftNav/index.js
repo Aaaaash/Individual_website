@@ -14,8 +14,13 @@ class LeftNav extends Component {
   state = {
     open: false,
   }
+  handleChangeNavActive = (val, route) => {
+    this.props.onNavActiveChange(val);
+    browserHistory.push(`/${route}`); 
+  }
+
   render() {
-    const { authInfo } = this.props;
+    const { authInfo, navActive } = this.props;
     return (
       <div className={styles.left_nav}>
         <button
@@ -43,9 +48,27 @@ class LeftNav extends Component {
             </TweenOne> :
           null}
         <QueueAnim component="ul" type="bottom" className={styles.auth_nav}>
-          <li key="a" onTouchTap={() => browserHistory.push('/index')}>Index</li>
-          <li key="b" onTouchTap={() => browserHistory.push('/timeline')}>TimeLine</li>
-          <li key="c" onTouchTap={() => browserHistory.push('/admin')}>Blog</li>
+          <li
+            key="a"
+            className={navActive === 0 ? styles.active : ''}
+            onTouchTap={() => this.handleChangeNavActive(0, 'index')}
+          >
+            Index
+          </li>
+          <li
+            key="b"
+            className={navActive === 1 ? styles.active : ''}
+            onTouchTap={() => this.handleChangeNavActive(1, 'timeline')}
+          >
+            TimeLine
+          </li>
+          <li
+            key="c"
+            className={navActive === 2 ? styles.active : ''}
+            onTouchTap={() => this.handleChangeNavActive(2, 'admin')}
+          >
+            Blog
+          </li>
         </QueueAnim>
       </div>
     );
@@ -54,6 +77,8 @@ class LeftNav extends Component {
 
 LeftNav.propTypes = {
   authInfo: PropTypes.object,
+  navActive: PropTypes.number,
+  onNavActiveChange: PropTypes.func,
 };
 
 export default LeftNav;

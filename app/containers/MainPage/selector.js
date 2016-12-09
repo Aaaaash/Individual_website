@@ -7,6 +7,12 @@ const selectAuthInfo = () => createSelector(
   (indexState) => indexState.get('authInfo').toJS()
 );
 
+const selectNavActive = () => createSelector(
+  selectIndex(),
+  (indexState) => indexState.get('navActive')
+);
+
 export {
   selectAuthInfo,
+  selectNavActive,
 };

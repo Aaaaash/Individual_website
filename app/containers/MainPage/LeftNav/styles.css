@@ -63,8 +63,13 @@
 
 .auth_nav li:hover {
   background-color: #2e3738;
-  border-left: 2px solid #F45E6E;
+  border-color:#F45E6E;
   transition: all 450ms;
+}
+
+.auth_nav .active {
+  background-color: #2e3738;
+  border-left: 2px solid #F45E6E;
 }
 
 .nav_btn {
