@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import HyperDown from 'hyperdown';
 import QueueAnim from 'rc-queue-anim';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
@@ -15,7 +14,7 @@ import {
   selectSearchTitle,
 } from './selector';
 import Loading from 'components/Loading';
-const parser = new HyperDown();
+const reg = /[\\\`\*\_\[\]\#\+\-\!\>]/g;
 
 class Article extends Component {
   componentDidMount() {
@@ -51,11 +50,11 @@ class Article extends Component {
           <span className={styles.author}>{item.author}</span>
           <span className={styles.create_time}>{this.getTime(item.createAt)}</span>
         </p>
-        <div    // eslint-disable-line
+        <p    // eslint-disable-line
           className={styles.markdownBody}
-          dangerouslySetInnerHTML={{ __html: parser.makeHtml(item.content) }}
         >
-        </div>
+        {`${item.content.replace(reg, '').substr(0, 200)}...`}
+        </p>
       </div>
     );
 

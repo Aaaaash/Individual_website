@@ -17,21 +17,18 @@ body {
   background-color: #F7F8FA;
 }
 
-html,
 body,
-a,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p,
-div,
-button,
-span,
-textarea,
-input,
-ul,
-li,
-label {
-  font-family: Arial, 'Microsoft YaHei' !important;
+form {
   margin: 0;
-  padding: 0;
 }
 
 a {
