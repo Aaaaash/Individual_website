@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import QueueAnim from 'rc-queue-anim';
-import HyperDown from 'hyperdown';
 import styles from './styles.css';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
@@ -14,7 +13,6 @@ import {
   selectAuthInfo,
   selectArticleInfo,
 } from './selector';
-const parser = new HyperDown();
 
 class ArticleManage extends Component {
   render() {

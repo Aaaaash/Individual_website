@@ -1,8 +1,20 @@
 import React, { Component, PropTypes } from 'react';
-import HyperDown from 'hyperdown';
+import marked from 'marked';
 import classNames from 'classnames';
+import hljs from 'highlight.js';
 
-const parser = new HyperDown();
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false,
+  highlight: (code) => hljs.highlightAuto(code).value,
+});
+
 import styles from './styles.css';
 
 class Editor extends Component {
@@ -12,9 +24,10 @@ class Editor extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    hljs.initHighlightingOnLoad();
     if (nextProps.articleInfo.content !== this.props.articleInfo.content) {
       this.setState({
-        HTML: parser.makeHtml(nextProps.articleInfo.content),
+        HTML: marked(nextProps.articleInfo.content),
       });
     }
   }
@@ -27,7 +40,7 @@ class Editor extends Component {
     this.markInput.focus();
     this.markInput.selectionStart = cursorStart + start;
     this.markInput.selectionEnd = cursorStart + start;
-    this.setState({ HTML: parser.makeHtml(insertTemplate) });
+    this.setState({ HTML: marked(insertTemplate) });
   }
 
   handleChangeEditMode = (mode) => this.setState({ editMode: mode });
