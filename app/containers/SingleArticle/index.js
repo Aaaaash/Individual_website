@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
+import QueueAnim from 'rc-queue-anim';
 import { browserHistory } from 'react-router';
 import marked from 'marked';
 import hljs from 'highlight.js';
@@ -37,6 +38,7 @@ import {
   ReviewTime,
   EnterComment,
   CommentArea,
+  SubmitBtn,
 } from './styledComponents';
 import {
   selectCurrentArticle,
@@ -90,15 +92,18 @@ class SingleArticle extends Component {
         }
         <ReviewCon>
           <ReviewTit>共40条评论：</ReviewTit>
-          <ReviewItem>
-            <ReviewAuthTime>
-              <ReviewAuth title="Misaka mikoto">Misaka mikoto:</ReviewAuth>
-              <ReviewTime>2016-12-07</ReviewTime>
-            </ReviewAuthTime>
-            <AuthContent>上面这个例子中，我们先拿到了评论列表这个组件的一些基本数据。在应用程序一开始，创建了一个CommentBox组件，它包含一个用div标签包裹着的ul无序列表，而ul中的li则单独提取出来作为一个子组件被创建，也就是下面的CommentItem。而在父组件中并没有直接引用子组件，而是循环将数据绑定后再插入到ul中上面这个例子中，我们先拿到了评论列表这个组件的一些基本数据。在应用程序一开始，创建了一个CommentBox组件，它包含一个用div标签包裹着的ul无序列表，而ul中的li则单独提取出来作为一个子组件被创建，也就是下面的CommentItem。而在父组件中并没有直接引用子组件，而是循环将数据绑定后再插入到ul中</AuthContent>
-          </ReviewItem>
+          <QueueAnim type="bottom">
+            <ReviewItem key="a">
+              <ReviewAuthTime>
+                <ReviewAuth title="Misaka mikoto">Misaka mikoto:</ReviewAuth>
+                <ReviewTime>2016-12-07</ReviewTime>
+              </ReviewAuthTime>
+              <AuthContent>上面这个例子中，我们先拿到了评论列表这个组件的一些基本数据。在应用程序一开始，创建了一个CommentBox组件，它包含一个用div标签包裹着的ul无序列表，而ul中的li则单独提取出来作为一个子组件被创建，也就是下面的CommentItem。而在父组件中并没有直接引用子组件，而是循环将数据绑定后再插入到ul中上面这个例子中，我们先拿到了评论列表这个组件的一些基本数据。在应用程序一开始，创建了一个CommentBox组件，它包含一个用div标签包裹着的ul无序列表，而ul中的li则单独提取出来作为一个子组件被创建，也就是下面的CommentItem。而在父组件中并没有直接引用子组件，而是循环将数据绑定后再插入到ul中</AuthContent>
+            </ReviewItem>
+          </QueueAnim>
           <EnterComment>
             <CommentArea placeholder="Post your opinion" />
+            <SubmitBtn>Submit</SubmitBtn>
           </EnterComment>
         </ReviewCon>
       </ArticleContainer>

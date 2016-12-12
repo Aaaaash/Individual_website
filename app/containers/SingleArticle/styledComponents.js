@@ -92,6 +92,7 @@ export const ReviewCon = styled.div`
   width: 50%;
   margin: 0 auto;
   padding: 0 0.25rem;
+  margin-bottom: 0.25rem;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     width: 100%;
     margin-top: 0.25rem;
@@ -104,6 +105,10 @@ export const ReviewTit = styled.p`
   line-height: 0.36rem;
   color: #5A5A5A;
   border-bottom: 1px solid #E6E9ED;
+`;
+
+export const ReviewList = styled.div`
+
 `;
 
 export const ReviewItem = styled.div`
@@ -139,13 +144,15 @@ export const AuthContent = styled.p`
 
 export const EnterComment = styled.div`
   width: 100%;
-  height: 1.25rem;
   margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `;
 
 export const CommentArea = styled.textarea`
   width: 100%;
-  height: 100%;
+  height: 1.25rem;
   resize: none;
   outline: none;
   padding: 0.15rem;
@@ -157,5 +164,26 @@ export const CommentArea = styled.textarea`
   &:focus {
     border-color: #00BAD2;
     transition: all 350ms;
+  }
+`;
+
+export const SubmitBtn = styled.button`
+  width: 0.75rem;
+  height: 0.36rem;
+  line-height: 0.36rem;
+  margin-top: 0.15rem;
+  border-radius: 2px;
+  color: #FFF;
+  outline: none;
+  cursor: pointer;
+  background-color: #56c4d2;
+  box-shadow: 0 1px 2px rgba(108, 108, 108, 0.24);
+  &:hover {
+    background-color: #00BAD2;
+    transition: all 400ms;
+  }
+  &:active {
+    box-shadow: 0 2px 4px rgba(108, 108, 108, 0.24);
+    transition: all 200ms;
   }
 `;
