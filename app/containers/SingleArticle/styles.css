@@ -3,7 +3,8 @@
  * Markdown样式
  */
 .output h1, .output h2, .output h3, .output h4, .output h5, .output h6 {
-  margin: 9pt 0
+  margin: 9pt 0;
+  color: #555;
 }
 
 .output h1, .output h2 {
