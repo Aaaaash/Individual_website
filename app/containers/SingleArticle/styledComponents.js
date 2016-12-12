@@ -7,10 +7,11 @@ export const ArticleContainer = styled.div`
 `;
 
 export const Article = styled.div`
-  width: 55%;
+  width: 50%;
   margin: 0.25rem auto;
   border-radius: 2px;
-  height: 5.25rem;
+  background-color: #FFF;
+  box-shadow: 0 1px 2px rgba(108, 108, 108, 0.24);
   padding: 0.25rem;
 `;
 
@@ -20,7 +21,7 @@ export const Titlt = styled.p`
   border-left: 4px solid #F45E6E;
 `;
 
-export const Label = styled.p`
+export const Label = styled.div`
   margin-top: 0.2rem;
   display: flex;
   justify-content: space-between;

@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import QueueAnim from 'rc-queue-anim';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 
+import { Tag } from './styledComponents.js';
 import styles from './styles.css';
 import {
   fetchAllArticle,
@@ -14,6 +16,7 @@ import {
   selectSearchTitle,
 } from './selector';
 import Loading from 'components/Loading';
+
 const reg = /[\\\`\*\_\[\]\#\+\-\!\>]/g;
 
 class Article extends Component {
@@ -40,13 +43,24 @@ class Article extends Component {
       <Loading />
     </div>
 
+  handleArticleDetail = (id) => {
+    browserHistory.push(`/article/${id}`);
+  }
+
   renderArticleItem = (list) =>
     list.map((item, index) =>
       <div className={styles.article_item} key={index} >
-        <h3><button className={styles.title}>{item.title}</button></h3>
+        <h3>
+          <button
+            className={styles.title}
+            onTouchTap={() => this.handleArticleDetail(item._id)}
+          >
+            {item.title}
+          </button>
+        </h3>
         <p className={styles.article_about}>
           {/* <span className={styles.label}>React</span> */}
-          <span className={styles.label}>{item.tags}</span>
+          <Tag>{item.tags}</Tag>
           <span className={styles.author}>{item.author}</span>
           <span className={styles.create_time}>{this.getTime(item.createAt)}</span>
         </p>

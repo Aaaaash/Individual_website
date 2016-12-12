@@ -1,0 +1,94 @@
+
+/**
+ * Markdown样式
+ */
+.output h1, .output h2, .output h3, .output h4, .output h5, .output h6 {
+  margin: 9pt 0
+}
+
+.output h1, .output h2 {
+  margin-top: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px dotted #ccc
+}
+
+.output a {
+  color: #56c4d2;
+  text-decoration: none
+}
+
+.output a:hover {
+  color: #00BAD2;
+  text-decoration: underline;
+}
+
+.output p {
+  line-height: 0.25rem;
+}
+
+.output pre {
+  background-color: #F9F9F9;
+  border: 1px solid #EEE;
+  color: #555;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: .9em;
+  overflow: auto;
+  font-family: 'monaco';
+  line-height: 1.33;
+}
+
+.output pre code {
+  font-size: inherit;
+  font-family: 'monaco';
+  color: inherit;
+  padding: 0;
+  background-color: transparent
+}
+
+.output code {
+  color: #d82451;
+  background-color: #f6f6f6;
+  font-size: .9em;
+  padding: 2px 4px;
+  margin: 0 2px
+}
+
+.output blockquote {
+  margin: 0.15rem 0;
+  padding: 5px 10px 5px 15px;
+  border-left: 4px solid #00BAD2;
+  background-color: #EEE
+}
+
+.output table {
+  margin: 0.1rem 0;
+  border: 1px solid #CCC
+}
+
+.output table thead tr {
+  background-color: #EEE
+}
+
+.output table tbody tr {
+  border-top: 1px solid #CCC;
+  background-color: #FFF
+}
+
+.output table td, .output table th {
+  padding: 8px;
+  border-left: 1px solid #ccc
+}
+
+.output li {
+  list-style-position: inside;
+}
+
+.output hr {
+  border-style: solid;
+  border-color: #ccc
+}
+
+.output img {
+  max-width: 80%
+}

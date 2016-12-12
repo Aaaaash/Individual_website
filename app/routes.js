@@ -171,16 +171,16 @@ export default function createRoutes(store) {
       name: 'articleID',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          // System.import('containers/Article/reducer'),
-          // System.import('containers/Article/sagas'),
+          System.import('containers/SingleArticle/reducer'),
+          System.import('containers/SingleArticle/sagas'),
           System.import('containers/SingleArticle'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
-          // injectReducer('article', reducer.default);
-          // injectSagas(sagas.default);
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('singleArticle', reducer.default);
+          injectSagas(sagas.default);
           renderRoute(component);
         });
 
