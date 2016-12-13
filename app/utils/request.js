@@ -45,13 +45,13 @@ export default function request(url, options) {
   const defaultOptions = {
     method: 'GET',
     headers: {
-      // Accept: 'application/json',
+      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
   };
 
   if (global.window.localStorage.token) {
-    defaultOptions.headers.Authorization = `${global.window.localStorage.token}`;
+    defaultOptions.headers.Authorization = global.window.localStorage.token;
   }
 
   const mergeOptions = _.merge({}, defaultOptions, options);
@@ -60,7 +60,7 @@ export default function request(url, options) {
     .then(parseData);
 }
 
-export function get(urlString, params) {
+export function get(urlString, params = {}) {
   const query = Object.keys(params)
     .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     .join('&');

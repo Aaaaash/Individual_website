@@ -9,3 +9,7 @@ export const CHANGE_COMMENT_INFO = 'xmm/article/CHANGE_COMMENT_INFO';
 export const SUBMIT_COMMENT = 'xmm/article/SUBMIT_COMMENT';
 export const SUBMIT_COMMENT_SUCCESS = 'xmm/article/SUBMIT_COMMENT_SUCCESS';
 export const SUBMIT_COMMENT_ERROR = 'xmm/article/SUBMIT_COMMENT_ERROR';
+
+export const FETCH_COMMENTS_LIST = 'xmm/article/FETCH_COMMENTS_LIST';
+export const FETCH_COMMENTS_LIST_SUCCESS = 'xmm/article/FETCH_COMMENTS_LIST_SUCCESS';
+export const FETCH_COMMENTS_LIST_ERROR = 'xmm/article/FETCH_COMMENTS_LIST_ERROR';

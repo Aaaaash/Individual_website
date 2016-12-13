@@ -41,10 +41,12 @@ import {
   SubmitBtn,
   InputBox,
   SingleInput,
+  LinkUrl,
 } from './styledComponents';
 import {
   selectCurrentArticle,
   selectRequesting,
+  selectComment,
   selectComments,
 } from './selector';
 import {
@@ -52,32 +54,52 @@ import {
   changeCurrentArticle,
   changeCommentInfo,
   submitComment,
+  fetchCommentsList,
 } from './actions';
 import Loading from 'components/Loading';
 import styles from './styles.css';
-const socket = io.connect('http://192.168.1.135:8000/');
-socket.on('3q', function(msg) {
-  console.log(msg);
-});
+// const socket = io.connect('http://192.168.1.135:8000/');
+// socket.on('3q', function(msg) {
+//   console.log(msg);
+// });
 
 class SingleArticle extends Component {
   componentDidMount() {
     const id = this.props.params.articleID;
     this.props.onCurrentArticleChange({ id });
     this.props.onFetchArticleContent();
+    this.props.onFetchComments();
   }
 
   handleSubmitComment = () => {
     this.props.onCommentSubmit();
-    socket.emit('message', '客户端消息');
+    // socket.emit('message', '客户端消息');
   }
+
+  renderCommentsList = (list) =>
+    list.map((item, index) =>
+      <ReviewItem key={index}>
+        <ReviewAuthTime>
+          <ReviewAuth title={item.nickname}>
+            <LinkUrl
+              target="_Blank"
+              href={item.personalWebsite}
+            >
+              {item.nickname}
+            </LinkUrl>
+          </ReviewAuth>
+          <ReviewTime>{item.createAt}</ReviewTime>
+        </ReviewAuthTime>
+        <AuthContent>{item.commentContent}</AuthContent>
+      </ReviewItem>
+    );
   render() {
     const {
       currentArticle,
       requesting,
-      comments,
+      comment,
       onCommentsChange,
-      onCommentSubmit,
+      comments,
     } = this.props;
     return (
       <ArticleContainer>
@@ -109,39 +131,33 @@ class SingleArticle extends Component {
           }
         </Article>
         <ReviewCon>
-          <ReviewTit>共40条评论：</ReviewTit>
+          <ReviewTit>共{comments.length}条评论：</ReviewTit>
           <QueueAnim type="bottom">
-            <ReviewItem key="a">
-              <ReviewAuthTime>
-                <ReviewAuth title="Misaka mikoto">Misaka mikoto:</ReviewAuth>
-                <ReviewTime>2016-12-07</ReviewTime>
-              </ReviewAuthTime>
-              <AuthContent>上面这个例子中，我们先拿到了评论列表这个组件的一些基本数据。在应用程序一开始，创建了一个CommentBox组件，它包含一个用div标签包裹着的ul无序列表，而ul中的li则单独提取出来作为一个子组件被创建，也就是下面的CommentItem。而在父组件中并没有直接引用子组件，而是循环将数据绑定后再插入到ul中上面这个例子中，我们先拿到了评论列表这个组件的一些基本数据。在应用程序一开始，创建了一个CommentBox组件，它包含一个用div标签包裹着的ul无序列表，而ul中的li则单独提取出来作为一个子组件被创建，也就是下面的CommentItem。而在父组件中并没有直接引用子组件，而是循环将数据绑定后再插入到ul中</AuthContent>
-            </ReviewItem>
+            {this.renderCommentsList(comments)}
           </QueueAnim>
           <EnterComment>
             <InputBox>
               <SingleInput
                 type="text"
                 placeholder="NickName"
-                value={comments.nickname}
+                value={comment.nickname}
                 onChange={(e) => onCommentsChange({ nickname: e.target.value })}
-              />
+                />
               <SingleInput
                 type="text"
                 placeholder="Github"
-                value={comments.personalWebsite}
+                value={comment.personalWebsite}
                 onChange={(e) => onCommentsChange({ personalWebsite: e.target.value })}
-              />
+                />
             </InputBox>
             <CommentArea
               placeholder="Post your opinion"
-              value={comments.commentContent}
+              value={comment.commentContent}
               onChange={(e) => onCommentsChange({ commentContent: e.target.value })}
-            />
+              />
             <SubmitBtn
               onClick={this.handleSubmitComment}
-            >
+              >
               提交评论
             </SubmitBtn>
           </EnterComment>
@@ -158,13 +174,16 @@ SingleArticle.propTypes = {
   onFetchArticleContent: PropTypes.func,
   params: PropTypes.object,
   onCommentsChange: PropTypes.func,
-  comments: PropTypes.object,
+  comment: PropTypes.object,
   onCommentSubmit: PropTypes.func,
+  onFetchComments: PropTypes.func,
+  comments: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
   currentArticle: selectCurrentArticle(),
   requesting: selectRequesting(),
+  comment: selectComment(),
   comments: selectComments(),
 });
 
@@ -174,6 +193,7 @@ function mapDispatchToProps(dispatch) {
     onFetchArticleContent: () => dispatch(fetchArticleContent()),
     onCommentsChange: (val) => dispatch(changeCommentInfo(val)),
     onCommentSubmit: () => dispatch(submitComment()),
+    onFetchComments: () => dispatch(fetchCommentsList()),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SingleArticle);

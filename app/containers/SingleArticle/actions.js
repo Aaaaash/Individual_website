@@ -7,6 +7,9 @@ import {
   SUBMIT_COMMENT,
   SUBMIT_COMMENT_SUCCESS,
   SUBMIT_COMMENT_ERROR,
+  FETCH_COMMENTS_LIST,
+  FETCH_COMMENTS_LIST_SUCCESS,
+  FETCH_COMMENTS_LIST_ERROR,
 } from './constants';
 
 export function fetchArticleContent() {
@@ -63,3 +66,22 @@ export function submitCommentErr(err) {
   };
 }
 
+export function fetchCommentsList() {
+  return {
+    type: FETCH_COMMENTS_LIST,
+  };
+}
+
+export function fetchCommentsListSuc(data) {
+  return {
+    type: FETCH_COMMENTS_LIST_SUCCESS,
+    data,
+  };
+}
+
+export function fetchCommentsListErr(err) {
+  return {
+    type: FETCH_COMMENTS_LIST_ERROR,
+    err,
+  };
+}

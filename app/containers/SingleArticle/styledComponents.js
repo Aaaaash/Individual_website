@@ -131,6 +131,15 @@ export const ReviewAuth = styled.p`
   white-space: nowrap;
 `;
 
+export const LinkUrl = styled.a`
+  color: #F45E6E;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 export const ReviewTime = styled.p`
   font-size: 12px;
   color: #B4B4B4;
