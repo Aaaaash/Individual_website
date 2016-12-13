@@ -12,7 +12,7 @@ const articleApi = {
         author: name,
       }),
     };
-    return request(`${API_BASE}/article/create`, options)
+    return request(`${API_BASE}/article`, options)
       .then((data) => data)
       .catch((err) => err);
   },

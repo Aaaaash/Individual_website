@@ -12,7 +12,13 @@ const selectRequesting = () => createSelector(
   (articleState) => articleState.get('requesting')
 );
 
+const selectComments = () => createSelector(
+  selectSingleArticle(),
+  (articleState) => articleState.get('comments').toJS()
+);
+
 export {
   selectCurrentArticle,
   selectRequesting,
+  selectComments,
 };

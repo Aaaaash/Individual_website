@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const ArticleContainer = styled.div`
   width: 100%;
@@ -20,7 +20,7 @@ export const Article = styled.div`
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     width: 100%;
     margin: 0 auto;
-  }
+  };
 `;
 
 export const Titlt = styled.p`
@@ -69,6 +69,8 @@ export const Tag = styled.span`
 
 export const TimeLabel = styled.span`
   margin-left: 0.1rem;
+  height: 0.36rem;
+  line-height: 0.36rem;
   font-size: 14px;
   color: #B4B4B4;
   font-style: italic;
@@ -140,6 +142,7 @@ export const AuthContent = styled.p`
   font-size: 0.12rem;
   color: #757575;
   line-height: 0.24rem;
+  justify-content: space-between;
 `;
 
 export const EnterComment = styled.div`
@@ -148,6 +151,37 @@ export const EnterComment = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+`;
+
+export const InputBox = styled.p`
+  width: 100%;
+  margin: 0.15rem 0;
+  display: flex;
+  justify-content: space-between;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+`;
+
+export const SingleInput = styled.input`
+  width: 48%;
+  height: 0.36rem;
+  line-height: 0.36rem;
+  outline: none;
+  padding: 0 0.08rem;
+  border-radius: 2px;
+  border: 1px solid #E6E9ED;
+  &:focus {
+    border-color: #00BAD2;
+    transition: all 350ms;
+  }
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    width: 100%;
+    height: 0.45rem;
+    line-height: 0.45rem;
+    margin-bottom: 0.15rem;
+  }
 `;
 
 export const CommentArea = styled.textarea`
@@ -180,10 +214,15 @@ export const SubmitBtn = styled.button`
   box-shadow: 0 1px 2px rgba(108, 108, 108, 0.24);
   &:hover {
     background-color: #00BAD2;
-    transition: all 400ms;
+    transition: all 200ms;
   }
   &:active {
     box-shadow: 0 2px 4px rgba(108, 108, 108, 0.24);
     transition: all 200ms;
+  }
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    width: 1rem;
+    height: 0.45rem;
+    line-height: 0.45rem;
   }
 `;

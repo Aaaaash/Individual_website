@@ -3,3 +3,9 @@ export const FETCH_ARTICLE_CONTENT_SUCCESS = 'xmm/article/FETCH_ARTICLE_CONTENT_
 export const FETCH_ARTICLE_CONTENT_ERROR = 'xmm/article/FETCH_ARTICLE_CONTENT_ERROR';
 
 export const CHANGE_CURRENT_ARTICLE = 'xmm/article/CHANGE_CURRENT_ARTICLE';
+
+export const CHANGE_COMMENT_INFO = 'xmm/article/CHANGE_COMMENT_INFO';
+
+export const SUBMIT_COMMENT = 'xmm/article/SUBMIT_COMMENT';
+export const SUBMIT_COMMENT_SUCCESS = 'xmm/article/SUBMIT_COMMENT_SUCCESS';
+export const SUBMIT_COMMENT_ERROR = 'xmm/article/SUBMIT_COMMENT_ERROR';

@@ -11,7 +11,7 @@ import {
 import contentApi from './contentApi';
 
 import { takeLatest } from 'redux-saga';
-import { fork, take, call, put, select } from 'redux-saga/effects';
+import { fork, call, put, select } from 'redux-saga/effects';
 
 export function* fetchAllArticle() {
   try {

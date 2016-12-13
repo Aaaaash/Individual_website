@@ -9,6 +9,22 @@ const articleApi = {
         throw new Error(err.message);
       });
   },
+  submitComment(nickname, personalWebsite, commentContent, articleID) {
+    const options = {
+      method: 'POST',
+      body: JSON.stringify({
+        nickname,
+        personalWebsite,
+        commentContent,
+        articleID,
+      }),
+    };
+    return request(`${API_BASE}/comments`, options)
+      .then((data) => data.data)
+      .catch((err) => {
+        throw new Error(err.message);
+      });
+  },
 };
 
 export default articleApi;

@@ -3,6 +3,7 @@ import {
   FETCH_ARTICLE_CONTENT_SUCCESS,
   FETCH_ARTICLE_CONTENT_ERROR,
   CHANGE_CURRENT_ARTICLE,
+  CHANGE_COMMENT_INFO,
 } from './constants';
 
 import { fromJS } from 'immutable';
@@ -14,6 +15,11 @@ const initialState = fromJS({
     content: '',
     author: '',
     createAt: '',
+  },
+  comments: {
+    nickname: 'Sakura',
+    personalWebsite: 'https://github.com/SakuB',
+    commentContent: '测试评论',
   },
   err: '',
   requesting: false,
@@ -30,6 +36,8 @@ function articleContentReducer(state = initialState, action) {
     case FETCH_ARTICLE_CONTENT_ERROR:
       return state.set('err', action.err)
         .set('requesting', false);
+    case CHANGE_COMMENT_INFO:
+      return state.mergeDeep(fromJS({ comments: action.val }));
     default:
       return state;
   }

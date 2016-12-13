@@ -39,17 +39,26 @@ import {
   EnterComment,
   CommentArea,
   SubmitBtn,
+  InputBox,
+  SingleInput,
 } from './styledComponents';
 import {
   selectCurrentArticle,
   selectRequesting,
+  selectComments,
 } from './selector';
 import {
   fetchArticleContent,
   changeCurrentArticle,
+  changeCommentInfo,
+  submitComment,
 } from './actions';
 import Loading from 'components/Loading';
 import styles from './styles.css';
+const socket = io.connect('http://192.168.1.135:8000/');
+socket.on('3q', function(msg) {
+  console.log(msg);
+});
 
 class SingleArticle extends Component {
   componentDidMount() {
@@ -58,38 +67,47 @@ class SingleArticle extends Component {
     this.props.onFetchArticleContent();
   }
 
+  handleSubmitComment = () => {
+    this.props.onCommentSubmit();
+    socket.emit('message', '客户端消息');
+  }
   render() {
-    const { currentArticle, requesting } = this.props;
+    const {
+      currentArticle,
+      requesting,
+      comments,
+      onCommentsChange,
+      onCommentSubmit,
+    } = this.props;
     return (
       <ArticleContainer>
-        {requesting ?
-          <LoadingCon>
-            <Loading />
-          </LoadingCon> :
-          <Article>
-            <Titlt>{currentArticle.title}</Titlt>
-            <Label>
-              <p>
-                <Author>
-                  {currentArticle.author}
-                </Author>
-                <Text>发布于</Text>
-                <TimeLabel>{currentArticle.createAt}</TimeLabel>
-              </p>
-              <div>
-                <Tag>{currentArticle.tags}</Tag>
-                {/* <Tag>JavaScript</Tag> */}
-              </div>
-            </Label>
+        <Article>
+          <Titlt>{currentArticle.title}</Titlt>
+          <Label>
+            <p>
+              <Author>
+                {currentArticle.author}
+              </Author>
+              <Text>发布于</Text>
+              <TimeLabel>{currentArticle.createAt}</TimeLabel>
+            </p>
+            <div>
+              <Tag>JavaScript</Tag>
+            </div>
+          </Label>
+          {requesting ?
+            <LoadingCon>
+              <Loading />
+            </LoadingCon> :
             <ArticleContent>
               <div
                 className={styles.output}
                 dangerouslySetInnerHTML={{ __html: marked(currentArticle.content) }}
-              >
+                >
               </div>
             </ArticleContent>
-          </Article>
-        }
+          }
+        </Article>
         <ReviewCon>
           <ReviewTit>共40条评论：</ReviewTit>
           <QueueAnim type="bottom">
@@ -102,8 +120,30 @@ class SingleArticle extends Component {
             </ReviewItem>
           </QueueAnim>
           <EnterComment>
-            <CommentArea placeholder="Post your opinion" />
-            <SubmitBtn>Submit</SubmitBtn>
+            <InputBox>
+              <SingleInput
+                type="text"
+                placeholder="NickName"
+                value={comments.nickname}
+                onChange={(e) => onCommentsChange({ nickname: e.target.value })}
+              />
+              <SingleInput
+                type="text"
+                placeholder="Github"
+                value={comments.personalWebsite}
+                onChange={(e) => onCommentsChange({ personalWebsite: e.target.value })}
+              />
+            </InputBox>
+            <CommentArea
+              placeholder="Post your opinion"
+              value={comments.commentContent}
+              onChange={(e) => onCommentsChange({ commentContent: e.target.value })}
+            />
+            <SubmitBtn
+              onClick={this.handleSubmitComment}
+            >
+              提交评论
+            </SubmitBtn>
           </EnterComment>
         </ReviewCon>
       </ArticleContainer>
@@ -117,17 +157,23 @@ SingleArticle.propTypes = {
   onCurrentArticleChange: PropTypes.func,
   onFetchArticleContent: PropTypes.func,
   params: PropTypes.object,
+  onCommentsChange: PropTypes.func,
+  comments: PropTypes.object,
+  onCommentSubmit: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   currentArticle: selectCurrentArticle(),
   requesting: selectRequesting(),
+  comments: selectComments(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     onCurrentArticleChange: (val) => dispatch(changeCurrentArticle(val)),
     onFetchArticleContent: () => dispatch(fetchArticleContent()),
+    onCommentsChange: (val) => dispatch(changeCommentInfo(val)),
+    onCommentSubmit: () => dispatch(submitComment()),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SingleArticle);
