@@ -12,7 +12,25 @@ const selectNavActive = () => createSelector(
   (indexState) => indexState.get('navActive')
 );
 
+const selectArticleList = () => createSelector(
+  selectIndex(),
+  (indexState) => indexState.get('articleList').toJS()
+);
+
+const selectRequesting = () => createSelector(
+  selectIndex(),
+  (indexState) => indexState.get('requesting')
+);
+
+const selectSearchTitle = () => createSelector(
+  selectIndex(),
+  (indexState) => indexState.get('searchTitle')
+);
+
 export {
   selectAuthInfo,
+  selectArticleList,
   selectNavActive,
+  selectRequesting,
+  selectSearchTitle,
 };

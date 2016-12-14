@@ -7,8 +7,8 @@ import { browserHistory } from 'react-router';
 import { Tag } from './styledComponents.js';
 import styles from './styles.css';
 import {
-  fetchAllArticle,
   changeSearchTitle,
+  fetchAllArticle,
 } from './actions';
 import {
   selectArticleList,
@@ -21,7 +21,6 @@ const reg = /[\\\`\*\_\[\]\#\+\-\!\>]/g;
 
 class Article extends Component {
   componentDidMount() {
-    this.props.onFetchAllArticle();
   }
 
   getTime = (time) => {
@@ -113,8 +112,8 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchTpProps(dispatch) {
   return {
-    onFetchAllArticle: () => dispatch(fetchAllArticle()),
     onSearchTitleChange: (val) => dispatch(changeSearchTitle(val)),
+    onFetchAllArticle: () => dispatch(fetchAllArticle()),
   };
 }
 

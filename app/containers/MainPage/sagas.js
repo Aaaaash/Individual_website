@@ -1,7 +1,16 @@
 import {
   FETCH_AUTH_INFO,
+  FETCH_ALL_ARTICLE,
 } from './constants';
-import { setAuthInfo, showGlobalPrompt } from './actions';
+import {
+  selectSearchTitle,
+} from './selector';
+import {
+  setAuthInfo,
+  showGlobalPrompt,
+  fetchAllArticleSuc,
+  fetchAllArticleErr,
+} from './actions';
 import indexApi from './indexApi';
 
 import { takeLatest } from 'redux-saga';
@@ -23,10 +32,26 @@ export function* fetchAuthInfo() {
   }
 }
 
-export function* watcherFetch() {
+export function* watcherFetchAuth() {
   yield fork(takeLatest, FETCH_AUTH_INFO, fetchAuthInfo);
 }
 
+
+export function* fetchAllArticle() {
+  try {
+    const title = yield select(selectSearchTitle());
+    const response = yield call(indexApi.fetchArticle, title);
+    yield put(fetchAllArticleSuc(response));
+  } catch (err) {
+    yield put(fetchAllArticleErr(err.message));
+  }
+}
+
+export function* watcherFetchArticle() {
+  yield fork(takeLatest, FETCH_ALL_ARTICLE, fetchAllArticle);
+}
+
 export default [
-  watcherFetch,
+  watcherFetchAuth,
+  watcherFetchArticle,
 ];

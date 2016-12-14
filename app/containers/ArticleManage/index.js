@@ -8,20 +8,38 @@ import Editor from '../Editor';
 import {
   changeArticleInfo,
   pushArticle,
+  fetchAllArticle,
 } from './actions';
 import {
   selectAuthInfo,
   selectArticleInfo,
+  selectArticleList,
 } from './selector';
+import './iconfont.js';
 
 class ArticleManage extends Component {
+  componentDidMount() {
+    // if (this.props.articleList.size === 0) this.props.onFetchAllArticle();
+    console.log(this.props.articleList)
+  }
+
   render() {
     const { articleInfo, onArticleInfoChange, onArticlePush } = this.props;
     return (
       <div className={styles.admin}>
         <div className={styles.article_list} key="a">
-          <h3>文章列表<button className={styles.add_new}>+</button></h3>
-          <QueueAnim type="bottom" component="ul" className={styles.article_name}>
+          <h3>文章列表
+            <button className={styles.add_new}>
+              <svg className={styles.addicon} aria-hidden="true">
+                <use href="#icon-add"></use>
+              </svg>
+            </button>
+          </h3>
+          <QueueAnim
+            type="bottom"
+            component="ul"
+            className={styles.article_name}
+          >
             <li key="a">
               <h4>React设计思想</h4>
               <span>2016-12-2</span>
@@ -64,17 +82,20 @@ ArticleManage.propTypes = {
   articleInfo: PropTypes.object,
   onArticleInfoChange: PropTypes.func,
   onArticlePush: PropTypes.func,
+  articleList: PropTypes.array,
 };
 
 const mapStateToProps = createStructuredSelector({
   authInfo: selectAuthInfo(),
   articleInfo: selectArticleInfo(),
+  articleList: selectArticleList(),
 });
 
 function mapDispatchTpProps(dispatch) {
   return {
     onArticleInfoChange: (val) => dispatch(changeArticleInfo(val)),
     onArticlePush: () => dispatch(pushArticle()),
+    onFetchAllArticle: () => dispatch(fetchAllArticle()),
   };
 }
 

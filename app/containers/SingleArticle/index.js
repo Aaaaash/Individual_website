@@ -125,16 +125,14 @@ class SingleArticle extends Component {
               <div
                 className={styles.output}
                 dangerouslySetInnerHTML={{ __html: marked(currentArticle.content) }}
-                >
+              >
               </div>
             </ArticleContent>
           }
         </Article>
         <ReviewCon>
           <ReviewTit>共{comments.length}条评论：</ReviewTit>
-          <QueueAnim type="bottom">
-            {this.renderCommentsList(comments)}
-          </QueueAnim>
+          {this.renderCommentsList(comments)}
           <EnterComment>
             <InputBox>
               <SingleInput
@@ -142,22 +140,22 @@ class SingleArticle extends Component {
                 placeholder="NickName"
                 value={comment.nickname}
                 onChange={(e) => onCommentsChange({ nickname: e.target.value })}
-                />
+              />
               <SingleInput
                 type="text"
                 placeholder="Github"
                 value={comment.personalWebsite}
                 onChange={(e) => onCommentsChange({ personalWebsite: e.target.value })}
-                />
+              />
             </InputBox>
             <CommentArea
               placeholder="Post your opinion"
               value={comment.commentContent}
               onChange={(e) => onCommentsChange({ commentContent: e.target.value })}
-              />
+            />
             <SubmitBtn
               onClick={this.handleSubmitComment}
-              >
+            >
               提交评论
             </SubmitBtn>
           </EnterComment>

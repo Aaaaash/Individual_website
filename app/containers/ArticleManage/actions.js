@@ -31,3 +31,7 @@ export function pushArticleError(err) {
     err,
   };
 }
+
+export {
+  fetchAllArticle,
+} from '../MainPage/actions';

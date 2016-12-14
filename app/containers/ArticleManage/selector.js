@@ -9,7 +9,9 @@ const selectArticleInfo = () => createSelector(
 
 export {
   selectAuthInfo,
+  selectArticleList,
 } from '../MainPage/selector';
+
 export {
   selectArticleInfo,
 };

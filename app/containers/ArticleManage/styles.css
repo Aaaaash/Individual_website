@@ -6,6 +6,19 @@
   flex-grow: 2;
 }
 
+.addicon {
+   width: 0.32rem;
+   height: 0.32rem;
+   vertical-align: -0.15em;
+   overflow: hidden;
+   border-radius: 50%;
+}
+
+.addicon:hover {
+  color: #323232;
+  transition: all 200ms;
+}
+
 .article_list {
   min-width: 2rem;
   height: 100%;
@@ -32,20 +45,6 @@
   outline: none;
   color: #666;
   cursor: pointer;
-  border-radius: 4px;
-  border: 1px solid #CCC;
-}
-
-.add_new:hover {
-  color: #323232;
-  box-shadow: 0 1px 2px #CCC;
-}
-
-.add_new:active {
-  text-shadow: 0 2px 3px #666;
-  background: #666;
-  color: #F5F5F5;
-  transition: all 200ms;
 }
 
 .article_name {
@@ -57,7 +56,6 @@
 
 .article_name li {
   padding-left: 0.25rem;
-  margin-bottom: 0.2rem;
   cursor: pointer;
 }
 

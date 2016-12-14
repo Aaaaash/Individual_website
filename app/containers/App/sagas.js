@@ -5,14 +5,14 @@
 import {
   USERINFO_REQUESTING,
 } from './constants';
-
 import {
   userinfoRequestSuccess,
   userinfoRequestError,
 } from './actions';
 
 import appRequest from './appRequests';
-import { take, call, put } from 'redux-saga/effects';
+import { takeLatest } from 'redux-saga';
+import { take, call, put, select, fork } from 'redux-saga/effects';
 
 export function* requestUserInfo() {
   try {

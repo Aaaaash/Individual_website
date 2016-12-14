@@ -7,6 +7,7 @@ import LeftNav from './LeftNav';
 import {
   fetchAuthInfo,
   changeNavActive,
+  fetchAllArticle,
 } from './actions';
 import {
   selectAuthInfo,
@@ -19,6 +20,7 @@ import {
 class MainPage extends Component {  // eslint-disable-line
   componentDidMount() {
     this.props.onFetchAuthInfo();
+    this.props.onFetchAllArticle();
   }
 
   render() {
@@ -47,6 +49,7 @@ MainPage.propTypes = {
   children: PropTypes.object,
   navActive: PropTypes.number,
   onNavActiveChange: PropTypes.func,
+  onFetchAllArticle: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -56,6 +59,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchTpProps(dispatch) {
   return {
+    onFetchAllArticle: () => dispatch(fetchAllArticle()),
     onFetchAuthInfo: () => dispatch(fetchAuthInfo()),
     onNavActiveChange: (val) => dispatch(changeNavActive(val)),
   };

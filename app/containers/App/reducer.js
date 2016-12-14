@@ -15,7 +15,7 @@ import {
   TOKEN_ERROR,
 } from './errors';
 
-import { fromJS } from 'immutable';
+import { fromJS, List } from 'immutable';
 
 const initialState = fromJS({
   userInfo: {
