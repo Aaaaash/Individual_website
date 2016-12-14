@@ -58,6 +58,8 @@ import {
 } from './actions';
 import Loading from 'components/Loading';
 import styles from './styles.css';
+import BlogFooter from 'components/BlogFooter';
+
 // const socket = io.connect('http://192.168.1.135:8000/');
 // socket.on('3q', function(msg) {
 //   console.log(msg);
@@ -87,6 +89,7 @@ class SingleArticle extends Component {
             >
               {item.nickname}
             </LinkUrl>
+            说：
           </ReviewAuth>
           <ReviewTime>{item.createAt}</ReviewTime>
         </ReviewAuthTime>
@@ -159,6 +162,7 @@ class SingleArticle extends Component {
               提交评论
             </SubmitBtn>
           </EnterComment>
+          <BlogFooter />
         </ReviewCon>
       </ArticleContainer>
     );

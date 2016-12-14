@@ -14,17 +14,38 @@ import {
   selectAuthInfo,
   selectArticleInfo,
   selectArticleList,
+  selectRequesting,
 } from './selector';
 import './iconfont.js';
+import Loading from 'components/Loading';
 
 class ArticleManage extends Component {
   componentDidMount() {
     // if (this.props.articleList.size === 0) this.props.onFetchAllArticle();
-    console.log(this.props.articleList)
   }
 
+  renderLoading = () =>
+    <div className={styles.loading_container}>
+      <Loading />
+    </div>
+
+  renderArticleList = (list) =>
+    list.map((item, index) =>
+      <li key={index}>
+        <h4>{item.title}</h4>
+        <span>{item.createAt}</span>
+        <span>2343</span>
+      </li>
+    );
+
   render() {
-    const { articleInfo, onArticleInfoChange, onArticlePush } = this.props;
+    const {
+      articleInfo,
+      onArticleInfoChange,
+      onArticlePush,
+      articleList,
+      requesting,
+    } = this.props;
     return (
       <div className={styles.admin}>
         <div className={styles.article_list} key="a">
@@ -40,31 +61,9 @@ class ArticleManage extends Component {
             component="ul"
             className={styles.article_name}
           >
-            <li key="a">
-              <h4>React设计思想</h4>
-              <span>2016-12-2</span>
-              <span>2343</span>
-            </li>
-            <li key="b">
-              <h4>React设计思想</h4>
-              <span>2016-12-2</span>
-              <span>2343</span>
-            </li>
-            <li key="c">
-              <h4>React设计思想</h4>
-              <span>2016-12-2</span>
-              <span>2343</span>
-            </li>
-            <li key="d">
-              <h4>React设计思想</h4>
-              <span>2016-12-2</span>
-              <span>2343</span>
-            </li>
-            <li key="e">
-              <h4>React设计思想</h4>
-              <span>2016-12-2</span>
-              <span>2343</span>
-            </li>
+            {requesting
+              ? this.renderLoading()
+              : this.renderArticleList(articleList)}
           </QueueAnim>
         </div>
         <Editor
@@ -83,12 +82,14 @@ ArticleManage.propTypes = {
   onArticleInfoChange: PropTypes.func,
   onArticlePush: PropTypes.func,
   articleList: PropTypes.array,
+  requesting: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({
   authInfo: selectAuthInfo(),
   articleInfo: selectArticleInfo(),
   articleList: selectArticleList(),
+  requesting: selectRequesting(),
 });
 
 function mapDispatchTpProps(dispatch) {

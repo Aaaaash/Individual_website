@@ -10,6 +10,7 @@ const selectArticleInfo = () => createSelector(
 export {
   selectAuthInfo,
   selectArticleList,
+  selectRequesting,
 } from '../MainPage/selector';
 
 export {

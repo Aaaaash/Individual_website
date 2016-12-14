@@ -37,14 +37,14 @@ class Article extends Component {
     }
   }
 
+  handleArticleDetail = (id) => {
+    browserHistory.push(`/article/${id}`);
+  }
+
   renderLoading = () =>
     <div className={styles.loading_container}>
       <Loading />
     </div>
-
-  handleArticleDetail = (id) => {
-    browserHistory.push(`/article/${id}`);
-  }
 
   renderArticleItem = (list) =>
     list.map((item, index) =>

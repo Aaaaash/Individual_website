@@ -124,8 +124,8 @@ export const ReviewAuthTime = styled.div`
 `;
 
 export const ReviewAuth = styled.p`
-  color: #F45E6E;
-  width: 0.75rem;
+  color: #5A5A5A;
+  width: 1.25rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -135,6 +135,7 @@ export const LinkUrl = styled.a`
   color: #F45E6E;
   cursor: pointer;
   text-decoration: none;
+  padding: 0 0.05rem;
   &:hover {
     text-decoration: underline;
   }

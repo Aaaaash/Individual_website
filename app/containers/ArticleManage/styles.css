@@ -36,6 +36,12 @@
   position: relative;
 }
 
+.loading_container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .add_new {
   position: absolute;
   right: 0.25rem;
