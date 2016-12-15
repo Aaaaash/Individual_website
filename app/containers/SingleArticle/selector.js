@@ -22,9 +22,15 @@ const selectComments = () => createSelector(
   (articleState) => articleState.get('comments').toJS()
 );
 
+const selectMetaData = () => createSelector(
+  selectSingleArticle(),
+  (articleState) => articleState.get('metaData').toJS()
+);
+
 export {
   selectCurrentArticle,
   selectRequesting,
   selectComment,
   selectComments,
+  selectMetaData,
 };

@@ -5,6 +5,7 @@ import {
   CHANGE_CURRENT_ARTICLE,
   CHANGE_COMMENT_INFO,
   FETCH_COMMENTS_LIST_SUCCESS,
+  CHANGE_META_DATA,
 } from './constants';
 
 import { fromJS, List } from 'immutable';
@@ -23,6 +24,10 @@ const initialState = fromJS({
     commentContent: '',
   },
   comments: [],
+  metaData: {
+    prev: {},
+    next: {},
+  },
   err: '',
   requesting: false,
 });
@@ -42,6 +47,8 @@ function articleContentReducer(state = initialState, action) {
       return state.mergeDeep(fromJS({ comment: action.val }));
     case FETCH_COMMENTS_LIST_SUCCESS:
       return state.set('comments', new List(action.data));
+    case CHANGE_META_DATA:
+      return state.mergeDeep(fromJS({ metaData: action.data }));
     default:
       return state;
   }

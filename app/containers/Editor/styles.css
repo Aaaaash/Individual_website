@@ -239,15 +239,15 @@
 }
 
 .output pre {
-  background-color: #F9F9F9;
+  background-color: rgb(40, 44, 52);
   border: 1px solid #EEE;
-  color: #555;
   border-radius: 3px;
+  color: #EEE;
   padding: 10px;
   font-size: .9em;
   overflow: auto;
   font-family: 'monaco';
-  line-height: 1.33;
+  line-height: 1.75;
 }
 
 .output pre code {

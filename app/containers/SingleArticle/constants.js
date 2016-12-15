@@ -13,3 +13,5 @@ export const SUBMIT_COMMENT_ERROR = 'xmm/article/SUBMIT_COMMENT_ERROR';
 export const FETCH_COMMENTS_LIST = 'xmm/article/FETCH_COMMENTS_LIST';
 export const FETCH_COMMENTS_LIST_SUCCESS = 'xmm/article/FETCH_COMMENTS_LIST_SUCCESS';
 export const FETCH_COMMENTS_LIST_ERROR = 'xmm/article/FETCH_COMMENTS_LIST_ERROR';
+
+export const CHANGE_META_DATA = 'xmm/article/CHANGE_META_DATA';

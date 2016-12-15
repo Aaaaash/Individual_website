@@ -15,7 +15,7 @@ export const Article = styled.div`
   margin: 0.25rem auto;
   border-radius: 2px;
   background-color: #FFF;
-  box-shadow: 0 1px 2px rgba(108, 108, 108, 0.24);
+  box-shadow: 0 0 1px #CCC;
   padding: 0.25rem;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     width: 100%;
@@ -92,9 +92,10 @@ export const LoadingCon = styled.div`
 
 export const ReviewCon = styled.div`
   width: 50%;
-  margin: 0 auto;
-  padding: 0 0.25rem;
-  margin-bottom: 0.25rem;
+  margin: .25rem auto;
+  padding: 0.25rem;
+  box-shadow: 0 0 1px #CCC;
+  background-color: #FFF;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     width: 100%;
     margin-top: 0.25rem;
@@ -117,10 +118,16 @@ export const ReviewItem = styled.div`
   width: 100%;
   display: flex;
   margin-top: 0.15rem;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    flex-direction: column;
+  }
 `;
 
 export const ReviewAuthTime = styled.div`
-  
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const ReviewAuth = styled.p`
@@ -129,6 +136,9 @@ export const ReviewAuth = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    width: 2.25rem;
+  }
 `;
 
 export const LinkUrl = styled.a`
@@ -144,7 +154,7 @@ export const LinkUrl = styled.a`
 export const ReviewTime = styled.p`
   font-size: 12px;
   color: #B4B4B4;
-  font-style: italic;
+  margin-left: 0.05rem;
 `;
 
 export const AuthContent = styled.p`
@@ -235,4 +245,65 @@ export const SubmitBtn = styled.button`
     height: 0.45rem;
     line-height: 0.45rem;
   }
+`;
+
+export const Paper = styled.div`
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+`;
+export const PageJump = styled.p`
+  width: 48%;
+  height: 0.75rem;
+  line-height: 0.75rem;
+`;
+
+export const PageBtn = styled.button`
+  width: 100%;
+  height: 100%;
+  font-size: 0.2rem;
+  color: #757575
+  padding: 0.25rem;
+  cursor: pointer;
+  box-shadow: 0 0 1px #CCC;
+  background-color: #FFF;
+  outline: none;
+  &:hover {
+    color: #5A5A5A;
+    transition: all 300ms;
+  }
+  &:active {
+    color: #E6E9ED;
+    background-color: #5A5A5A;
+    transition: all 300ms;
+  }
+`;
+
+export const NoData = styled.p`
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 0.2rem;
+  color: #CCC;
+`;
+
+export const Arrow = styled.span`
+  width: 0.25rem;
+  height: 0.25rem;
+  margin: 0 0.15rem;
+  cursor: pointer;
+  vertical-align: -0.15rem;
+  fill: currentColor;
+  overflow: hidden;
+  color: #4D4D4D;
+  font-weight: bold;
+  border-radius: 50%;
+  border: 1px solid #CCC;
+  padding: 0.05rem;
+  box-sizing: content-box;
 `;

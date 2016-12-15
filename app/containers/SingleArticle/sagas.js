@@ -11,6 +11,7 @@ import {
   changeCommentInfo,
   fetchCommentsListSuc,
   fetchCommentsListErr,
+  changeMetaData,
 } from './actions';
 import {
   selectCurrentArticle,
@@ -25,7 +26,11 @@ export function* fetchArticleContent() {
   try {
     const { id } = yield select(selectCurrentArticle());
     const response = yield call(articleApi.fetchArticle, id);
-    yield put(fetchArticleContentSuc(response));
+    yield put(fetchArticleContentSuc(response.data));
+    yield put(changeMetaData({
+      prev: response.meta.prev,
+      next: response.meta.next,
+    }));
   } catch (err) {
     yield put(fetchArticleContentErr(err.message));
   }

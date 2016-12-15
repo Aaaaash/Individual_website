@@ -42,12 +42,18 @@ import {
   InputBox,
   SingleInput,
   LinkUrl,
+  Paper,
+  PageJump,
+  PageBtn,
+  NoData,
+  Arrow,
 } from './styledComponents';
 import {
   selectCurrentArticle,
   selectRequesting,
   selectComment,
   selectComments,
+  selectMetaData,
 } from './selector';
 import {
   fetchArticleContent,
@@ -59,6 +65,7 @@ import {
 import Loading from 'components/Loading';
 import styles from './styles.css';
 import BlogFooter from 'components/BlogFooter';
+import './iconfont.js';
 
 // const socket = io.connect('http://192.168.1.135:8000/');
 // socket.on('3q', function(msg) {
@@ -73,9 +80,24 @@ class SingleArticle extends Component {
     this.props.onFetchComments();
   }
 
+  getTime = (time) => {
+    if (time) {
+      const date = new Date(Number(time) * 1000);
+      return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+    }
+    return false;
+  };
+
   handleSubmitComment = () => {
     this.props.onCommentSubmit();
     // socket.emit('message', '客户端消息');
+  }
+
+  handleJumpPage = (title, id) => {
+    browserHistory.push(`/article/${id}`);
+    this.props.onCurrentArticleChange({ id, title });
+    this.props.onFetchArticleContent();
+    this.props.onFetchComments();
   }
 
   renderCommentsList = (list) =>
@@ -91,7 +113,7 @@ class SingleArticle extends Component {
             </LinkUrl>
             说：
           </ReviewAuth>
-          <ReviewTime>{item.createAt}</ReviewTime>
+          <ReviewTime>{this.getTime(item.createAt)}</ReviewTime>
         </ReviewAuthTime>
         <AuthContent>{item.commentContent}</AuthContent>
       </ReviewItem>
@@ -103,6 +125,7 @@ class SingleArticle extends Component {
       comment,
       onCommentsChange,
       comments,
+      metaData,
     } = this.props;
     return (
       <ArticleContainer>
@@ -114,10 +137,10 @@ class SingleArticle extends Component {
                 {currentArticle.author}
               </Author>
               <Text>发布于</Text>
-              <TimeLabel>{currentArticle.createAt}</TimeLabel>
+              <TimeLabel>{this.getTime(currentArticle.createAt)}</TimeLabel>
             </p>
             <div>
-              <Tag>JavaScript</Tag>
+              <Tag>{currentArticle.tags}</Tag>
             </div>
           </Label>
           {requesting ?
@@ -133,6 +156,29 @@ class SingleArticle extends Component {
             </ArticleContent>
           }
         </Article>
+        <Paper>
+          <PageJump>
+            {metaData.prev === null ?
+              <NoData>已经是第一篇</NoData> :
+              <PageBtn
+                onClick={() => this.handleJumpPage(metaData.prev.title, metaData.prev.id)}
+              >
+                <Arrow>
+                  <use href="#icon-jiantou-copy"></use>
+                </Arrow>
+                {metaData.prev.title}
+              </PageBtn>}
+          </PageJump>
+          <PageJump>
+            {metaData.next === null ?
+              <NoData>已经是最后一篇</NoData> :
+              <PageBtn
+                onClick={() => this.handleJumpPage(metaData.next.title, metaData.next.id)}
+              >
+                {metaData.next.title}
+              </PageBtn>}
+          </PageJump>
+        </Paper>
         <ReviewCon>
           <ReviewTit>共{comments.length}条评论：</ReviewTit>
           {this.renderCommentsList(comments)}
@@ -162,8 +208,8 @@ class SingleArticle extends Component {
               提交评论
             </SubmitBtn>
           </EnterComment>
-          <BlogFooter />
         </ReviewCon>
+        <BlogFooter />
       </ArticleContainer>
     );
   }
@@ -180,6 +226,7 @@ SingleArticle.propTypes = {
   onCommentSubmit: PropTypes.func,
   onFetchComments: PropTypes.func,
   comments: PropTypes.array,
+  metaData: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -187,6 +234,7 @@ const mapStateToProps = createStructuredSelector({
   requesting: selectRequesting(),
   comment: selectComment(),
   comments: selectComments(),
+  metaData: selectMetaData(),
 });
 
 function mapDispatchToProps(dispatch) {

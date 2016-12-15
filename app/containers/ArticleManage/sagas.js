@@ -17,8 +17,13 @@ import { fork, take, call, put, select } from 'redux-saga/effects';
 export function* pushArticle() {
   try {
     const { name } = yield select(selectAuthInfo());
-    const { title, tags, content } = yield select(selectArticleInfo());
-    yield call(articleApi.pushArticle, title, tags, content, name);
+    const {
+      title,
+      tags,
+      content,
+      published,
+    } = yield select(selectArticleInfo());
+    yield call(articleApi.pushArticle, title, tags, content, name, published);
     yield put(pushArticleSuccess());
   } catch (err) {
     console.log(err.message);

@@ -12,6 +12,7 @@ const initialState = fromJS({
     title: '',
     tags: '',
     content: '',
+    published: true,
   },
   requesting: false,
   err: '',

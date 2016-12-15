@@ -10,6 +10,7 @@ import {
   FETCH_COMMENTS_LIST,
   FETCH_COMMENTS_LIST_SUCCESS,
   FETCH_COMMENTS_LIST_ERROR,
+  CHANGE_META_DATA,
 } from './constants';
 
 export function fetchArticleContent() {
@@ -83,5 +84,12 @@ export function fetchCommentsListErr(err) {
   return {
     type: FETCH_COMMENTS_LIST_ERROR,
     err,
+  };
+}
+
+export function changeMetaData(data) {
+  return {
+    type: CHANGE_META_DATA,
+    data,
   };
 }
