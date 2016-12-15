@@ -258,9 +258,9 @@ export const Paper = styled.div`
   }
 `;
 export const PageJump = styled.p`
-  width: 48%;
-  height: 0.75rem;
-  line-height: 0.75rem;
+  width: 50%;
+  height: 0.65rem;
+  line-height: 0.65rem;
 `;
 
 export const PageBtn = styled.button`
@@ -268,7 +268,6 @@ export const PageBtn = styled.button`
   height: 100%;
   font-size: 0.2rem;
   color: #757575
-  padding: 0.25rem;
   cursor: pointer;
   box-shadow: 0 0 1px #CCC;
   background-color: #FFF;
@@ -282,6 +281,9 @@ export const PageBtn = styled.button`
     background-color: #5A5A5A;
     transition: all 300ms;
   }
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    font-size: 0.16rem;
+  }
 `;
 
 export const NoData = styled.p`
@@ -292,18 +294,3 @@ export const NoData = styled.p`
   color: #CCC;
 `;
 
-export const Arrow = styled.span`
-  width: 0.25rem;
-  height: 0.25rem;
-  margin: 0 0.15rem;
-  cursor: pointer;
-  vertical-align: -0.15rem;
-  fill: currentColor;
-  overflow: hidden;
-  color: #4D4D4D;
-  font-weight: bold;
-  border-radius: 50%;
-  border: 1px solid #CCC;
-  padding: 0.05rem;
-  box-sizing: content-box;
-`;

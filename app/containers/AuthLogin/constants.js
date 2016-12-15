@@ -5,3 +5,5 @@ export const AUTH_INPUT_ERROR = 'blog/Auth/AUTH_INPUT_ERROR';
 export const AUTH_SEND_REQUEST = 'blog/Auth/AUTH_SEND_REQUEST';
 export const AUTH_SEND_REQUEST_SUCCESS = 'blog/Auth/AUTH_SEND_REQUEST_SUCCESS';
 export const AUTH_SEND_REQUEST_ERROR = 'blog/Auth/AUTH_SEND_REQUEST_ERROR';
+
+export const SET_LOGEDIN_STATE = 'blog/Auth/SET_LOGEDIN_STATE';

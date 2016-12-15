@@ -49,7 +49,7 @@ export default function createRoutes(store) {
 
   return [
     {
-      path: '/',
+      path: '/login',
       name: 'login',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
@@ -70,7 +70,7 @@ export default function createRoutes(store) {
       },
     },
     {
-      path: '/index',
+      path: '/',
       name: 'index',
       getComponent(nextState, cb) {
         const importModules = Promise.all([

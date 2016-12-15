@@ -15,6 +15,7 @@ const initialState = fromJS({
     accountErr: 'test',
     passwordErr: 'test',
   },
+  logedIn: false,
   loading: false,
 });
 

@@ -46,7 +46,6 @@ import {
   PageJump,
   PageBtn,
   NoData,
-  Arrow,
 } from './styledComponents';
 import {
   selectCurrentArticle,
@@ -65,7 +64,6 @@ import {
 import Loading from 'components/Loading';
 import styles from './styles.css';
 import BlogFooter from 'components/BlogFooter';
-import './iconfont.js';
 
 // const socket = io.connect('http://192.168.1.135:8000/');
 // socket.on('3q', function(msg) {
@@ -163,9 +161,6 @@ class SingleArticle extends Component {
               <PageBtn
                 onClick={() => this.handleJumpPage(metaData.prev.title, metaData.prev.id)}
               >
-                <Arrow>
-                  <use href="#icon-jiantou-copy"></use>
-                </Arrow>
                 {metaData.prev.title}
               </PageBtn>}
           </PageJump>

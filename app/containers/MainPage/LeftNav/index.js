@@ -16,7 +16,7 @@ class LeftNav extends Component {
   }
   handleChangeNavActive = (val, route) => {
     this.props.onNavActiveChange(val);
-    browserHistory.push(`/${route}`); 
+    browserHistory.push(`/${route}`);
   }
 
   render() {
@@ -51,7 +51,7 @@ class LeftNav extends Component {
           <li
             key="a"
             className={navActive === 0 ? styles.active : ''}
-            onTouchTap={() => this.handleChangeNavActive(0, 'index')}
+            onTouchTap={() => this.handleChangeNavActive(0, '')}
           >
             Index
           </li>
