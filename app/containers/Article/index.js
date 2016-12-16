@@ -58,7 +58,6 @@ class Article extends Component {
           </button>
         </h3>
         <p className={styles.article_about}>
-          {/* <span className={styles.label}>React</span> */}
           <Tag>{item.tags}</Tag>
           <span className={styles.author}>{item.author}</span>
           <span className={styles.create_time}>{this.getTime(item.createAt)}</span>
@@ -66,8 +65,16 @@ class Article extends Component {
         <p    // eslint-disable-line
           className={styles.markdownBody}
         >
-        {`${item.content.replace(reg, '').substr(0, 200)}...`}
+          {`${item.content.replace(reg, '').substr(0, 500)}...`}
         </p>
+        <div>
+          <a
+            className={styles.more}
+            href={`/article/${item._id}`} target="_Blank"
+          >
+            查看更多
+          </a>
+        </div>
       </div>
     );
 

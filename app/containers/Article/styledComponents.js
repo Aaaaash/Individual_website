@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Tag = styled.span`
   font-size: 14px;
-  margin-right: 0.15rem;
+  margin-right: 0.1rem;
   border: 1px solid #F45E6E;
   padding: 0.02rem 0.1rem;
   cursor: pointer;

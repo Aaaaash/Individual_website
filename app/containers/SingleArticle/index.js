@@ -46,6 +46,8 @@ import {
   PageJump,
   PageBtn,
   NoData,
+  Nocomment,
+  ToolBar,
 } from './styledComponents';
 import {
   selectCurrentArticle,
@@ -72,6 +74,7 @@ import BlogFooter from 'components/BlogFooter';
 
 class SingleArticle extends Component {
   componentDidMount() {
+    console.log('渲染');
     const id = this.props.params.articleID;
     this.props.onCurrentArticleChange({ id });
     this.props.onFetchArticleContent();
@@ -98,24 +101,31 @@ class SingleArticle extends Component {
     this.props.onFetchComments();
   }
 
-  renderCommentsList = (list) =>
-    list.map((item, index) =>
-      <ReviewItem key={index}>
-        <ReviewAuthTime>
-          <ReviewAuth title={item.nickname}>
-            <LinkUrl
-              target="_Blank"
-              href={item.personalWebsite}
-            >
-              {item.nickname}
-            </LinkUrl>
-            说：
-          </ReviewAuth>
-          <ReviewTime>{this.getTime(item.createAt)}</ReviewTime>
-        </ReviewAuthTime>
-        <AuthContent>{item.commentContent}</AuthContent>
-      </ReviewItem>
+  renderCommentsList = (list) => {
+    if (list.length === 0) {
+      return <Nocomment>暂无评论!</Nocomment>;
+    }
+    return (
+      list.map((item, index) =>
+        <ReviewItem key={index}>
+          <ReviewAuthTime>
+            <ReviewAuth title={item.nickname}>
+              <LinkUrl
+                target="_Blank"
+                href={item.personalWebsite}
+              >
+                {item.nickname}
+              </LinkUrl>
+              说：
+            </ReviewAuth>
+            <ReviewTime>{this.getTime(item.createAt)}</ReviewTime>
+          </ReviewAuthTime>
+          <AuthContent>{item.commentContent}</AuthContent>
+        </ReviewItem>
+      )
     );
+  }
+
   render() {
     const {
       currentArticle,
@@ -127,7 +137,8 @@ class SingleArticle extends Component {
     } = this.props;
     return (
       <ArticleContainer>
-        <Article>
+      <QueueAnim type="bottom">
+        <Article key="an1">
           <Titlt>{currentArticle.title}</Titlt>
           <Label>
             <p>
@@ -154,14 +165,14 @@ class SingleArticle extends Component {
             </ArticleContent>
           }
         </Article>
-        <Paper>
+        <Paper key="an2">
           <PageJump>
             {metaData.prev === null ?
               <NoData>已经是第一篇</NoData> :
               <PageBtn
                 onClick={() => this.handleJumpPage(metaData.prev.title, metaData.prev.id)}
               >
-                {metaData.prev.title}
+                上一篇：{metaData.prev.title}
               </PageBtn>}
           </PageJump>
           <PageJump>
@@ -170,11 +181,11 @@ class SingleArticle extends Component {
               <PageBtn
                 onClick={() => this.handleJumpPage(metaData.next.title, metaData.next.id)}
               >
-                {metaData.next.title}
+                下一篇：{metaData.next.title}
               </PageBtn>}
           </PageJump>
         </Paper>
-        <ReviewCon>
+        <ReviewCon key="an3">
           <ReviewTit>共{comments.length}条评论：</ReviewTit>
           {this.renderCommentsList(comments)}
           <EnterComment>
@@ -204,7 +215,8 @@ class SingleArticle extends Component {
             </SubmitBtn>
           </EnterComment>
         </ReviewCon>
-        <BlogFooter />
+        <BlogFooter key="an4" />
+      </QueueAnim>
       </ArticleContainer>
     );
   }

@@ -22,7 +22,7 @@ import articleApi from './articleApi';
 import { takeLatest } from 'redux-saga';
 import { fork, call, put, select } from 'redux-saga/effects';
 
-export function* fetchArticleContent() {
+export function* fetchArticle() {
   try {
     const { id } = yield select(selectCurrentArticle());
     const response = yield call(articleApi.fetchArticle, id);
@@ -56,13 +56,13 @@ export function* submitComment() {
       personalWebsite: '',
       commentContent: '',
     }));
-    yield call(fetchCommentsList);
+    yield call(fetchComments);
   } catch (err) {
     yield put(submitCommentErr(err.message));
   }
 }
 
-export function* fetchCommentsList() {
+export function* fetchComments() {
   try {
     const { id } = yield select(selectCurrentArticle());
     const response = yield call(articleApi.fetchComments, id);
@@ -73,7 +73,7 @@ export function* fetchCommentsList() {
 }
 
 export function* watcherFetchContent() {
-  yield fork(takeLatest, FETCH_ARTICLE_CONTENT, fetchArticleContent);
+  yield fork(takeLatest, FETCH_ARTICLE_CONTENT, fetchArticle);
 }
 
 export function* watcherSubmitComment() {
@@ -81,7 +81,7 @@ export function* watcherSubmitComment() {
 }
 
 export function* watcherFetchComments() {
-  yield fork(takeLatest, FETCH_COMMENTS_LIST, fetchCommentsList);
+  yield fork(takeLatest, FETCH_COMMENTS_LIST, fetchComments);
 }
 
 export default [

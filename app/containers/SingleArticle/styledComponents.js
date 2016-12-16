@@ -254,13 +254,19 @@ export const Paper = styled.div`
   justify-content: space-between;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     width: 100%;
+    display: block;
+    padding-left: 0.45rem;
     margin-top: 0.25rem;
   }
 `;
-export const PageJump = styled.p`
+export const PageJump = styled.div`
   width: 50%;
   height: 0.65rem;
   line-height: 0.65rem;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    height: 0.36rem;
+    line-height: 0.36rem;
+  }
 `;
 
 export const PageBtn = styled.button`
@@ -269,16 +275,14 @@ export const PageBtn = styled.button`
   font-size: 0.2rem;
   color: #757575
   cursor: pointer;
-  box-shadow: 0 0 1px #CCC;
-  background-color: #FFF;
+  text-align: left;
   outline: none;
   &:hover {
-    color: #5A5A5A;
+    color: #00BAD2;
     transition: all 300ms;
   }
   &:active {
-    color: #E6E9ED;
-    background-color: #5A5A5A;
+    color: #00BAD2;
     transition: all 300ms;
   }
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
@@ -292,5 +296,17 @@ export const NoData = styled.p`
   text-align: center;
   font-size: 0.2rem;
   color: #CCC;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    text-align: left;
+    font-size: 0.16rem;
+  }
 `;
 
+export const Nocomment = styled.p`
+  width: 100%;
+  height: 0.64rem;
+  line-height: 0.64rem;
+  font-zie: 0.14rem;
+  color: #757575;
+  text-align: center;
+`;

@@ -42,11 +42,11 @@
 }
 
 .article_item {
-  padding: 0.25rem;
+  padding: 0.15rem 0.25rem;
   margin-bottom: 0.25rem;
   border-radius: 3px;
   background-color: #FFF;
-  border: 1px solid #E7E9ED;
+  box-shadow: 0 0 1px #CCC;
 }
 
 .article_item h3 {
@@ -54,6 +54,8 @@
   color: #656D78;
   margin-bottom: 0.15rem;
   font-weight: normal;
+  text-indent: 0.1rem;
+  border-left: 2px solid #F45E6E;
 }
 
 .article_item .title {
@@ -103,9 +105,25 @@
 
 .author {
   margin-left: 0.08rem;
+  font-size: 0.18rem;
+  color: #4B4B4B;
+  cursor: pointer;
+}
+
+.author:hover {
+  color: #333;
+}
+
+.more {
+  color: #A5A5A5;
+  font-size: 0.12rem;
+  line-height: 0.36rem;
+  text-decoration: none;
+}
+
+.more:hover {
   color: #00BAD2;
-  font-weight: bold;
-  font-size: 0.14rem;
+  text-decoration: underline;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
@@ -129,12 +147,12 @@
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   line-height: 1.5;
-  color: #333;
   font-size: 14px;
   line-height: 1.5;
   margin-top: 0.15rem;
   overflow:hidden;
   text-overflow:ellipsis;
-  color: #a3a3a3;
-  font-style: italic;
+  color: #4B4B4B;
+  background-color: #F7F8FA;
+  padding: 0.1rem;
 }

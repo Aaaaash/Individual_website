@@ -9,7 +9,7 @@ import menu from './menu.png';
 class LeftNav extends Component {
   constructor(props) {
     super(props);
-    this.animation = { height: '3rem', yoyo: true, duration: 250 };
+    this.animation = { height: '1.5rem', yoyo: true, duration: 250 };
   }
   state = {
     open: false,
@@ -42,8 +42,7 @@ class LeftNav extends Component {
               component="ul"
               style={{ height: '0' }}
             >
-              <li onTouchTap={() => browserHistory.push('/index')}>Index</li>
-              <li onTouchTap={() => browserHistory.push('/timeline')}>TimeLine</li>
+              <li onTouchTap={() => browserHistory.push('/')}>Index</li>
               <li onTouchTap={() => browserHistory.push('/admin')}>Blog</li>
             </TweenOne> :
           null}
@@ -57,13 +56,6 @@ class LeftNav extends Component {
           </li>
           <li
             key="b"
-            className={navActive === 1 ? styles.active : ''}
-            onTouchTap={() => this.handleChangeNavActive(1, 'timeline')}
-          >
-            TimeLine
-          </li>
-          <li
-            key="c"
             className={navActive === 2 ? styles.active : ''}
             onTouchTap={() => this.handleChangeNavActive(2, 'admin')}
           >
