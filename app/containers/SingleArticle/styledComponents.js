@@ -21,6 +21,9 @@ export const Article = styled.div`
     width: 100%;
     margin: 0 auto;
   };
+  @media only screen and (max-device-width : 1600px) {
+    width: 65%;
+  };
 `;
 
 export const Titlt = styled.p`
@@ -100,6 +103,9 @@ export const ReviewCon = styled.div`
     width: 100%;
     margin-top: 0.25rem;
   }
+  @media only screen and (max-device-width : 1600px) {
+    width: 65%;
+  };
 `;
 
 export const ReviewTit = styled.p`
@@ -258,6 +264,9 @@ export const Paper = styled.div`
     padding-left: 0.45rem;
     margin-top: 0.25rem;
   }
+  @media only screen and (max-device-width : 1600px) {
+    width: 65%;
+  };
 `;
 export const PageJump = styled.div`
   width: 50%;
