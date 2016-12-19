@@ -21,7 +21,7 @@ export const Article = styled.div`
     width: 100%;
     margin: 0 auto;
   };
-  @media only screen and (max-device-width : 1600px) {
+  @media only screen and (min-device-width : 1366px) and (max-device-width : 1600px) {
     width: 65%;
   };
 `;
@@ -88,9 +88,38 @@ export const ArticleContent = styled.div`
 
 export const LoadingCon = styled.div`
   width: 50%;
-  height: 250px;
   margin: 0.25rem auto;
-  position: relative;
+  border-radius: 2px;
+  background-color: #FFF;
+  box-shadow: 0 0 1px #CCC;
+  padding: 0.25rem;
+  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    width: 100%;
+    margin: 0 auto;
+  };
+  @media only screen and (min-device-width : 1366px) and (max-device-width : 1600px) {
+    width: 65%;
+  };
+`;
+
+export const LoadTitlt = styled.p`
+  width: 35%;
+  height: 0.24rem;
+  background-color: rgb(241, 241, 241);
+`;
+
+export const LoadAuth = styled.p`
+  width: 75%;
+  margin-top: 0.15rem;
+  background-color: rgb(241, 241, 241);
+  height: 0.24rem;
+`;
+
+export const LoadArticle = styled.div`
+  width: 100%;
+  margin-top: 0.15rem;
+  height: 1.25rem;
+  background-color: rgb(241, 241, 241);
 `;
 
 export const ReviewCon = styled.div`
@@ -103,7 +132,7 @@ export const ReviewCon = styled.div`
     width: 100%;
     margin-top: 0.25rem;
   }
-  @media only screen and (max-device-width : 1600px) {
+  @media only screen and (min-device-width : 1366px) and (max-device-width : 1600px) {
     width: 65%;
   };
 `;
@@ -123,7 +152,7 @@ export const ReviewList = styled.div`
 export const ReviewItem = styled.div`
   width: 100%;
   display: flex;
-  margin-top: 0.15rem;
+  margin-top: 0.1rem;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     flex-direction: column;
   }
@@ -173,7 +202,7 @@ export const AuthContent = styled.p`
 
 export const EnterComment = styled.div`
   width: 100%;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -264,7 +293,7 @@ export const Paper = styled.div`
     padding-left: 0.45rem;
     margin-top: 0.25rem;
   }
-  @media only screen and (max-device-width : 1600px) {
+  @media only screen and (min-device-width : 1366px) and (max-device-width : 1600px) {
     width: 65%;
   };
 `;

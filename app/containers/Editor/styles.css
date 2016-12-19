@@ -173,6 +173,7 @@
 .editor_footer {
   height: 0.36rem;
   margin-top: 0.22rem;
+  text-align: right;
 }
 
 .release {

@@ -4,6 +4,8 @@ import {
 import {
   pushArticleSuccess,
   pushArticleError,
+  fetchAllArticle,
+  changeArticleInfo,
 } from './actions';
 import {
   selectAuthInfo,
@@ -25,6 +27,12 @@ export function* pushArticle() {
     } = yield select(selectArticleInfo());
     yield call(articleApi.pushArticle, title, tags, content, name, published);
     yield put(pushArticleSuccess());
+    yield put(fetchAllArticle());
+    yield put(changeArticleInfo({
+      title: '',
+      tags: '',
+      content: '',
+    }));
   } catch (err) {
     console.log(err.message);
     yield put(pushArticleError());

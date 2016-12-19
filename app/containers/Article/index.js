@@ -64,16 +64,27 @@ class Article extends Component {
         </p>
         <p    // eslint-disable-line
           className={styles.markdownBody}
+          onClick={() => browserHistory.push(`/article/${item._id}`)}
+          title={`${item.content.replace(reg, '').substr(0, 100)}...`}
         >
           {`${item.content.replace(reg, '').substr(0, 500)}...`}
         </p>
-        <div>
+        <div className={styles.foot_tool}>
           <a
             className={styles.more}
             href={`/article/${item._id}`} target="_Blank"
           >
             查看更多
           </a>
+          <p>
+            <button className={styles.thumbs_btn}>
+              <i className="fa fa-thumbs-o-up"></i>
+            </button>
+            123
+            <button className={styles.thumbs_btn}>
+              <i className="fa fa-share-alt"></i>
+            </button>
+          </p>
         </div>
       </div>
     );

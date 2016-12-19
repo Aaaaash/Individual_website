@@ -47,7 +47,9 @@ import {
   PageBtn,
   NoData,
   Nocomment,
-  ToolBar,
+  LoadTitlt,
+  LoadAuth,
+  LoadArticle,
 } from './styledComponents';
 import {
   selectCurrentArticle,
@@ -100,6 +102,13 @@ class SingleArticle extends Component {
     this.props.onFetchComments();
   }
 
+  renderLoadingBackground = () =>
+    <LoadingCon>
+      <LoadTitlt />
+      <LoadAuth />
+      <LoadArticle />
+    </LoadingCon>
+
   renderCommentsList = (list) => {
     if (list.length === 0) {
       return <Nocomment>暂无评论!</Nocomment>;
@@ -136,25 +145,23 @@ class SingleArticle extends Component {
     } = this.props;
     return (
       <ArticleContainer>
-        <QueueAnim type="bottom">
-          <Article key="an1">
-            <Titlt>{currentArticle.title}</Titlt>
-            <Label>
-              <p>
-                <Author>
-                  {currentArticle.author}
-                </Author>
-                <Text>发布于</Text>
-                <TimeLabel>{this.getTime(currentArticle.createAt)}</TimeLabel>
-              </p>
-              <div>
-                <Tag>{currentArticle.tags}</Tag>
-              </div>
-            </Label>
-            {requesting ?
-              <LoadingCon>
-                <Loading />
-              </LoadingCon> :
+        {
+          requesting ?
+            this.renderLoadingBackground() :
+            <Article>
+              <Titlt>{currentArticle.title}</Titlt>
+              <Label>
+                <p>
+                  <Author>
+                    {currentArticle.author}
+                  </Author>
+                  <Text>发布于</Text>
+                  <TimeLabel>{this.getTime(currentArticle.createAt)}</TimeLabel>
+                </p>
+                <div>
+                  <Tag>{currentArticle.tags}</Tag>
+                </div>
+              </Label>
               <ArticleContent>
                 <div
                   className={styles.output}
@@ -162,60 +169,59 @@ class SingleArticle extends Component {
                 >
                 </div>
               </ArticleContent>
-            }
-          </Article>
-          <Paper key="an2">
-            <PageJump>
-              {metaData.prev === null ?
-                <NoData>已经是第一篇</NoData> :
-                <PageBtn
-                  onClick={() => this.handleJumpPage(metaData.prev.title, metaData.prev.id)}
-                >
-                  上一篇：{metaData.prev.title}
-                </PageBtn>}
-            </PageJump>
-            <PageJump>
-              {metaData.next === null ?
-                <NoData>已经是最后一篇</NoData> :
-                <PageBtn
-                  onClick={() => this.handleJumpPage(metaData.next.title, metaData.next.id)}
-                >
-                  下一篇：{metaData.next.title}
-                </PageBtn>}
-            </PageJump>
-          </Paper>
-          <ReviewCon key="an3">
-            <ReviewTit>共{comments.length}条评论：</ReviewTit>
-            {this.renderCommentsList(comments)}
-            <EnterComment>
-              <InputBox>
-                <SingleInput
-                  type="text"
-                  placeholder="NickName"
-                  value={comment.nickname}
-                  onChange={(e) => onCommentsChange({ nickname: e.target.value })}
-                />
-                <SingleInput
-                  type="text"
-                  placeholder="Github"
-                  value={comment.personalWebsite}
-                  onChange={(e) => onCommentsChange({ personalWebsite: e.target.value })}
-                />
-              </InputBox>
-              <CommentArea
-                placeholder="Post your opinion"
-                value={comment.commentContent}
-                onChange={(e) => onCommentsChange({ commentContent: e.target.value })}
-              />
-              <SubmitBtn
-                onClick={this.handleSubmitComment}
+            </Article>
+        }
+        <Paper>
+          <PageJump>
+            {metaData.prev === null ?
+              <NoData>已经是第一篇</NoData> :
+              <PageBtn
+                onClick={() => this.handleJumpPage(metaData.prev.title, metaData.prev.id)}
               >
-                提交评论
-              </SubmitBtn>
-            </EnterComment>
-          </ReviewCon>
-          <BlogFooter key="an4" />
-        </QueueAnim>
+                上一篇：{metaData.prev.title}
+              </PageBtn>}
+          </PageJump>
+          <PageJump>
+            {metaData.next === null ?
+              <NoData>已经是最后一篇</NoData> :
+              <PageBtn
+                onClick={() => this.handleJumpPage(metaData.next.title, metaData.next.id)}
+              >
+                下一篇：{metaData.next.title}
+              </PageBtn>}
+          </PageJump>
+        </Paper>
+        <ReviewCon>
+          <ReviewTit>共{comments.length}条评论：</ReviewTit>
+          {this.renderCommentsList(comments)}
+          <EnterComment>
+            <InputBox>
+              <SingleInput
+                type="text"
+                placeholder="NickName"
+                value={comment.nickname}
+                onChange={(e) => onCommentsChange({ nickname: e.target.value })}
+              />
+              <SingleInput
+                type="text"
+                placeholder="Github"
+                value={comment.personalWebsite}
+                onChange={(e) => onCommentsChange({ personalWebsite: e.target.value })}
+              />
+            </InputBox>
+            <CommentArea
+              placeholder="Post your opinion"
+              value={comment.commentContent}
+              onChange={(e) => onCommentsChange({ commentContent: e.target.value })}
+            />
+            <SubmitBtn
+              onClick={this.handleSubmitComment}
+            >
+              提交评论
+            </SubmitBtn>
+          </EnterComment>
+        </ReviewCon>
+        <BlogFooter />
       </ArticleContainer>
     );
   }

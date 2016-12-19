@@ -31,7 +31,7 @@ class LeftNav extends Component {
         </button>
         <div className={styles.auth_avatar}>
           <a className={styles.avatar} href="/">
-            <img src={authInfo.avatar} />
+            <img src={authInfo.avatar} alt={authInfo.avatar} />
           </a>
           <p className={styles.user_name}>{authInfo.name}</p>
         </div>

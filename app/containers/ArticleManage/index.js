@@ -51,20 +51,17 @@ class ArticleManage extends Component {
         <div className={styles.article_list} key="a">
           <h3>文章列表
             <button className={styles.add_new}>
-              <svg className={styles.addicon} aria-hidden="true">
-                <use href="#icon-add"></use>
-              </svg>
+              新建
             </button>
           </h3>
-          <QueueAnim
-            type="bottom"
-            component="ul"
-            className={styles.article_name}
-          >
+          <ul className={styles.article_name}>
             {requesting
               ? this.renderLoading()
               : this.renderArticleList(articleList)}
-          </QueueAnim>
+          </ul>
+        </div>
+        <div className={styles.preview}>
+
         </div>
         <Editor
           articleInfo={articleInfo}

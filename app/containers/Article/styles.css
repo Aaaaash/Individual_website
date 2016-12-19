@@ -42,7 +42,7 @@
 }
 
 .article_item {
-  padding: 0.15rem 0.25rem;
+  padding: 0.15rem 0.25rem 0.1rem 0.25rem;
   margin-bottom: 0.25rem;
   border-radius: 3px;
   background-color: #FFF;
@@ -66,7 +66,7 @@
 }
 
 .title:hover {
-  color: #4D4D4D;
+  color: #00BAD2;
   transition: color 400ms;
 }
 
@@ -114,10 +114,33 @@
   color: #333;
 }
 
+.foot_tool {
+  height: 0.36rem;
+  line-height: 0.36rem;
+  display: flex;
+  font-size: 0.12rem;
+  justify-content: space-between;
+}
+
+.thumbs_btn {
+  color: #A5A5A5;
+  font-size: 0.16rem;
+  padding: 0 0.05rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 300ms;
+}
+
+.thumbs_btn:hover {
+  color: #4D4D4D;
+}
+
+.thumbs_btn:active {
+  color: #00BAD2;
+}
+
 .more {
   color: #A5A5A5;
-  font-size: 0.12rem;
-  line-height: 0.36rem;
   text-decoration: none;
 }
 
@@ -155,4 +178,10 @@
   color: #4B4B4B;
   background-color: #F7F8FA;
   padding: 0.1rem;
+  cursor: pointer;
+}
+
+.markdownBody:hover {
+  color: #00BAD2;
+  transition: all 300ms;
 }
