@@ -21,6 +21,7 @@ class Editor extends Component {
   state = {
     HTML: '',
     editMode: 0,
+    fullScreen: false,
   }
 
   componentWillReceiveProps(nextProps) {
@@ -44,6 +45,8 @@ class Editor extends Component {
   }
 
   handleChangeEditMode = (mode) => this.setState({ editMode: mode });
+
+  handleChangeFullScreen = () => this.setState({ fullScreen: !this.state.fullScreen });
 
   handleTabsKeyDown = (e) => {
     if (e.keyCode === 9) {
@@ -82,57 +85,77 @@ class Editor extends Component {
             onChange={(e) => this.props.onArticleInfoChange({ tags: e.target.value })}
           />
         </div>
-        <div className={styles.editor_area}>
+        <div
+          className={
+            classNames(
+              styles.editor_area,
+              this.state.fullScreen ? styles.editor_full : ''
+            )
+          }
+        >
           <div className={styles.edirot_tool_bar}>
             <ul className={styles.input_btn}>
-              <li>
+              <li title="加粗">
                 <button className={styles.edit_btn} onTouchTap={() => this.insertFixedFormat(2, '****')}>
                   <i className="fa fa-bold"></i>
                 </button>
               </li>
-              <li>
+              <li title="斜体">
                 <button className={styles.edit_btn} onTouchTap={() => this.insertFixedFormat(2, ' __ ')}>
                   <i className="fa fa-italic"></i>
                 </button>
               </li>
-              <li>
+              <li title="插入链接">
                 <button className={styles.edit_btn} onTouchTap={() => this.insertFixedFormat(1, '[](www.link.com)')}>
                   <i className="fa fa-link"></i>
                 </button>
               </li>
-              <li>
+              <li title="引用">
                 <button className={styles.edit_btn} onTouchTap={() => this.insertFixedFormat(2, '> ')}>
                   <i className="fa fa-indent"></i>
                 </button>
               </li>
-              <li>
+              <li title="插入代码">
                 <button className={styles.edit_btn} onTouchTap={() => this.insertFixedFormat(4, '```\n \n```')}>
                   <i className="fa fa-code"></i>
                 </button>
               </li>
-              <li>
+              <li title="插入图片">
                 <button className={styles.edit_btn} onTouchTap={() => this.insertFixedFormat(4, '![alt](www.imagelink.com)')}>
                   <i className="fa fa-image"></i>
                 </button>
               </li>
-              <li>
+              <li title="无序列表">
                 <button className={styles.edit_btn} onTouchTap={() => this.insertFixedFormat(2, '- \n- ')}>
                   <i className="fa fa-list-ul"></i>
                 </button>
               </li>
-              <li>
+              <li title="有序列表">
                 <button className={styles.edit_btn} onTouchTap={() => this.insertFixedFormat(3, '1. \n2. \n3. ')}>
                   <i className="fa fa-list-ol"></i>
                 </button>
               </li>
-              <li>
+              <li title="插入标题">
                 <button className={styles.edit_btn} onTouchTap={() => this.insertFixedFormat(3, '## ')}>
                   <i className="fa fa-header"></i>
                 </button>
               </li>
             </ul>
             <ul className={styles.editor_btn}>
-              <li>
+              <li title="切换全屏">
+                <button
+                  className={styles.edit_btn}
+                  onTouchTap={this.handleChangeFullScreen}
+                >
+                  <i
+                    className={this.state.fullScreen ?
+                      'fa fa-compress' :
+                      'fa fa-arrows-alt'}
+                  >
+                  </i>
+                </button>
+              </li>
+              <li title="源模式">
                 <button
                   className={classNames(styles.edit_btn, this.state.editMode === 1 ? styles.active_btn : '')}
                   onTouchTap={() => this.handleChangeEditMode(1)}
@@ -140,7 +163,7 @@ class Editor extends Component {
                   <i className="fa fa-pencil"></i>
                 </button>
               </li>
-              <li>
+              <li title="写作模式">
                 <button
                   className={classNames(styles.edit_btn, this.state.editMode === 0 ? styles.active_btn : '')}
                   onTouchTap={() => this.handleChangeEditMode(0)}
@@ -148,7 +171,7 @@ class Editor extends Component {
                   <i className="fa fa-columns"></i>
                 </button>
               </li>
-              <li>
+              <li title="预览模式">
                 <button
                   className={classNames(styles.edit_btn, this.state.editMode === 2 ? styles.active_btn : '')}
                   onTouchTap={() => this.handleChangeEditMode(2)}
@@ -156,7 +179,7 @@ class Editor extends Component {
                   <i className="fa fa-eye"></i>
                 </button>
               </li>
-              <li>
+              <li title="保存">
                 <button className={styles.edit_btn}>
                   <i className="fa fa-save"></i>
                 </button>
