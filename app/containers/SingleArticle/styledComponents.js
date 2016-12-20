@@ -1,8 +1,17 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+
+const full = '100%';
+const borderRadius = '2px';
+const whiteColor = '#FFF';
+const boxShadow = '0 1px 3px rgba(0, 37, 55, 0.05)';
+const smMargin = '0.15rem';
+const bgMargin = '0.25rem';
+const mainColor = '#00BAD2';
+const secondColor = '#F45E6E';
 
 export const ArticleContainer = styled.div`
-  width: 100%;
-  height: 100%;
+  width: ${full};
+  height: ${full};
   position: relative;
   flex-grow: 1;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
@@ -12,13 +21,14 @@ export const ArticleContainer = styled.div`
 
 export const Article = styled.div`
   width: 50%;
-  margin: 0.25rem auto;
-  border-radius: 2px;
-  background-color: #FFF;
-  box-shadow: 0 0 1px #CCC;
-  padding: 0.25rem;
+  margin: ${bgMargin} auto;
+  border-radius: ${borderRadius};
+  background-color: ${whiteColor};
+  border: 1px solid ${whiteColor};
+  box-shadow: ${boxShadow};
+  padding: ${bgMargin};
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
-    width: 100%;
+    width: ${full};
     margin: 0 auto;
   };
   @media only screen and (min-device-width : 1366px) and (max-device-width : 1600px) {
@@ -27,9 +37,9 @@ export const Article = styled.div`
 `;
 
 export const Titlt = styled.p`
-  font-size: 0.25rem;
-  text-indent: 0.15rem;
-  border-left: 4px solid #F45E6E;
+  font-size: ${bgMargin};
+  text-indent: ${smMargin};
+  border-left: 4px solid ${secondColor};
 `;
 
 export const Label = styled.div`
@@ -41,12 +51,12 @@ export const Label = styled.div`
 export const Author = styled.span`
   font-size: 16px;
   color: #3A3A3A;
-  margin-right: 0.15rem;
+  margin-right: ${smMargin};
   cursor: pointer;
+  transition: all 300ms;
   &:hover {
     text-decoration: underline;
-    color: #F45E6E;
-    transition: all 300ms;
+    color: ${secondColor};
   }
 `;
 
@@ -58,15 +68,15 @@ export const Text = styled.span`
 
 export const Tag = styled.span`
   font-size: 14px;
-  margin-right: 0.15rem;
-  border: 1px solid #F45E6E;
+  margin-right: ${smMargin};
+  border: 1px solid ${secondColor};
   padding: 0.02rem 0.1rem;
   cursor: pointer;
   border-radius: 1rem;
+  transition: all 200ms;
   &:hover {
-    background-color: #F45E6E;
-    color: #FFF;
-    transition: all 200ms;
+    background-color: ${secondColor};
+    color: ${whiteColor};
   }
 `;
 
@@ -80,21 +90,22 @@ export const TimeLabel = styled.span`
 `;
 
 export const ArticleContent = styled.div`
-  width: 100%;
-  height: 100%;
+  width: ${full};
+  height: ${full};
   position: relative;
-  margin-top: 0.25rem;
+  margin-top: ${bgMargin};
 `;
 
 export const LoadingCon = styled.div`
   width: 50%;
-  margin: 0.25rem auto;
-  border-radius: 2px;
-  background-color: #FFF;
-  box-shadow: 0 0 1px #CCC;
-  padding: 0.25rem;
+  margin: ${bgMargin} auto;
+  border-radius: ${borderRadius};
+  background-color: ${whiteColor};
+  border: 1px solid ${whiteColor};
+  box-shadow: ${boxShadow};
+  padding: ${bgMargin};
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
-    width: 100%;
+    width: ${full};
     margin: 0 auto;
   };
   @media only screen and (min-device-width : 1366px) and (max-device-width : 1600px) {
@@ -104,33 +115,47 @@ export const LoadingCon = styled.div`
 
 export const LoadTitlt = styled.p`
   width: 35%;
-  height: 0.24rem;
+  height: 0.2rem;
   background-color: rgb(241, 241, 241);
 `;
 
 export const LoadAuth = styled.p`
-  width: 75%;
-  margin-top: 0.15rem;
+  width: 85%;
+  margin-top: ${smMargin};
   background-color: rgb(241, 241, 241);
-  height: 0.24rem;
+  height: 0.2rem;
 `;
 
 export const LoadArticle = styled.div`
-  width: 100%;
-  margin-top: 0.15rem;
+  width: ${full};
+  margin-top: ${smMargin};
   height: 1.25rem;
   background-color: rgb(241, 241, 241);
+`;
+
+export const LoadFoot = styled.div`
+  width: ${full};
+  height: 0.2rem;
+  margin-top: ${smMargin};
+  display: flex;
+  justify-content: space-between;
+  > p {
+    width: 25%;
+    height: 0.2rem;
+    background-color: rgb(241, 241, 241);
+  }
 `;
 
 export const ReviewCon = styled.div`
   width: 50%;
   margin: .25rem auto;
-  padding: 0.25rem;
-  box-shadow: 0 0 1px #CCC;
-  background-color: #FFF;
+  padding: ${bgMargin};
+  border: 1px solid ${whiteColor};
+  box-shadow: ${boxShadow};
+  background-color: ${whiteColor};
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
-    width: 100%;
-    margin-top: 0.25rem;
+    width: ${full};
+    margin-top: ${bgMargin};
   }
   @media only screen and (min-device-width : 1366px) and (max-device-width : 1600px) {
     width: 65%;
@@ -138,7 +163,7 @@ export const ReviewCon = styled.div`
 `;
 
 export const ReviewTit = styled.p`
-  width: 100%;
+  width: ${full};
   height: 0.36rem;
   line-height: 0.36rem;
   color: #5A5A5A;
@@ -150,7 +175,7 @@ export const ReviewList = styled.div`
 `;
 
 export const ReviewItem = styled.div`
-  width: 100%;
+  width: ${full};
   display: flex;
   margin-top: 0.1rem;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
@@ -177,7 +202,7 @@ export const ReviewAuth = styled.p`
 `;
 
 export const LinkUrl = styled.a`
-  color: #F45E6E;
+  color: ${secondColor};
   cursor: pointer;
   text-decoration: none;
   padding: 0 0.05rem;
@@ -193,7 +218,7 @@ export const ReviewTime = styled.p`
 `;
 
 export const AuthContent = styled.p`
-  margin-left: 0.15rem;
+  margin-left: ${smMargin};
   font-size: 0.12rem;
   color: #757575;
   line-height: 0.24rem;
@@ -201,16 +226,16 @@ export const AuthContent = styled.p`
 `;
 
 export const EnterComment = styled.div`
-  width: 100%;
-  margin-top: 0.15rem;
+  width: ${full};
+  margin-top: ${smMargin};
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 `;
 
 export const InputBox = styled.p`
-  width: 100%;
-  margin: 0.15rem 0;
+  width: ${full};
+  margin: ${smMargin} 0;
   display: flex;
   justify-content: space-between;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
@@ -225,34 +250,34 @@ export const SingleInput = styled.input`
   line-height: 0.36rem;
   outline: none;
   padding: 0 0.08rem;
-  border-radius: 2px;
+  border-radius: ${borderRadius};
   border: 1px solid #E6E9ED;
+  transition: all 350ms;
   &:focus {
-    border-color: #00BAD2;
-    transition: all 350ms;
+    border-color: ${mainColor};
   }
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
-    width: 100%;
+    width: ${full};
     height: 0.45rem;
     line-height: 0.45rem;
-    margin-bottom: 0.15rem;
+    margin-bottom: ${smMargin};
   }
 `;
 
 export const CommentArea = styled.textarea`
-  width: 100%;
+  width: ${full};
   height: 1.25rem;
   resize: none;
   outline: none;
-  padding: 0.15rem;
+  padding: ${smMargin};
   color: #4D4D4D;
   font-size: 0.12rem;
-  line-height: 0.25rem;
-  border-radius: 2px;
+  line-height: ${bgMargin};
+  border-radius: ${borderRadius};
   border: 1px solid #E6E9ED;
+  transition: all 350ms;
   &:focus {
-    border-color: #00BAD2;
-    transition: all 350ms;
+    border-color: ${mainColor};
   }
 `;
 
@@ -260,20 +285,19 @@ export const SubmitBtn = styled.button`
   width: 0.75rem;
   height: 0.36rem;
   line-height: 0.36rem;
-  margin-top: 0.15rem;
-  border-radius: 2px;
-  color: #FFF;
+  margin-top: ${smMargin};
+  border-radius: ${borderRadius};
+  color: ${whiteColor};
   outline: none;
   cursor: pointer;
   background-color: #56c4d2;
   box-shadow: 0 1px 2px rgba(108, 108, 108, 0.24);
+  transition: all 200ms;
   &:hover {
-    background-color: #00BAD2;
-    transition: all 200ms;
+    background-color: ${mainColor};
   }
   &:active {
     box-shadow: 0 2px 4px rgba(108, 108, 108, 0.24);
-    transition: all 200ms;
   }
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     width: 1rem;
@@ -288,10 +312,10 @@ export const Paper = styled.div`
   display: flex;
   justify-content: space-between;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
-    width: 100%;
+    width: ${full};
     display: block;
     padding-left: 0.45rem;
-    margin-top: 0.25rem;
+    margin-top: ${bgMargin};
   }
   @media only screen and (min-device-width : 1366px) and (max-device-width : 1600px) {
     width: 65%;
@@ -308,20 +332,19 @@ export const PageJump = styled.div`
 `;
 
 export const PageBtn = styled.button`
-  width: 100%;
-  height: 100%;
+  width: ${full};
+  height: ${full};
   font-size: 0.2rem;
   color: #757575
   cursor: pointer;
   text-align: left;
   outline: none;
+  transition: all 300ms;
   &:hover {
-    color: #00BAD2;
-    transition: all 300ms;
+    color: ${mainColor};
   }
   &:active {
-    color: #00BAD2;
-    transition: all 300ms;
+    color: ${mainColor};
   }
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     font-size: 0.16rem;
@@ -329,8 +352,8 @@ export const PageBtn = styled.button`
 `;
 
 export const NoData = styled.p`
-  width: 100%;
-  height: 100%;
+  width: ${full};
+  height: ${full};
   text-align: center;
   font-size: 0.2rem;
   color: #CCC;
@@ -341,7 +364,7 @@ export const NoData = styled.p`
 `;
 
 export const Nocomment = styled.p`
-  width: 100%;
+  width: ${full};
   height: 0.64rem;
   line-height: 0.64rem;
   font-zie: 0.14rem;

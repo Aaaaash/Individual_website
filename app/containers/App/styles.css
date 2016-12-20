@@ -15,6 +15,7 @@ html {
 body {
   font-size: 14px;
   background-color: #F7F8FA;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body,

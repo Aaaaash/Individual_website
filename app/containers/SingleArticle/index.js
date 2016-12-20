@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
-import QueueAnim from 'rc-queue-anim';
 import { browserHistory } from 'react-router';
 import marked from 'marked';
 import hljs from 'highlight.js';
@@ -50,6 +49,7 @@ import {
   LoadTitlt,
   LoadAuth,
   LoadArticle,
+  LoadFoot,
 } from './styledComponents';
 import {
   selectCurrentArticle,
@@ -106,7 +106,12 @@ class SingleArticle extends Component {
     <LoadingCon>
       <LoadTitlt />
       <LoadAuth />
+      <LoadAuth />
       <LoadArticle />
+      <LoadFoot>
+        <p></p>
+        <p></p>
+      </LoadFoot>
     </LoadingCon>
 
   renderCommentsList = (list) => {
