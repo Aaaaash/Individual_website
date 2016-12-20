@@ -127,16 +127,20 @@ export default function createRoutes(store) {
           },
         },
         {
-          path: '/timeline',
-          name: 'timeline',
+          path: '/archives',
+          name: 'archives',
           getComponent(nextState, cb) {
             const importModules = Promise.all([
-              System.import('containers/TimeLine'),
+              System.import('containers/Archives/reducer'),
+              System.import('containers/Archives/sagas'),
+              System.import('containers/Archives'),
             ]);
 
             const renderRoute = loadModule(cb);
 
-            importModules.then(([component]) => {
+            importModules.then(([reducer, sagas, component]) => {
+              injectReducer('archives', reducer.default);
+              injectSagas(sagas.default);
               renderRoute(component);
             });
 
@@ -144,23 +148,6 @@ export default function createRoutes(store) {
           },
         },
       ],
-    },
-    {
-      path: '/editor',
-      name: 'editor',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/Editor'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([component]) => {
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
     },
     {
       path: '/article/:articleID',

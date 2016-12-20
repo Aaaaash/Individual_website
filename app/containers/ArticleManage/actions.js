@@ -3,6 +3,9 @@ import {
   PUSH_ARTICLE,
   PUSH_ARTICLE_SUCCESS,
   PUSH_ARTICLE_ERROR,
+  FETCH_PRIVATE_ARTICLE,
+  CHANGE_PRIVATE_ARTICLE,
+  CHANGE_HIGHLIGHT_CURRENT,
 } from './constants';
 
 export function changeArticleInfo(info) {
@@ -32,6 +35,22 @@ export function pushArticleError(err) {
   };
 }
 
-export {
-  fetchAllArticle,
-} from '../MainPage/actions';
+export function fetchPrivateArticle() {
+  return {
+    type: FETCH_PRIVATE_ARTICLE,
+  };
+}
+
+export function changePrivateArticle(data) {
+  return {
+    type: CHANGE_PRIVATE_ARTICLE,
+    data,
+  };
+}
+
+export function changeHightlightCurrent(id) {
+  return {
+    type: CHANGE_HIGHLIGHT_CURRENT,
+    id,
+  };
+}

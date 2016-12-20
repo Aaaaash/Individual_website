@@ -62,10 +62,6 @@ button {
   box-sizing: border-box;
 }
 
-span {
-  -webkit-appearance: none !important;
-}
-
 input {
   margin: 0;
   padding: 0;

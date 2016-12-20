@@ -1,11 +1,14 @@
 import {
   PUSH_ARTICLE,
+  FETCH_PRIVATE_ARTICLE,
 } from './constants';
 import {
   pushArticleSuccess,
   pushArticleError,
-  fetchAllArticle,
+  fetchPrivateArticle,
   changeArticleInfo,
+  changePrivateArticle,
+  changeHightlightCurrent,
 } from './actions';
 import {
   selectAuthInfo,
@@ -14,7 +17,7 @@ import {
 import articleApi from './articleApi';
 
 import { takeLatest } from 'redux-saga';
-import { fork, take, call, put, select } from 'redux-saga/effects';
+import { fork, call, put, select } from 'redux-saga/effects';
 
 export function* pushArticle() {
   try {
@@ -27,7 +30,7 @@ export function* pushArticle() {
     } = yield select(selectArticleInfo());
     yield call(articleApi.pushArticle, title, tags, content, name, published);
     yield put(pushArticleSuccess());
-    yield put(fetchAllArticle());
+    yield put(fetchPrivateArticle());
     yield put(changeArticleInfo({
       title: '',
       tags: '',
@@ -39,14 +42,25 @@ export function* pushArticle() {
   }
 }
 
-export function* watcherPush() {
-  yield* takeLatest(PUSH_ARTICLE, pushArticle);
+export function* fetchPrivateArticleList() {
+  try {
+    const response = yield call(articleApi.fetchPrivate);
+    yield put(changePrivateArticle(response));
+    yield put(changeHightlightCurrent(response[0]._id));
+  } catch (err) {
+    console.log(err.message);
+  }
 }
 
-export function* root() {
-  yield fork(watcherPush);
+export function* watcherPush() {
+  yield fork(takeLatest, PUSH_ARTICLE, pushArticle);
+}
+
+export function* watcherFetch() {
+  yield fork(takeLatest, FETCH_PRIVATE_ARTICLE, fetchPrivateArticleList );
 }
 
 export default [
-  root,
+  watcherPush,
+  watcherFetch,
 ];

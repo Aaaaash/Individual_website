@@ -13,7 +13,7 @@ export function* authLogin() {
   try {
     const { account, password } = yield select(selectAuthBaseInfo());
     yield call(auth.login, account, password);
-    yield put(push('/index'));
+    yield put(push('/'));
   } catch (err) {
     yield put(showGlobalPrompt({ open: true, type: 'default', timeout: 3000, message: err.message }));
   }

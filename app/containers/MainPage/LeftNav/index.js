@@ -44,6 +44,7 @@ class LeftNav extends Component {
             >
               <li onTouchTap={() => browserHistory.push('/')}>Index</li>
               <li onTouchTap={() => browserHistory.push('/admin')}>Blog</li>
+              <li onTouchTap={() => browserHistory.push('/archives')}>Blog</li>
             </TweenOne> :
           null}
         <QueueAnim component="ul" type="bottom" className={styles.auth_nav}>
@@ -60,6 +61,13 @@ class LeftNav extends Component {
             onTouchTap={() => this.handleChangeNavActive(2, 'admin')}
           >
             Blog
+          </li>
+          <li
+            key="c"
+            className={navActive === 3 ? styles.active : ''}
+            onTouchTap={() => this.handleChangeNavActive(3, 'archives')}
+          >
+            Archives
           </li>
         </QueueAnim>
       </div>

@@ -7,12 +7,22 @@ const selectArticleInfo = () => createSelector(
   (articleState) => articleState.get('articleInfo').toJS()
 );
 
+const selectPrivateArticle = () => createSelector(
+  selectArticle(),
+  (articleState) => articleState.get('privateList').toJS()
+);
+
+const selectHighlight = () => createSelector(
+  selectArticle(),
+  (articleState) => articleState.get('highlight')
+);
+
 export {
   selectAuthInfo,
-  selectArticleList,
-  selectRequesting,
 } from '../MainPage/selector';
 
 export {
   selectArticleInfo,
+  selectPrivateArticle,
+  selectHighlight,
 };

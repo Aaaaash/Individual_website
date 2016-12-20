@@ -15,7 +15,16 @@ const articleApi = {
     };
     return request(`${API_BASE}/article`, options)
       .then((data) => data)
-      .catch((err) => err);
+      .catch((err) => {
+        throw new Error(err.message);
+      });
+  },
+  fetchPrivate() {
+    return request(`${API_BASE}/article/private`)
+      .then((data) => data.data)
+      .catch((err) => {
+        throw new Error(err.message);
+      });
   },
 };
 

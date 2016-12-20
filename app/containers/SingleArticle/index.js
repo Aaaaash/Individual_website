@@ -65,7 +65,6 @@ import {
   submitComment,
   fetchCommentsList,
 } from './actions';
-import Loading from 'components/Loading';
 import styles from './styles.css';
 import BlogFooter from 'components/BlogFooter';
 

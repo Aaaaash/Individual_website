@@ -8,20 +8,24 @@ import Editor from '../Editor';
 import {
   changeArticleInfo,
   pushArticle,
-  fetchAllArticle,
+  fetchPrivateArticle,
+  changeHightlightCurrent,
 } from './actions';
 import {
   selectAuthInfo,
   selectArticleInfo,
-  selectArticleList,
-  selectRequesting,
+  selectPrivateArticle,
+  selectHighlight,
 } from './selector';
 import './iconfont.js';
 import Loading from 'components/Loading';
+import {
+  ArticleItem,
+} from './components';
 
 class ArticleManage extends Component {
   componentDidMount() {
-    // if (this.props.articleList.size === 0) this.props.onFetchAllArticle();
+    this.props.onFetchAllArticle();
   }
 
   renderLoading = () =>
@@ -29,14 +33,29 @@ class ArticleManage extends Component {
       <Loading />
     </div>
 
+  handleChangeCurrent = (id) => {
+    this.props.onChangeCurrent(id);
+  }
+
   renderArticleList = (list) =>
     list.map((item, index) =>
-      <li key={index}>
-        <h4>{item.title}</h4>
+      <ArticleItem
+        key={index}
+        index={item._id}
+        current={this.props.highlight}
+        onClick={() => this.handleChangeCurrent(item._id)}
+      >
+        <h4 title={item.title}>{item.title}</h4>
         <span>{item.createAt}</span>
         <span>2343</span>
-      </li>
+      </ArticleItem>
     );
+
+  handleCreateNewArticle = () => {
+    this.props.onArticleInfoChange({
+      title: '无标题',
+    });
+  }
 
   render() {
     const {
@@ -44,20 +63,20 @@ class ArticleManage extends Component {
       onArticleInfoChange,
       onArticlePush,
       articleList,
-      requesting,
     } = this.props;
     return (
       <div className={styles.admin}>
         <div className={styles.article_list} key="a">
           <h3>文章列表
-            <button className={styles.add_new}>
+            <button
+              className={styles.add_new}
+              onTouchTap={this.handleCreateNewArticle}
+            >
               新建
             </button>
           </h3>
           <ul className={styles.article_name}>
-            {requesting
-              ? this.renderLoading()
-              : this.renderArticleList(articleList)}
+            {this.renderArticleList(articleList)}
           </ul>
         </div>
         <div className={styles.preview}>
@@ -80,20 +99,24 @@ ArticleManage.propTypes = {
   onArticlePush: PropTypes.func,
   articleList: PropTypes.array,
   requesting: PropTypes.bool,
+  onFetchAllArticle: PropTypes.func,
+  highlight: PropTypes.string,
+  onChangeCurrent: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   authInfo: selectAuthInfo(),
   articleInfo: selectArticleInfo(),
-  articleList: selectArticleList(),
-  requesting: selectRequesting(),
+  articleList: selectPrivateArticle(),
+  highlight: selectHighlight(),
 });
 
 function mapDispatchTpProps(dispatch) {
   return {
     onArticleInfoChange: (val) => dispatch(changeArticleInfo(val)),
     onArticlePush: () => dispatch(pushArticle()),
-    onFetchAllArticle: () => dispatch(fetchAllArticle()),
+    onFetchAllArticle: () => dispatch(fetchPrivateArticle()),
+    onChangeCurrent: (val) => dispatch(changeHightlightCurrent(val)),
   };
 }
 
