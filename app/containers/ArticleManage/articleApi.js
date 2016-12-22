@@ -26,6 +26,29 @@ const articleApi = {
         throw new Error(err.message);
       });
   },
+  fetchArticle(id) {
+    return request(`${API_BASE}/article/${id}`)
+      .then((data) => data.data)
+      .catch((err) => {
+        throw new Error(err.message);
+      });
+  },
+  updateArticle(id, title, tags, content, published) {
+    const options = {
+      method: 'PUT',
+      body: JSON.stringify({
+        title,
+        tags,
+        content,
+        published,
+      }),
+    };
+    return request(`${API_BASE}/article/${id}`, options)
+      .then((data) => data)
+      .catch((err) => {
+        throw new Error(err.message);
+      });
+  },
 };
 
 export default articleApi;

@@ -113,6 +113,7 @@
 }
 
 .text_output {
+  background: #FFF;
   display: flex;
   flex-grow: 2;
   width: 100%;
@@ -251,10 +252,9 @@
 }
 
 .output pre {
-  background-color: rgb(40, 44, 52);
+  background-color: #F7F8FA;
   border: 1px solid #EEE;
   border-radius: 3px;
-  color: #EEE;
   padding: 10px;
   font-size: .9em;
   overflow: auto;

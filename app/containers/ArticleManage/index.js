@@ -10,6 +10,7 @@ import {
   pushArticle,
   fetchPrivateArticle,
   changeHightlightCurrent,
+  fetchEditedArticle,
 } from './actions';
 import {
   selectAuthInfo,
@@ -35,6 +36,7 @@ class ArticleManage extends Component {
 
   handleChangeCurrent = (id) => {
     this.props.onChangeCurrent(id);
+    this.props.onFetchEditedArticle();
   }
 
   renderArticleList = (list) =>
@@ -54,7 +56,11 @@ class ArticleManage extends Component {
   handleCreateNewArticle = () => {
     this.props.onArticleInfoChange({
       title: '无标题',
+      content: '',
+      tags: '',
+      published: false,
     });
+    this.props.onChangeCurrent('');
   }
 
   render() {
@@ -102,6 +108,7 @@ ArticleManage.propTypes = {
   onFetchAllArticle: PropTypes.func,
   highlight: PropTypes.string,
   onChangeCurrent: PropTypes.func,
+  onFetchEditedArticle: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -117,6 +124,7 @@ function mapDispatchTpProps(dispatch) {
     onArticlePush: () => dispatch(pushArticle()),
     onFetchAllArticle: () => dispatch(fetchPrivateArticle()),
     onChangeCurrent: (val) => dispatch(changeHightlightCurrent(val)),
+    onFetchEditedArticle: () => dispatch(fetchEditedArticle()),
   };
 }
 

@@ -14,8 +14,10 @@ html {
 
 body {
   font-size: 14px;
+  color: #31424E;
   background-color: #F7F8FA;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-family: "Microsoft YaHei";
 }
 
 body,

@@ -1,6 +1,7 @@
 import {
   PUSH_ARTICLE,
   FETCH_PRIVATE_ARTICLE,
+  FETCH_EDITED_ARTICLE,
 } from './constants';
 import {
   pushArticleSuccess,
@@ -13,6 +14,7 @@ import {
 import {
   selectAuthInfo,
   selectArticleInfo,
+  selectHighlight,
 } from './selector';
 import articleApi from './articleApi';
 
@@ -22,20 +24,26 @@ import { fork, call, put, select } from 'redux-saga/effects';
 export function* pushArticle() {
   try {
     const { name } = yield select(selectAuthInfo());
+    const highlight = yield select(selectHighlight());
     const {
       title,
       tags,
       content,
       published,
     } = yield select(selectArticleInfo());
-    yield call(articleApi.pushArticle, title, tags, content, name, published);
-    yield put(pushArticleSuccess());
-    yield put(fetchPrivateArticle());
-    yield put(changeArticleInfo({
-      title: '',
-      tags: '',
-      content: '',
-    }));
+    if (highlight === '') {
+      yield call(articleApi.pushArticle, title, tags, content, name, published);
+      yield put(pushArticleSuccess());
+      yield put(fetchPrivateArticle());
+      yield put(changeArticleInfo({
+        title: '',
+        tags: '',
+        content: '',
+      }));
+    } else {
+      yield call(articleApi.updateArticle, highlight, title, tags, content, published);
+      console.log('更新成功');
+    }
   } catch (err) {
     console.log(err.message);
     yield put(pushArticleError());
@@ -52,15 +60,35 @@ export function* fetchPrivateArticleList() {
   }
 }
 
+export function* fetchArticleDetail() {
+  try {
+    const highlight = yield select(selectHighlight());
+    const response = yield call(articleApi.fetchArticle, highlight);
+    yield put(changeArticleInfo({
+      title: response.title,
+      tags: response.tags,
+      content: response.content,
+      published: false,
+    }));
+  } catch (err) {
+    console.log(err.message);
+  }
+}
+
+export function* watcherFetchDetail() {
+  yield fork(takeLatest, FETCH_EDITED_ARTICLE, fetchArticleDetail);
+}
+
 export function* watcherPush() {
   yield fork(takeLatest, PUSH_ARTICLE, pushArticle);
 }
 
 export function* watcherFetch() {
-  yield fork(takeLatest, FETCH_PRIVATE_ARTICLE, fetchPrivateArticleList );
+  yield fork(takeLatest, FETCH_PRIVATE_ARTICLE, fetchPrivateArticleList);
 }
 
 export default [
   watcherPush,
   watcherFetch,
+  watcherFetchDetail,
 ];
