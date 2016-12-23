@@ -8,6 +8,8 @@ import {
   CHANGE_HIGHLIGHT_CURRENT,
   FETCH_EDITED_ARTICLE,
   FETCH_EDITED_ARTICLE_SUCCESS,
+  DELETE_ARTICLE,
+  DELETE_ARTICLE_SUC,
 } from './constants';
 
 export function changeArticleInfo(info) {
@@ -66,5 +68,17 @@ export function fetchEditedArticle() {
 export function fetchFetchEditedSuc() {
   return {
     type: FETCH_EDITED_ARTICLE_SUCCESS,
+  };
+}
+
+export function deleteArticle() {
+  return {
+    type: DELETE_ARTICLE,
+  };
+}
+
+export function deleteArticleSuc() {
+  return {
+    type: DELETE_ARTICLE_SUC,
   };
 }
