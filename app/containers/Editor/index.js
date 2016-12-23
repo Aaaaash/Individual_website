@@ -66,8 +66,13 @@ class Editor extends Component {
   }
 
   handlePushArticle = () => {
+    this.props.onArticleInfoChange({ loading: true, published: true });
     this.props.onArticlePush();
-    this.props.onArticleInfoChange({ loading: true });
+  }
+
+  handleSaveArticle = () => {
+    this.props.onArticleInfoChange({ loading: true, published: false });
+    this.props.onArticlePush();
   }
 
   render() {
@@ -187,7 +192,10 @@ class Editor extends Component {
                 </button>
               </li>
               <li title="保存">
-                <button className={styles.edit_btn}>
+                <button
+                  className={styles.edit_btn}
+                  onTouchTap={this.handleSaveArticle}
+                >
                   <i className="fa fa-save"></i>
                 </button>
               </li>

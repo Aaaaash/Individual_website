@@ -291,7 +291,7 @@
 .output blockquote {
   margin: 0.15rem 0;
   padding: 5px 10px 5px 15px;
-  border-left: 4px solid #00BAD2;
+  border-left: 2px solid #00BAD2;
   background-color: #EEE
 }
 
