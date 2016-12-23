@@ -11,7 +11,6 @@ const secondColor = '#F45E6E';
 
 export const ArticleContainer = styled.div`
   width: ${full};
-  ${''/* height: ${full};*/}
   position: relative;
   margin-left: 0.65rem;
   flex-grow: 1;

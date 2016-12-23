@@ -1,12 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 import { browserHistory } from 'react-router';
-import classNames from 'classnames';
 
 import MenuBtn from 'components/MenuBtn';
 import styles from './styles.css';
-import menu from './menu.png';
 
 class LeftNav extends Component {
   constructor(props) {
@@ -30,7 +27,7 @@ class LeftNav extends Component {
           <a className={styles.avatar} href="/">
             <img src={authInfo.avatar} alt={authInfo.avatar} />
           </a>
-          <p className={styles.user_name}>蜡笔小秀</p>
+          <p className={styles.user_name}>{authInfo.name}</p>
         </div>
           {this.state.open ?
             <TweenOne
