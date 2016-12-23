@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 import { browserHistory } from 'react-router';
+import classNames from 'classnames';
 
+import MenuBtn from 'components/MenuBtn';
 import styles from './styles.css';
 import menu from './menu.png';
 
@@ -23,17 +25,12 @@ class LeftNav extends Component {
     const { authInfo, navActive } = this.props;
     return (
       <div className={styles.left_nav}>
-        <button
-          className={styles.nav_btn}
-          style={{ backgroundImage: `url(${menu})` }}
-          onTouchTap={() => this.setState({ open: !this.state.open })}
-        >
-        </button>
+        <MenuBtn onTouchTap={() => this.setState({ open: !this.state.open })} />
         <div className={styles.auth_avatar}>
           <a className={styles.avatar} href="/">
             <img src={authInfo.avatar} alt={authInfo.avatar} />
           </a>
-          <p className={styles.user_name}>{authInfo.name}</p>
+          <p className={styles.user_name}>蜡笔小秀</p>
         </div>
           {this.state.open ?
             <TweenOne
@@ -47,29 +44,29 @@ class LeftNav extends Component {
               <li onTouchTap={() => browserHistory.push('/archives')}>Blog</li>
             </TweenOne> :
           null}
-        <QueueAnim component="ul" type="bottom" className={styles.auth_nav}>
+        <ul className={styles.auth_nav}>
           <li
-            key="a"
+            title="主页"
             className={navActive === 0 ? styles.active : ''}
             onTouchTap={() => this.handleChangeNavActive(0, '')}
           >
-            Index
+            <i className="fa fa-home"></i>
           </li>
           <li
-            key="b"
+            title="文章管理"
             className={navActive === 2 ? styles.active : ''}
             onTouchTap={() => this.handleChangeNavActive(2, 'admin')}
           >
-            Blog
+            <i className="fa fa-gears"></i>
           </li>
           <li
-            key="c"
+            title="归档"
             className={navActive === 3 ? styles.active : ''}
             onTouchTap={() => this.handleChangeNavActive(3, 'archives')}
           >
-            Archives
+            <i className="fa fa-reorder"></i>
           </li>
-        </QueueAnim>
+        </ul>
       </div>
     );
   }

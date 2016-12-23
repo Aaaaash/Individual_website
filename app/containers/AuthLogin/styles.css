@@ -57,7 +57,7 @@
 }
 
 .auth_input:focus {
-  border: 0.01rem solid #00BAD2;
+  border: 0.01rem solid #2E94B9;
   transition: all 350ms;
 }
 
@@ -69,17 +69,17 @@
   border-radius: 2px;
   color: #FFF;
   outline: none;
-  background-color: #00BAD2;
+  background-color: #2E94B9;
   box-shadow: 0 1px 2px rgba(108, 108, 108, 0.24);
 }
 
 .login_btn:hover {
-  background-color: #05b2c8;
+  background-color: #188db8;
   transition: all 250ms;
 }
 
 .login_btn:active {
-  background-color: #00BAD2;
+  background-color: #188db8;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2),0 1px 4px rgba(0, 0, 0, 0.2);
   transition: all 250ms;
 }

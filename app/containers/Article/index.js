@@ -1,8 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import QueueAnim from 'rc-queue-anim';
+import marked from 'marked';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import hljs from 'highlight.js';
 
 import { Tag } from './styledComponents.js';
 import styles from './styles.css';
@@ -17,7 +19,18 @@ import {
 } from './selector';
 import Loading from 'components/Loading';
 
-const reg = /[\\\`\*\_\[\]\#\+\-\!\>]/g;
+const reg = /[\\\`\*\_\[\]\#\+\-\!\>]/g;    // eslint-disable-line
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false,
+  highlight: (code) => hljs.highlightAuto(code).value,
+});
 
 class Article extends Component {
   componentDidMount() {
@@ -62,13 +75,12 @@ class Article extends Component {
           <span className={styles.author}>{item.author}</span>
           <span className={styles.create_time}>{this.getTime(item.createAt)}</span>
         </p>
-        <p    // eslint-disable-line
+        <div    // eslint-disable-line
           className={styles.markdownBody}
-          onClick={() => browserHistory.push(`/article/${item._id}`)}
           title={`${item.content.replace(reg, '').substr(0, 100)}...`}
+          dangerouslySetInnerHTML={{ __html: marked(`${item.content.replace(reg, '').substr(0, 500)}...`) }}
         >
-          {`${item.content.replace(reg, '').substr(0, 500)}...`}
-        </p>
+        </div>
         <div className={styles.foot_tool}>
           <a
             className={styles.more}

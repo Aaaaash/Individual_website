@@ -127,6 +127,27 @@ export default function createRoutes(store) {
           },
         },
         {
+          path: '/article/:articleID',
+          name: 'articleID',
+          getComponent(nextState, cb) {
+            const importModules = Promise.all([
+              System.import('containers/SingleArticle/reducer'),
+              System.import('containers/SingleArticle/sagas'),
+              System.import('containers/SingleArticle'),
+            ]);
+
+            const renderRoute = loadModule(cb);
+
+            importModules.then(([reducer, sagas, component]) => {
+              injectReducer('singleArticle', reducer.default);
+              injectSagas(sagas.default);
+              renderRoute(component);
+            });
+
+            importModules.catch(errorLoading);
+          },
+        },
+        {
           path: '/archives',
           name: 'archives',
           getComponent(nextState, cb) {
@@ -148,27 +169,6 @@ export default function createRoutes(store) {
           },
         },
       ],
-    },
-    {
-      path: '/article/:articleID',
-      name: 'articleID',
-      getComponent(nextState, cb) {
-        const importModules = Promise.all([
-          System.import('containers/SingleArticle/reducer'),
-          System.import('containers/SingleArticle/sagas'),
-          System.import('containers/SingleArticle'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([reducer, sagas, component]) => {
-          injectReducer('singleArticle', reducer.default);
-          injectSagas(sagas.default);
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
     },
     {
       path: '*',
