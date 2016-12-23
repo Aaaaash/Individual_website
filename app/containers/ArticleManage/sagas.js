@@ -10,6 +10,7 @@ import {
   changeArticleInfo,
   changePrivateArticle,
   changeHightlightCurrent,
+  fetchFetchEditedSuc,
 } from './actions';
 import {
   selectAuthInfo,
@@ -40,9 +41,10 @@ export function* pushArticle() {
         tags: '',
         content: '',
       }));
+      yield put(fetchFetchEditedSuc());
     } else {
       yield call(articleApi.updateArticle, highlight, title, tags, content, published);
-      console.log('更新成功');
+      yield put(fetchFetchEditedSuc());
     }
   } catch (err) {
     console.log(err.message);
@@ -70,6 +72,7 @@ export function* fetchArticleDetail() {
       content: response.content,
       published: false,
     }));
+    yield put(fetchFetchEditedSuc());
   } catch (err) {
     console.log(err.message);
   }

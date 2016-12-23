@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import marked from 'marked';
+import QueueAnim from 'rc-queue-anim';
 import classNames from 'classnames';
 import hljs from 'highlight.js';
 
@@ -16,6 +17,7 @@ marked.setOptions({
 });
 
 import styles from './styles.css';
+import Loading from 'components/Loading';
 
 class Editor extends Component {
   state = {
@@ -63,8 +65,13 @@ class Editor extends Component {
     return newstr;
   }
 
+  handlePushArticle = () => {
+    this.props.onArticlePush();
+    this.props.onArticleInfoChange({ loading: true });
+  }
+
   render() {
-    const { articleInfo, onArticlePush } = this.props;
+    const { articleInfo } = this.props;
     return (
       <div className={styles.editor}>
         <div className={styles.editor_title}>
@@ -217,11 +224,20 @@ class Editor extends Component {
         <div className={styles.editor_footer}>
           <button
             className={styles.release}
-            onTouchTap={onArticlePush}
+            onTouchTap={this.handlePushArticle}
           >
             发布
           </button>
         </div>
+        <QueueAnim
+          animConfig={{ opacity: [1, 0] }}
+        >
+          {articleInfo.loading ?
+            <div className={styles.load_style} key="ani1">
+              <Loading />
+            </div> :
+            null}
+        </QueueAnim>
       </div>
     );
   }

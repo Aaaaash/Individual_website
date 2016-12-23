@@ -29,14 +29,19 @@ class ArticleManage extends Component {
     this.props.onFetchAllArticle();
   }
 
-  renderLoading = () =>
-    <div className={styles.loading_container}>
-      <Loading />
-    </div>
-
   handleChangeCurrent = (id) => {
     this.props.onChangeCurrent(id);
     this.props.onFetchEditedArticle();
+  }
+
+  handleCreateNewArticle = () => {
+    this.props.onArticleInfoChange({
+      title: '无标题',
+      content: '',
+      tags: '',
+      published: false,
+    });
+    this.props.onChangeCurrent('');
   }
 
   renderArticleList = (list) =>
@@ -53,15 +58,10 @@ class ArticleManage extends Component {
       </ArticleItem>
     );
 
-  handleCreateNewArticle = () => {
-    this.props.onArticleInfoChange({
-      title: '无标题',
-      content: '',
-      tags: '',
-      published: false,
-    });
-    this.props.onChangeCurrent('');
-  }
+  renderLoading = () =>
+    <div className={styles.loading_container}>
+      <Loading />
+    </div>
 
   render() {
     const {
@@ -84,9 +84,6 @@ class ArticleManage extends Component {
           <ul className={styles.article_name}>
             {this.renderArticleList(articleList)}
           </ul>
-        </div>
-        <div className={styles.preview}>
-
         </div>
         <Editor
           articleInfo={articleInfo}

@@ -7,6 +7,7 @@ import {
   CHANGE_PRIVATE_ARTICLE,
   CHANGE_HIGHLIGHT_CURRENT,
   FETCH_EDITED_ARTICLE,
+  FETCH_EDITED_ARTICLE_SUCCESS,
 } from './constants';
 
 export function changeArticleInfo(info) {
@@ -59,5 +60,11 @@ export function changeHightlightCurrent(id) {
 export function fetchEditedArticle() {
   return {
     type: FETCH_EDITED_ARTICLE,
+  };
+}
+
+export function fetchFetchEditedSuc() {
+  return {
+    type: FETCH_EDITED_ARTICLE_SUCCESS,
   };
 }

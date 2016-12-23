@@ -5,6 +5,8 @@ import {
   PUSH_ARTICLE_ERROR,
   CHANGE_PRIVATE_ARTICLE,
   CHANGE_HIGHLIGHT_CURRENT,
+  FETCH_EDITED_ARTICLE,
+  FETCH_EDITED_ARTICLE_SUCCESS,
 } from './constants';
 
 import { fromJS } from 'immutable';
@@ -15,6 +17,7 @@ const initialState = fromJS({
     tags: '',
     content: '',
     published: true,
+    loading: false,
   },
   highlight: '',
   privateList: [],
@@ -36,6 +39,10 @@ function articleReducer(state = initialState, action) {
       return state.mergeDeep(fromJS({ privateList: action.data }));
     case CHANGE_HIGHLIGHT_CURRENT:
       return state.set('highlight', action.id);
+    case FETCH_EDITED_ARTICLE:
+      return state.setIn(['articleInfo', 'loading'], true);
+    case FETCH_EDITED_ARTICLE_SUCCESS:
+      return state.setIn(['articleInfo', 'loading'], false);
     default:
       return state;
   }
