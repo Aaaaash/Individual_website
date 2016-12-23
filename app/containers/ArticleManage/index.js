@@ -22,6 +22,7 @@ import './iconfont.js';
 import Loading from 'components/Loading';
 import {
   ArticleItem,
+  DeleteBtn,
 } from './components';
 
 class ArticleManage extends Component {
@@ -44,6 +45,10 @@ class ArticleManage extends Component {
     this.props.onChangeCurrent('');
   }
 
+  handleDeleteArticle = (ev) => {
+    ev.stopPropagation();
+  }
+
   renderArticleList = (list) =>
     list.map((item, index) =>
       <ArticleItem
@@ -55,6 +60,9 @@ class ArticleManage extends Component {
         <h4 title={item.title}>{item.title}</h4>
         <span>{item.createAt}</span>
         <span>2343</span>
+        <DeleteBtn onClick={this.handleDeleteArticle}>
+          <i className="fa fa-trash"></i>
+        </DeleteBtn>
       </ArticleItem>
     );
 

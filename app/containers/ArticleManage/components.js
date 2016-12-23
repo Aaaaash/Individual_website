@@ -31,3 +31,19 @@ export const ArticleItem = styled.li`
     margin-right: 0.15rem;
   }
 `;
+
+export const DeleteBtn = styled.button`
+  width: 0.36rem;
+  height: 0.36rem;
+  font-size: 0.2rem;
+  outline: none;
+  cursor: pointer;
+  color: #666;
+  transition: all 200ms;
+  &:hover {
+    color: #333;
+  }
+  &:active {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  }
+`;
