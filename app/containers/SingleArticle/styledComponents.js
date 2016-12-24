@@ -6,7 +6,7 @@ const whiteColor = '#FFF';
 const boxShadow = '0 1px 3px rgba(0, 37, 55, 0.05)';
 const smMargin = '0.15rem';
 const bgMargin = '0.25rem';
-const mainColor = '#00BAD2';
+const mainColor = '#2E94B9';
 const secondColor = '#F45E6E';
 
 export const ArticleContainer = styled.div`
@@ -38,7 +38,7 @@ export const Article = styled.div`
 `;
 
 export const Titlt = styled.p`
-  font-size: ${bgMargin};
+  font-size: 0.2rem;
   text-indent: ${smMargin};
   border-left: 4px solid ${secondColor};
 `;
@@ -50,7 +50,7 @@ export const Label = styled.div`
 `;
 
 export const Author = styled.span`
-  font-size: 0.16rem;
+  font-size: 0.14rem;
   color: #3A3A3A;
   margin-right: ${smMargin};
   cursor: pointer;
@@ -62,13 +62,13 @@ export const Author = styled.span`
 `;
 
 export const Text = styled.span`
-  font-size: 0.16rem;
+  font-size: 0.14rem;
   color: #3A3A3A;
   margin-left: 0.1rem;
 `;
 
 export const Tag = styled.span`
-  font-size: 0.16rem;
+  font-size: 0.14rem;
   margin-right: ${smMargin};
   border: 1px solid ${secondColor};
   padding: 0.02rem 0.1rem;
@@ -85,7 +85,7 @@ export const TimeLabel = styled.span`
   margin-left: 0.1rem;
   height: 0.36rem;
   line-height: 0.36rem;
-  font-size: 0.16rem;
+  font-size: 0.14rem;
   color: #B4B4B4;
 `;
 
@@ -335,7 +335,7 @@ export const PageJump = styled.div`
 export const PageBtn = styled.button`
   width: ${full};
   height: ${full};
-  font-size: 0.2rem;
+  font-size: 0.16rem;
   color: #757575
   cursor: pointer;
   text-align: left;

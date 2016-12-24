@@ -104,13 +104,8 @@ class SingleArticle extends Component {
   renderLoadingBackground = () =>
     <LoadingCon>
       <LoadTitlt />
-      <LoadFoot>
-        <p></p>
-        <p></p>
-      </LoadFoot>
       <LoadAuth />
       <LoadAuth />
-      <LoadArticle />
     </LoadingCon>
 
   renderCommentsList = (list) => {
