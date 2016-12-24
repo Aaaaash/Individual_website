@@ -49,6 +49,16 @@ const articleApi = {
         throw new Error(err.message);
       });
   },
+  deleteArticle(id) {
+    const options = {
+      method: 'DELETE',
+    };
+    return request(`${API_BASE}/article/${id}`, options)
+      .then((data) => data)
+      .catch((err) => {
+        throw new Error(err.message);
+      });
+  },
 };
 
 export default articleApi;

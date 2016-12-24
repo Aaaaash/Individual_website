@@ -2,6 +2,7 @@ import {
   PUSH_ARTICLE,
   FETCH_PRIVATE_ARTICLE,
   FETCH_EDITED_ARTICLE,
+  DELETE_ARTICLE,
 } from './constants';
 import {
   pushArticleSuccess,
@@ -78,6 +79,16 @@ export function* fetchArticleDetail() {
   }
 }
 
+export function* deleteArticle() {
+  try {
+    const highlight = yield select(selectHighlight());
+    yield call(articleApi.deleteArticle, highlight);
+    yield put(fetchPrivateArticle());
+  } catch(err) {
+    console.log(err.message);
+  }
+}
+
 export function* watcherFetchDetail() {
   yield fork(takeLatest, FETCH_EDITED_ARTICLE, fetchArticleDetail);
 }
@@ -90,8 +101,13 @@ export function* watcherFetch() {
   yield fork(takeLatest, FETCH_PRIVATE_ARTICLE, fetchPrivateArticleList);
 }
 
+export function* watcherDelete() {
+  yield fork(takeLatest, DELETE_ARTICLE, deleteArticle);
+}
+
 export default [
   watcherPush,
   watcherFetch,
+  watcherDelete,
   watcherFetchDetail,
 ];

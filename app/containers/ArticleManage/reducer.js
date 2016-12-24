@@ -7,6 +7,8 @@ import {
   CHANGE_HIGHLIGHT_CURRENT,
   FETCH_EDITED_ARTICLE,
   FETCH_EDITED_ARTICLE_SUCCESS,
+  DELETE_ARTICLE,
+  DELETE_ARTICLE_SUC,
 } from './constants';
 
 import { fromJS } from 'immutable';

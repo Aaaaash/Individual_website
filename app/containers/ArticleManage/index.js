@@ -11,6 +11,7 @@ import {
   fetchPrivateArticle,
   changeHightlightCurrent,
   fetchEditedArticle,
+  deleteArticle,
 } from './actions';
 import {
   selectAuthInfo,
@@ -47,6 +48,7 @@ class ArticleManage extends Component {
 
   handleDeleteArticle = (ev) => {
     ev.stopPropagation();
+    this.props.onDeleteArticle();
   }
 
   renderArticleList = (list) =>
@@ -60,9 +62,12 @@ class ArticleManage extends Component {
         <h4 title={item.title}>{item.title}</h4>
         <span>{item.createAt}</span>
         <span>2343</span>
-        <DeleteBtn onClick={this.handleDeleteArticle}>
-          <i className="fa fa-trash"></i>
-        </DeleteBtn>
+        {this.props.highlight === item._id ?
+          <DeleteBtn onClick={this.handleDeleteArticle}>
+            <i className="fa fa-trash"></i>
+          </DeleteBtn> :
+          null}
+
       </ArticleItem>
     );
 
@@ -114,6 +119,7 @@ ArticleManage.propTypes = {
   highlight: PropTypes.string,
   onChangeCurrent: PropTypes.func,
   onFetchEditedArticle: PropTypes.func,
+  onDeleteArticle: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -130,6 +136,7 @@ function mapDispatchTpProps(dispatch) {
     onFetchAllArticle: () => dispatch(fetchPrivateArticle()),
     onChangeCurrent: (val) => dispatch(changeHightlightCurrent(val)),
     onFetchEditedArticle: () => dispatch(fetchEditedArticle()),
+    onDeleteArticle: () => dispatch(deleteArticle()),
   };
 }
 
