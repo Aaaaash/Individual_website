@@ -12,7 +12,7 @@ import {
   CHANGE_DELETE_DIALOG,
 } from './constants';
 
-import { fromJS } from 'immutable';
+import { fromJS, List } from 'immutable';
 
 const initialState = fromJS({
   articleInfo: {
@@ -40,7 +40,7 @@ function articleReducer(state = initialState, action) {
     case PUSH_ARTICLE_ERROR:
       return state.set('requesting', false);
     case CHANGE_PRIVATE_ARTICLE:
-      return state.mergeDeep(fromJS({ privateList: action.data }));
+      return state.set('privateList', new List(action.data));
     case CHANGE_HIGHLIGHT_CURRENT:
       return state.set('highlight', action.id);
     case FETCH_EDITED_ARTICLE:
@@ -49,6 +49,8 @@ function articleReducer(state = initialState, action) {
       return state.setIn(['articleInfo', 'loading'], false);
     case CHANGE_DELETE_DIALOG:
       return state.set('dialogState', action.val);
+    case DELETE_ARTICLE_SUC:
+      return state.set('privateList', action.val);
     default:
       return state;
   }

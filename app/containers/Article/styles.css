@@ -5,6 +5,7 @@
 }
 
 .search {
+  /*margin-top: 1rem;*/
 }
 
 .search input {
@@ -32,7 +33,7 @@
 .article_list {
   position: relative;
   min-height: 1rem;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
 }
 
 .loading_container {
@@ -156,9 +157,7 @@
   }
   .article {
     width: auto;
-    margin-left: 0.05rem;
-    margin-right: 0.05rem;
-    margin-top: 1rem;
+    margin-top: 0.85rem;
   }
 }
 @media only screen and (min-device-width : 1366px) and (max-device-width: 1600px) {

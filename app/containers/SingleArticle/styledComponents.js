@@ -15,7 +15,8 @@ export const ArticleContainer = styled.div`
   margin-left: 0.65rem;
   flex-grow: 1;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
-    margin: 0;
+    margin-top: 0.64rem;
+    margin-left: 0;
   }
 `;
 
@@ -49,7 +50,7 @@ export const Label = styled.div`
 `;
 
 export const Author = styled.span`
-  font-size: 16px;
+  font-size: 0.16rem;
   color: #3A3A3A;
   margin-right: ${smMargin};
   cursor: pointer;
@@ -61,13 +62,13 @@ export const Author = styled.span`
 `;
 
 export const Text = styled.span`
-  font-size: 14px;
+  font-size: 0.16rem;
   color: #3A3A3A;
   margin-left: 0.1rem;
 `;
 
 export const Tag = styled.span`
-  font-size: 14px;
+  font-size: 0.16rem;
   margin-right: ${smMargin};
   border: 1px solid ${secondColor};
   padding: 0.02rem 0.1rem;
@@ -84,9 +85,8 @@ export const TimeLabel = styled.span`
   margin-left: 0.1rem;
   height: 0.36rem;
   line-height: 0.36rem;
-  font-size: 14px;
+  font-size: 0.16rem;
   color: #B4B4B4;
-  font-style: italic;
 `;
 
 export const ArticleContent = styled.div`
@@ -326,6 +326,7 @@ export const PageJump = styled.div`
   height: 0.65rem;
   line-height: 0.65rem;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
+    width: ${full};
     height: 0.36rem;
     line-height: 0.36rem;
   }
@@ -367,7 +368,7 @@ export const Nocomment = styled.p`
   width: ${full};
   height: 0.64rem;
   line-height: 0.64rem;
-  font-zie: 0.14rem;
+  font-zie: 0.16rem;
   color: #757575;
   text-align: center;
 `;

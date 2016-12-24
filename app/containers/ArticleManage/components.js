@@ -3,7 +3,9 @@ import styled from 'styled-components';
 export const ArticleItem = styled.li`
   padding-left: 0.25rem;
   cursor: pointer;
+  height: 0.64rem;
   transition: all 250ms;
+  position: relative;
   box-shadow: ${(props) => props.index === props.current ? '1px 1px 1px #CCC inset' : ''};
   background-color: ${(props) => props.index === props.current ? '#F7F8FA' : ''};
   &:hover {
@@ -17,8 +19,8 @@ export const ArticleItem = styled.li`
     width: 85%;
     font-size: 0.16rem;
     margin: 0;
-    line-height: 0.45rem;
-    height: 0.45rem;
+    line-height: 0.36rem;
+    height: 0.36rem;
     color: #666;
     font-weight: normal;
     white-space: nowrap;
@@ -35,9 +37,12 @@ export const ArticleItem = styled.li`
 export const DeleteBtn = styled.button`
   width: 0.36rem;
   height: 0.36rem;
+  right: 0.2rem;
+  top: 0.2rem;
   font-size: 0.2rem;
   outline: none;
   cursor: pointer;
+  position: absolute;
   color: #666;
   margin-left: 0.3rem;
   transition: all 200ms;

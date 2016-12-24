@@ -12,6 +12,8 @@ import {
   changePrivateArticle,
   changeHightlightCurrent,
   fetchFetchEditedSuc,
+  changeDialogDelete,
+  fetchAllArticle,
 } from './actions';
 import {
   selectAuthInfo,
@@ -50,6 +52,8 @@ export function* pushArticle() {
   } catch (err) {
     console.log(err.message);
     yield put(pushArticleError());
+  } finally {
+    yield put(fetchAllArticle());
   }
 }
 
@@ -57,7 +61,7 @@ export function* fetchPrivateArticleList() {
   try {
     const response = yield call(articleApi.fetchPrivate);
     yield put(changePrivateArticle(response));
-    yield put(changeHightlightCurrent(response[0]._id));
+    // yield put(changeHightlightCurrent(response[0]._id));
   } catch (err) {
     console.log(err.message);
   }
@@ -84,6 +88,14 @@ export function* deleteArticle() {
     const highlight = yield select(selectHighlight());
     yield call(articleApi.deleteArticle, highlight);
     yield put(fetchPrivateArticle());
+    yield put(changeDialogDelete(false));
+    yield put(changeArticleInfo({
+      title: response.title,
+      tags: response.tags,
+      content: response.content,
+      published: false,
+    }));
+    yield put(fetchAllArticle());
   } catch(err) {
     console.log(err.message);
   }

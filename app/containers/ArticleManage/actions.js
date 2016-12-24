@@ -78,9 +78,10 @@ export function deleteArticle() {
   };
 }
 
-export function deleteArticleSuc() {
+export function deleteArticleSuc(val) {
   return {
     type: DELETE_ARTICLE_SUC,
+    val,
   };
 }
 
@@ -90,3 +91,7 @@ export function changeDialogDelete(val) {
     val,
   };
 }
+
+export {
+  fetchAllArticle,
+} from '../MainPage/actions';

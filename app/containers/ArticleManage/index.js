@@ -90,6 +90,7 @@ class ArticleManage extends Component {
       onArticlePush,
       articleList,
       dialogState,
+      onDeleteArticle,
       onDialogStateChange,
     } = this.props;
     return (
@@ -98,6 +99,7 @@ class ArticleManage extends Component {
         <Dialog
           changeDialogState={onDialogStateChange}
           articleTitle={articleInfo.title}
+          submitCallBack={onDeleteArticle}
         /> :
         null
       }

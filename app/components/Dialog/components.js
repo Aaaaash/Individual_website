@@ -61,7 +61,7 @@ export const DialogBox = styled.div`
   background-color: #FFF;
   border: 1px solid #FFF;
   z-index: 2;
-  box-shadow: 0 1px 3px rgba(0, 37, 55, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 37, 55, 0.5);
   animation: ${dialogAni} 0.3s  ease;
 `;
 
