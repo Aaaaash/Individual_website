@@ -10,6 +10,7 @@ import {
   FETCH_EDITED_ARTICLE_SUCCESS,
   DELETE_ARTICLE,
   DELETE_ARTICLE_SUC,
+  CHANGE_DELETE_DIALOG,
 } from './constants';
 
 export function changeArticleInfo(info) {
@@ -80,5 +81,12 @@ export function deleteArticle() {
 export function deleteArticleSuc() {
   return {
     type: DELETE_ARTICLE_SUC,
+  };
+}
+
+export function changeDialogDelete(val) {
+  return {
+    type: CHANGE_DELETE_DIALOG,
+    val,
   };
 }

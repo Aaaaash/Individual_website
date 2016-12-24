@@ -9,6 +9,7 @@ import {
   FETCH_EDITED_ARTICLE_SUCCESS,
   DELETE_ARTICLE,
   DELETE_ARTICLE_SUC,
+  CHANGE_DELETE_DIALOG,
 } from './constants';
 
 import { fromJS } from 'immutable';
@@ -23,6 +24,7 @@ const initialState = fromJS({
   },
   highlight: '',
   privateList: [],
+  dialogState: false,
   requesting: false,
   err: '',
 });
@@ -45,6 +47,8 @@ function articleReducer(state = initialState, action) {
       return state.setIn(['articleInfo', 'loading'], true);
     case FETCH_EDITED_ARTICLE_SUCCESS:
       return state.setIn(['articleInfo', 'loading'], false);
+    case CHANGE_DELETE_DIALOG:
+      return state.set('dialogState', action.val);
     default:
       return state;
   }

@@ -73,6 +73,10 @@ input {
   outline: none;
 }
 
+button {
+  outline: none;
+}
+
 ul {
   margin: 0;
   padding: 0;

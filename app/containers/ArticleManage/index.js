@@ -12,21 +12,27 @@ import {
   changeHightlightCurrent,
   fetchEditedArticle,
   deleteArticle,
+  changeDialogDelete,
 } from './actions';
 import {
   selectAuthInfo,
   selectArticleInfo,
   selectPrivateArticle,
   selectHighlight,
+  selectDialogState,
 } from './selector';
 import './iconfont.js';
 import Loading from 'components/Loading';
+import Dialog from 'components/Dialog';
 import {
   ArticleItem,
   DeleteBtn,
 } from './components';
 
 class ArticleManage extends Component {
+  state = {
+    open: false,
+  }
   componentDidMount() {
     this.props.onFetchAllArticle();
   }
@@ -48,7 +54,8 @@ class ArticleManage extends Component {
 
   handleDeleteArticle = (ev) => {
     ev.stopPropagation();
-    this.props.onDeleteArticle();
+    // this.props.onDeleteArticle();
+    this.props.onDialogStateChange(true);
   }
 
   renderArticleList = (list) =>
@@ -82,9 +89,14 @@ class ArticleManage extends Component {
       onArticleInfoChange,
       onArticlePush,
       articleList,
+      dialogState,
     } = this.props;
     return (
       <div className={styles.admin}>
+      {dialogState ?
+        <Dialog /> :
+        null
+      }
         <div className={styles.article_list} key="a">
           <h3>文章列表
             <button
@@ -120,6 +132,8 @@ ArticleManage.propTypes = {
   onChangeCurrent: PropTypes.func,
   onFetchEditedArticle: PropTypes.func,
   onDeleteArticle: PropTypes.func,
+  onDialogStateChange: PropTypes.func,
+  dialogState: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -127,6 +141,7 @@ const mapStateToProps = createStructuredSelector({
   articleInfo: selectArticleInfo(),
   articleList: selectPrivateArticle(),
   highlight: selectHighlight(),
+  dialogState: selectDialogState(),
 });
 
 function mapDispatchTpProps(dispatch) {
@@ -137,6 +152,7 @@ function mapDispatchTpProps(dispatch) {
     onChangeCurrent: (val) => dispatch(changeHightlightCurrent(val)),
     onFetchEditedArticle: () => dispatch(fetchEditedArticle()),
     onDeleteArticle: () => dispatch(deleteArticle()),
+    onDialogStateChange: (val) => dispatch(changeDialogDelete()),
   };
 }
 

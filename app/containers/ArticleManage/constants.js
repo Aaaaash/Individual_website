@@ -14,3 +14,5 @@ export const FETCH_EDITED_ARTICLE_SUCCESS = 'xmm/admin/FETCH_EDITED_ARTICLE_SUCC
 
 export const DELETE_ARTICLE = 'xmm/admin/DELETE_ARTICLE';
 export const DELETE_ARTICLE_SUC = 'xmm/admin/DELETE_ARTICLE_SUC';
+
+export const CHANGE_DELETE_DIALOG = 'xmm/admin/CHANGE_DELETE_DIALOG';

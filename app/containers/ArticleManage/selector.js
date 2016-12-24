@@ -17,6 +17,11 @@ const selectHighlight = () => createSelector(
   (articleState) => articleState.get('highlight')
 );
 
+const selectDialogState = () => createSelector(
+  selectArticle(),
+  (articleState) => articleState.get('dialogState')
+);
+
 export {
   selectAuthInfo,
 } from '../MainPage/selector';
@@ -25,4 +30,5 @@ export {
   selectArticleInfo,
   selectPrivateArticle,
   selectHighlight,
+  selectDialogState,
 };
