@@ -90,11 +90,15 @@ class ArticleManage extends Component {
       onArticlePush,
       articleList,
       dialogState,
+      onDialogStateChange,
     } = this.props;
     return (
       <div className={styles.admin}>
       {dialogState ?
-        <Dialog /> :
+        <Dialog
+          changeDialogState={onDialogStateChange}
+          articleTitle={articleInfo.title}
+        /> :
         null
       }
         <div className={styles.article_list} key="a">
@@ -152,7 +156,7 @@ function mapDispatchTpProps(dispatch) {
     onChangeCurrent: (val) => dispatch(changeHightlightCurrent(val)),
     onFetchEditedArticle: () => dispatch(fetchEditedArticle()),
     onDeleteArticle: () => dispatch(deleteArticle()),
-    onDialogStateChange: (val) => dispatch(changeDialogDelete()),
+    onDialogStateChange: (val) => dispatch(changeDialogDelete(val)),
   };
 }
 

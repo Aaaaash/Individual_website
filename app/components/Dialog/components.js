@@ -20,6 +20,17 @@ const dialogAni = keyframes`
   }
 `;
 
+const dialogLeave = keyframes`
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+`;
+
 export const DialogContainer = styled.div`
   width: 100%;
   height: 100%;
@@ -37,7 +48,7 @@ export const Layout = styled.div`
   position: absolute;
   z-index: 1;
   background-color: rgba(0,0,0,0.5);
-  animation: ${layoutAni} 0.4s ease;
+  animation: ${layoutAni} 0.3s ease;
 `;
 
 export const DialogBox = styled.div`
@@ -51,7 +62,7 @@ export const DialogBox = styled.div`
   border: 1px solid #FFF;
   z-index: 2;
   box-shadow: 0 1px 3px rgba(0, 37, 55, 0.05);
-  animation: ${dialogAni} 0.4s  ease;
+  animation: ${dialogAni} 0.3s  ease;
 `;
 
 export const DialogTitle = styled.p`
