@@ -29,6 +29,7 @@ import Dialog from 'components/Dialog';
 import {
   ArticleItem,
   DeleteBtn,
+  NoData,
 } from './components';
 
 class ArticleManage extends Component {
@@ -122,7 +123,9 @@ class ArticleManage extends Component {
             </button>
           </h3>
           <ul className={styles.article_name}>
-            {this.renderArticleList(articleList)}
+            {articleList.length === 0 ?
+              <NoData><i className="fa fa-exclamation-circle"></i> 暂无数据</NoData> :
+              this.renderArticleList(articleList)}
           </ul>
         </div>
         <Editor

@@ -61,3 +61,8 @@ export const DeleteBtn = styled.button`
   }
   animation: ${deleteAni} 0.2s ease;
 `;
+
+export const NoData = styled.div`
+  text-align: center;
+  color: #999;
+`;
