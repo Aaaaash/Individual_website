@@ -1,6 +1,6 @@
 .left_nav {
   position: fixed;
-  width: 0.65rem;
+  width: 0.6rem;
   height: 100%;
   color: #E6E9ED;
   background-color: #3E4149;
@@ -33,7 +33,7 @@
 .user_name {
   height: 0.36rem;
   line-height: 0.36rem;
-  font-size: 0.12rem;
+  font-size: 0.14rem;
   font-weight: lighter;
 }
 

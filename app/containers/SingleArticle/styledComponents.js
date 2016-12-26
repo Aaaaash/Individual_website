@@ -114,36 +114,10 @@ export const LoadingCon = styled.div`
 `;
 
 export const LoadTitlt = styled.p`
-  width: 35%;
+  width: ${(props) => props.width};
   height: 0.2rem;
+  margin-top: 0.15rem;
   background-color: rgb(241, 241, 241);
-`;
-
-export const LoadAuth = styled.p`
-  width: 85%;
-  margin-top: ${smMargin};
-  background-color: rgb(241, 241, 241);
-  height: 0.2rem;
-`;
-
-export const LoadArticle = styled.div`
-  width: ${full};
-  margin-top: ${smMargin};
-  height: 1.25rem;
-  background-color: rgb(241, 241, 241);
-`;
-
-export const LoadFoot = styled.div`
-  width: ${full};
-  height: 0.2rem;
-  margin-top: ${smMargin};
-  display: flex;
-  justify-content: space-between;
-  > p {
-    width: 25%;
-    height: 0.2rem;
-    background-color: rgb(241, 241, 241);
-  }
 `;
 
 export const ReviewCon = styled.div`
@@ -290,11 +264,11 @@ export const SubmitBtn = styled.button`
   color: ${whiteColor};
   outline: none;
   cursor: pointer;
-  background-color: #56c4d2;
+  background-color: ${mainColor};
   box-shadow: 0 1px 2px rgba(108, 108, 108, 0.24);
   transition: all 200ms;
   &:hover {
-    background-color: ${mainColor};
+    background-color: #188db8;
   }
   &:active {
     box-shadow: 0 2px 4px rgba(108, 108, 108, 0.24);

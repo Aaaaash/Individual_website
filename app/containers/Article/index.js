@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import hljs from 'highlight.js';
+import { is } from 'immutable';
 
 import { Tag } from './styledComponents.js';
 import styles from './styles.css';
@@ -34,6 +35,11 @@ marked.setOptions({
 
 class Article extends Component {
   componentDidMount() {
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return !(this.props === nextProps || is(this.props, nextProps)) ||
+         !(this.state === nextState || is(this.state, nextState));
   }
 
   getTime = (time) => {

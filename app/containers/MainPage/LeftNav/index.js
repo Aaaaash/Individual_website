@@ -38,7 +38,7 @@ class LeftNav extends Component {
             >
               <li onTouchTap={() => browserHistory.push('/')}>Index</li>
               <li onTouchTap={() => browserHistory.push('/admin')}>Blog</li>
-              <li onTouchTap={() => browserHistory.push('/archives')}>Blog</li>
+              <li onTouchTap={() => browserHistory.push('/archives')}>archives</li>
             </TweenOne> :
           null}
         <ul className={styles.auth_nav}>

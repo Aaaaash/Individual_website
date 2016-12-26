@@ -90,13 +90,13 @@ export function* deleteArticle() {
     yield put(fetchPrivateArticle());
     yield put(changeDialogDelete(false));
     yield put(changeArticleInfo({
-      title: response.title,
-      tags: response.tags,
-      content: response.content,
+      title: '',
+      tags: '',
+      content: '',
       published: false,
     }));
     yield put(fetchAllArticle());
-  } catch(err) {
+  } catch (err) {
     console.log(err.message);
   }
 }

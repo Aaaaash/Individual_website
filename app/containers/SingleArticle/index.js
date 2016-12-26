@@ -47,9 +47,6 @@ import {
   NoData,
   Nocomment,
   LoadTitlt,
-  LoadAuth,
-  LoadArticle,
-  LoadFoot,
 } from './styledComponents';
 import {
   selectCurrentArticle,
@@ -103,9 +100,12 @@ class SingleArticle extends Component {
 
   renderLoadingBackground = () =>
     <LoadingCon>
-      <LoadTitlt />
-      <LoadAuth />
-      <LoadAuth />
+      <LoadTitlt width="50%" />
+      <LoadTitlt width="70%" />
+      <LoadTitlt width="60%" />
+      <LoadTitlt width="80%" />
+      <LoadTitlt width="60%" />
+      <LoadTitlt width="70%" />
     </LoadingCon>
 
   renderCommentsList = (list) => {

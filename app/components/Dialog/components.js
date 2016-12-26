@@ -48,7 +48,7 @@ export const Layout = styled.div`
   position: absolute;
   z-index: 1;
   background-color: rgba(0,0,0,0.5);
-  animation: ${layoutAni} 0.3s ease;
+  animation: ${layoutAni} 0.2s ease;
 `;
 
 export const DialogBox = styled.div`
@@ -62,7 +62,7 @@ export const DialogBox = styled.div`
   border: 1px solid #FFF;
   z-index: 2;
   box-shadow: 0 1px 3px rgba(0, 37, 55, 0.5);
-  animation: ${dialogAni} 0.3s  ease;
+  animation: ${dialogAni} 0.2s ease;
 `;
 
 export const DialogTitle = styled.p`
@@ -74,13 +74,15 @@ export const DialogTitle = styled.p`
 export const DialogContent = styled.div`
   padding: 0.15rem;
   height: 100%;
+  color: #5D5D5D;
 `;
 
 export const DialogFooter = styled.div`
   height: 0.65rem;
   padding: 0.15rem;
   text-align: right;
-`
+`;
+
 export const DialogBtn = styled.button`
   border-radius: 2px;
   padding: 0.06rem 0.2rem;
@@ -100,5 +102,6 @@ export const DialogBtn = styled.button`
 
 export const WarnText = styled.span`
   color: #F45E6E;
-  padding: 0 0.1rem;
+  padding: 0 0.05rem;
+  font-weight: bold;
 `;

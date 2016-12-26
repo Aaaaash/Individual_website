@@ -3,6 +3,7 @@ import QueueAnim from 'rc-queue-anim';
 import styles from './styles.css';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
+import { is } from 'immutable';
 
 import Editor from '../Editor';
 import {
@@ -37,6 +38,11 @@ class ArticleManage extends Component {
     this.props.onFetchAllArticle();
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return !(this.props === nextProps || is(this.props, nextProps)) ||
+         !(this.state === nextState || is(this.state, nextState));
+  }
+
   handleChangeCurrent = (id) => {
     this.props.onChangeCurrent(id);
     this.props.onFetchEditedArticle();
@@ -54,7 +60,6 @@ class ArticleManage extends Component {
 
   handleDeleteArticle = (ev) => {
     ev.stopPropagation();
-    // this.props.onDeleteArticle();
     this.props.onDialogStateChange(true);
   }
 
@@ -71,7 +76,7 @@ class ArticleManage extends Component {
         <span>2343</span>
         {this.props.highlight === item._id ?
           <DeleteBtn onClick={this.handleDeleteArticle}>
-            <i className="fa fa-trash"></i>
+            <i className="fa fa-trash-o"></i>
           </DeleteBtn> :
           null}
 
@@ -95,14 +100,15 @@ class ArticleManage extends Component {
     } = this.props;
     return (
       <div className={styles.admin}>
-      {dialogState ?
-        <Dialog
-          changeDialogState={onDialogStateChange}
-          articleTitle={articleInfo.title}
-          submitCallBack={onDeleteArticle}
-        /> :
-        null
-      }
+        {
+          dialogState ?
+            <Dialog
+              changeDialogState={onDialogStateChange}
+              articleTitle={articleInfo.title}
+              submitCallBack={onDeleteArticle}
+            /> :
+            null
+        }
         <div className={styles.article_list} key="a">
           <h3>文章列表
             <button
