@@ -14,6 +14,7 @@ import {
   fetchFetchEditedSuc,
   changeDialogDelete,
   fetchAllArticle,
+  deleteArticleSuc,
 } from './actions';
 import {
   selectAuthInfo,
@@ -87,6 +88,7 @@ export function* deleteArticle() {
   try {
     const highlight = yield select(selectHighlight());
     yield call(articleApi.deleteArticle, highlight);
+    yield put(deleteArticleSuc());
     yield put(fetchPrivateArticle());
     yield put(changeDialogDelete(false));
     yield put(changeArticleInfo({

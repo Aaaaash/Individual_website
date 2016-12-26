@@ -26,7 +26,7 @@
   overflow-y: scroll;
 }
 
-/*.article_list::-webkit-scrollbar{ width:0px }*/
+.article_list::-webkit-scrollbar{ width:0px }
 
 .article_list h3 {
   margin: 0;

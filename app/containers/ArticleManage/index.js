@@ -20,6 +20,7 @@ import {
   selectArticleInfo,
   selectPrivateArticle,
   selectHighlight,
+  selectDeleteRequest,
   selectDialogState,
 } from './selector';
 import './iconfont.js';
@@ -40,7 +41,7 @@ class ArticleManage extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     return !(this.props === nextProps || is(this.props, nextProps)) ||
-         !(this.state === nextState || is(this.state, nextState));
+      !(this.state === nextState || is(this.state, nextState));
   }
 
   handleChangeCurrent = (id) => {
@@ -76,7 +77,7 @@ class ArticleManage extends Component {
         <span>2343</span>
         {this.props.highlight === item._id ?
           <DeleteBtn onClick={this.handleDeleteArticle}>
-            <i className="fa fa-trash-o"></i>
+            <i className="fa fa-trash"></i>
           </DeleteBtn> :
           null}
 
@@ -97,6 +98,7 @@ class ArticleManage extends Component {
       dialogState,
       onDeleteArticle,
       onDialogStateChange,
+      deleteRequest,
     } = this.props;
     return (
       <div className={styles.admin}>
@@ -106,6 +108,7 @@ class ArticleManage extends Component {
               changeDialogState={onDialogStateChange}
               articleTitle={articleInfo.title}
               submitCallBack={onDeleteArticle}
+              requesting={deleteRequest}
             /> :
             null
         }
@@ -154,6 +157,7 @@ const mapStateToProps = createStructuredSelector({
   articleList: selectPrivateArticle(),
   highlight: selectHighlight(),
   dialogState: selectDialogState(),
+  deleteRequest: selectDeleteRequest(),
 });
 
 function mapDispatchTpProps(dispatch) {

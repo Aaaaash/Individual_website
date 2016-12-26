@@ -18,24 +18,25 @@ const transformOpen = keyframes`
 
 const Prompt = styled.div`
   width: 2.5rem;
-  height: 0.6rem;
+  min-height: 0.6rem;
   border-radius: 4px;
   background-color: #FFF;
-  position: absolute;
+  position: fixed;
   right: 0.15rem;
   top: 0.15rem;
   padding: 0.15rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   transition: all 450ms;
   animation-fill-mode:forwards;
   animation: ${transformOpen} 0.25s;
+  z-index: 10000;
 `;
 
 const Message = styled.p`
   font-size: 0.14rem;
-  color: #0D0D0D;
-  line-height: 0.3rem;
+  line-height: 0.2rem;
   text-align: left;
+  color: #31424E;
 `;
 
 class GlobalPrompt extends Component {
@@ -63,7 +64,7 @@ class GlobalPrompt extends Component {
       <div>
         {this.state.open ?
           <Prompt type={this.state.type} open={this.state.open}>
-            <Message>{this.state.message}</Message>
+            <Message><i className="fa fa-trash"></i>{this.state.message}</Message>
           </Prompt> :
         null}
       </div>

@@ -22,6 +22,11 @@ const selectDialogState = () => createSelector(
   (articleState) => articleState.get('dialogState')
 );
 
+const selectDeleteRequest = () => createSelector(
+  selectArticle(),
+  (articleState) => articleState.get('deleteRequest')
+);
+
 export {
   selectAuthInfo,
 } from '../MainPage/selector';
@@ -31,4 +36,5 @@ export {
   selectPrivateArticle,
   selectHighlight,
   selectDialogState,
+  selectDeleteRequest,
 };

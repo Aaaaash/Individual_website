@@ -22,7 +22,12 @@ class Dialog extends Component {
   }
 
   render() {
-    const { articleTitle, changeDialogState, submitCallBack } = this.props;
+    const {
+      articleTitle,
+      changeDialogState,
+      submitCallBack,
+      requesting,
+    } = this.props;
     return (
       <DialogContainer>
         <Layout />
@@ -43,7 +48,10 @@ class Dialog extends Component {
               warning
               onClick={submitCallBack}
             >
-            确定
+              {requesting ?
+                <i style={{ fontSize: '0.12rem', marginRight: '0.04rem' }} className="fa fa-spinner fa-pulse"></i>
+                : '' }
+              确定
             </DialogBtn>
           </DialogFooter>
         </DialogBox>

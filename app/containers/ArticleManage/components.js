@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const ArticleItem = styled.li`
   padding-left: 0.25rem;
@@ -6,14 +6,14 @@ export const ArticleItem = styled.li`
   height: 0.64rem;
   transition: all 250ms;
   position: relative;
-  box-shadow: ${(props) => props.index === props.current ? '1px 1px 1px #CCC inset' : ''};
+  box-shadow: ${(props) => props.index === props.current ? '0 1px 0 #CCC inset;' : ''};
   background-color: ${(props) => props.index === props.current ? '#F7F8FA' : ''};
   &:hover {
     background-color: #F7F8FA;
     color: #323232;
   }
   &:active {
-    box-shadow: 1px 1px 1px #CCC inset;
+    box-shadow: 0 1px 0 #CCC inset;
   }
   > h4 {
     width: 85%;
@@ -34,19 +34,30 @@ export const ArticleItem = styled.li`
   }
 `;
 
+const deleteAni = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 export const DeleteBtn = styled.button`
   width: 0.36rem;
   height: 0.36rem;
   right: 0.2rem;
-  top: 0.2rem;
-  font-size: 0.18rem;
+  bottom: 0.05rem;
+  font-size: 0.2rem;
   outline: none;
   cursor: pointer;
   position: absolute;
   color: #F45E6E;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   margin-left: 0.3rem;
   transition: all 200ms;
   &:active {
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    
   }
+  animation: ${deleteAni} 0.2s ease;
 `;

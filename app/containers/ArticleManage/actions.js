@@ -78,10 +78,9 @@ export function deleteArticle() {
   };
 }
 
-export function deleteArticleSuc(val) {
+export function deleteArticleSuc() {
   return {
     type: DELETE_ARTICLE_SUC,
-    val,
   };
 }
 

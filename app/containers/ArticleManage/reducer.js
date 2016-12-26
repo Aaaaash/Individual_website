@@ -25,6 +25,7 @@ const initialState = fromJS({
   highlight: '',
   privateList: [],
   dialogState: false,
+  deleteRequest: false,
   requesting: false,
   err: '',
 });
@@ -49,8 +50,10 @@ function articleReducer(state = initialState, action) {
       return state.setIn(['articleInfo', 'loading'], false);
     case CHANGE_DELETE_DIALOG:
       return state.set('dialogState', action.val);
+    case DELETE_ARTICLE:
+      return state.set('deleteRequest', true);
     case DELETE_ARTICLE_SUC:
-      return state.set('privateList', action.val);
+      return state.set('deleteRequest', false);
     default:
       return state;
   }
