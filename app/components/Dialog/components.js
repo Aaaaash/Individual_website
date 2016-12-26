@@ -85,7 +85,7 @@ export const DialogFooter = styled.div`
 
 export const DialogBtn = styled.button`
   border-radius: 2px;
-  padding: 0.06rem 0.2rem;
+  padding: 0.05rem 0.15rem;
   margin-left: 0.15rem;
   color: #FFF;
   cursor: pointer;
@@ -95,7 +95,6 @@ export const DialogBtn = styled.button`
     background-color: ${(props) => props.warning ? '#F45E6E' : '#188db8' };;
   }
   &:active {
-    background-color: ${(props) => props.warning ? '#F45E6E' : '#188db8' };;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2),0 1px 4px rgba(0, 0, 0, 0.2);
   }
 `;

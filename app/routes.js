@@ -97,7 +97,7 @@ export default function createRoutes(store) {
 
           const renderRoute = loadModule(cb);
 
-          importModules.then(([ component]) => {
+          importModules.then(([component]) => {
             renderRoute(component);
           });
 

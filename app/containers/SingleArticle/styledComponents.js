@@ -12,7 +12,7 @@ const secondColor = '#F45E6E';
 export const ArticleContainer = styled.div`
   width: ${full};
   position: relative;
-  margin-left: 0.65rem;
+  margin-left: 0.6rem;
   flex-grow: 1;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     margin-top: 0.64rem;

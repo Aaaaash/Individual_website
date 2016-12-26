@@ -1,6 +1,6 @@
 .container {
-  margin-left: 1.75rem;
-  margin-right: 0.5rem;
+  margin-left: 0.6rem;
+  /*margin-right: 0.5rem;*/
   flex-grow: 1;
 }
 
