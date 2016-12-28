@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const LoginContainer = styled.div`
   position: relative;
@@ -9,6 +9,22 @@ export const LoginContainer = styled.div`
   overflow: hidden;
   padding: 0.12rem;
   text-align: center;
+`;
+
+export const AuthItem = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+export const InputItem = styled.p`
+  width: 80%;
+`;
+
+export const LabelItem = styled.p`
+  height: 0.45rem;
+  line-height: 0.45rem;
+  text-align: right;
 `;
 
 export const AuthInput = styled.input`
@@ -58,5 +74,53 @@ export const BaseButton = styled.button`
   }
   &:active {
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2),0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const radioAni = keyframes`
+  from {
+    transform:scale(0);
+  }
+  to {
+    transform:scale(1);
+  }
+`;
+
+export const RadioInput = styled.input`
+  width: 0.25rem;
+  height: 0.25rem;
+  background: #FFF;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #CCC;
+  vertical-align: bottom;
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  transition: all 300ms;
+  &:active {
+    border-color: #c6c6c6;
+    background: #ebebeb;
+  }
+  &:hover {
+    border-color: #c6c6c6;
+
+  }
+  &:checked {
+    background: #FFF;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+  }
+  &:checked::after {
+    content: '';
+    display: block;
+    position: relative;
+    left: 25%;
+    top: 25%;
+    width: 50%;
+    height: 50%;
+    background: #666;
+    border-radius: 50%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    animation: ${radioAni} 0.3s ease;
   }
 `;
