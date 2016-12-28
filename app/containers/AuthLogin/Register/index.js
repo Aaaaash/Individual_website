@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 
+import {
+  LoginContainer,
+  AuthInput,
+  InputError,
+  BaseButton,
+} from './components';
+
 class Register extends Component {
   render() {
     return (
-      <div>
+      <LoginContainer>
         zhuce
-      </div>
+      </LoginContainer>
     );
   }
 }

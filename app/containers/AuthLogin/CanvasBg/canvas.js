@@ -1,20 +1,20 @@
 function init() {
   const WIDTH = document.documentElement.clientWidth;
   const HEIGHT = document.documentElement.clientHeight;
-  let POINT = 55;
+  let POINT = 35;
   const canvas = document.getElementById('Mycanvas');
   canvas.width = WIDTH,
   canvas.height = HEIGHT;
   const context = canvas.getContext('2d');
-  context.strokeStyle = 'rgba(0,0,0,0.2)',
+  context.strokeStyle = 'rgba(0,0,0,0.05)',
   context.strokeWidth = 1,
-  context.fillStyle = 'rgba(0,0,0,0.1)';
+  context.fillStyle = 'rgba(0,0,0,0.05)';
   let circleArr = [];
   const userAgentInfo = navigator.userAgent;
   const clientType = ['iPhone', 'Android'];
   for (let i = 0, v = clientType.length; i < v; i += 1) {
     if (userAgentInfo.indexOf(clientType[i]) > 0) {
-      POINT = 15;
+      POINT = 10;
       break;
     }
   }

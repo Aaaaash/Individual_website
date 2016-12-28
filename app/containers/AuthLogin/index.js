@@ -6,6 +6,8 @@ import QueueAnim from 'rc-queue-anim';
 import styles from './styles.css';
 import CanvasBg from './CanvasBg';
 import Loading from 'components/Loading';
+import Login from './Login';
+import Register from './Register';
 import {
   selectAuthBaseInfo,
   selectAuthError,
@@ -28,30 +30,9 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
         <QueueAnim type="bottom" className={styles.auth_ani}>
           {loading ? <Loading /> : null}
           <div className={styles.auth_cont} key="a">
-            <h3>Open source blog</h3>
-            <div className={styles.auth_form}>
-              <input
-                value={authBaseInfo.account}
-                className={styles.auth_input}
-                placeholder="please input your account"
-                onChange={this.handleChangeAuthAccount}
-              />
-              <span className={styles.error_input}></span>
-              <input
-                value={authBaseInfo.password}
-                type="password"
-                className={styles.auth_input}
-                placeholder="please input your password"
-                onChange={this.handleChangeAuthPassword}
-              />
-              <span className={styles.error_input}></span>
-              <button
-                onTouchTap={this.handleOpenMainPage}
-                className={styles.login_btn}
-              >
-                登录
-              </button>
-            </div>
+            <h3>登录</h3>
+            <p style={{ textAlign: 'center' }}>还没有账号？<a>点击注册</a></p>
+            <Login />
           </div>
         </QueueAnim>
       </div>

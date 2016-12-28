@@ -321,20 +321,16 @@ export const PageBtn = styled.button`
   &:active {
     color: ${mainColor};
   }
-  @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
-    font-size: 0.16rem;
-  }
 `;
 
 export const NoData = styled.p`
   width: ${full};
   height: ${full};
   text-align: center;
-  font-size: 0.2rem;
+  font-size: 0.16rem;
   color: #CCC;
   @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
     text-align: left;
-    font-size: 0.16rem;
   }
 `;
 
