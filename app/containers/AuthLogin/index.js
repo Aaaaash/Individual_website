@@ -19,9 +19,10 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
   handleOpenMainPage = () => {
     this.props.onAuthRequest();
   }
-  handleChangeAuthAccount = (e) => this.props.onAuthBaseInfoChange({ account: e.target.value });
+  handleChangeAuthAccount = (val) => this.props.onAuthBaseInfoChange({ account: val });
 
-  handleChangeAuthPassword = (e) => this.props.onAuthBaseInfoChange({ password: e.target.value });
+  handleChangeAuthPassword = (val) => this.props.onAuthBaseInfoChange({ password: val });
+
   render() {
     const { loading, authBaseInfo } = this.props;
     return (
@@ -50,6 +51,7 @@ AuthLogin.propTypes = {
   authBaseInfo: PropTypes.object,
   authBaseError: PropTypes.object,
   loading: PropTypes.bool,
+  onAuthRequest: PropTypes.func,
   onAuthBaseInfoChange: PropTypes.func,
 };
 

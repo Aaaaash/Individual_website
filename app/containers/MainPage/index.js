@@ -8,6 +8,7 @@ import {
   fetchAuthInfo,
   changeNavActive,
   fetchAllArticle,
+  logout,
 } from './actions';
 import {
   selectAuthInfo,
@@ -29,6 +30,7 @@ class MainPage extends Component {  // eslint-disable-line
       authInfo,
       navActive,
       onNavActiveChange,
+      authLogout,
     } = this.props;
     return (
       <MainPageContainer>
@@ -36,6 +38,7 @@ class MainPage extends Component {  // eslint-disable-line
           authInfo={authInfo}
           navActive={navActive}
           onNavActiveChange={onNavActiveChange}
+          authLogout={authLogout}
         />
         {children}
       </MainPageContainer>
@@ -50,6 +53,7 @@ MainPage.propTypes = {
   navActive: PropTypes.number,
   onNavActiveChange: PropTypes.func,
   onFetchAllArticle: PropTypes.func,
+  authLogout: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -62,6 +66,7 @@ function mapDispatchTpProps(dispatch) {
     onFetchAllArticle: () => dispatch(fetchAllArticle()),
     onFetchAuthInfo: () => dispatch(fetchAuthInfo()),
     onNavActiveChange: (val) => dispatch(changeNavActive(val)),
+    authLogout: () => dispatch(logout()),
   };
 }
 

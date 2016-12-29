@@ -1,18 +1,22 @@
 import {
-  AUTH_SEND_REQUEST
+  AUTH_SEND_REQUEST,
 } from './constants';
 import auth from './auth';
-import { showGlobalPrompt } from './actions';
+import {
+  showGlobalPrompt,
+  setLogedInState,
+} from './actions';
 import { selectAuthBaseInfo } from './selector';
 
 import { push } from 'react-router-redux';
 import { takeLatest } from 'redux-saga';
-import { fork, take, call, put, select } from 'redux-saga/effects';
+import { fork, call, put, select } from 'redux-saga/effects';
 
 export function* authLogin() {
   try {
     const { account, password } = yield select(selectAuthBaseInfo());
     yield call(auth.login, account, password);
+    yield put(setLogedInState(true));
     yield put(push('/'));
   } catch (err) {
     yield put(showGlobalPrompt({ open: true, type: 'default', timeout: 3000, message: err.message }));

@@ -47,9 +47,8 @@ function appReducer(state = initialState, action) {
       return state.setIn(['userInfo', 'error'], action.error);
     case LOGOUT: {
       const localStorage = global.window.localStorage;
-      localStorage.removeItem('access_token');
-      localStorage.removeItem('expires_in');
-      localStorage.removeItem('refresh_token');
+      localStorage.removeItem('token');
+      localStorage.removeItem('expiresIn');
       window.location.href = window.location.origin;
       return state;
     }

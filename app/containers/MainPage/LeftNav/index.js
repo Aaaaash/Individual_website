@@ -19,7 +19,7 @@ class LeftNav extends Component {
   }
 
   render() {
-    const { authInfo, navActive } = this.props;
+    const { authInfo, navActive, authLogout } = this.props;
     return (
       <div className={styles.left_nav}>
         <MenuBtn onTouchTap={() => this.setState({ open: !this.state.open })} />
@@ -64,12 +64,13 @@ class LeftNav extends Component {
             <i className="fa fa-reorder"></i>
           </li>
         </ul>
-        <p
+        <button
           title="退出"
-          style={{ position: 'absolute', bottom: 0 }}
+          className={styles.logout}
+          onTouchTap={authLogout}
         >
           <i className="fa fa-sign-out"></i>
-        </p>
+        </button>
       </div>
     );
   }

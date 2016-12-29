@@ -57,4 +57,5 @@ export function changeSearchTitle(val) {
 
 export {
   showGlobalPrompt,
+  logout,
 } from '../App/actions';

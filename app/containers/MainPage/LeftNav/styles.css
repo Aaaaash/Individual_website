@@ -89,6 +89,29 @@
   /*display: none;*/
 }
 
+.logout {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  height: 0.45rem;
+  width: 100%;
+  line-height: 0.45rem;
+  list-style: none;
+  font-size: 0.2rem;
+  cursor: pointer;
+  transition: all 250ms;
+}
+
+.logout:hover {
+  background-color: #27323A;
+}
+
+.logout:active {
+  color: #2E94B9;
+  background-color: #27323A;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.65);
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
   .left_nav {
     width: 100%;

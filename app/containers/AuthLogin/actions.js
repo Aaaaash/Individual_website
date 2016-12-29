@@ -3,6 +3,7 @@ import {
   AUTH_INPUT_ERROR,
   AUTH_SEND_REQUEST,
   SET_LOGEDIN_STATE,
+  LOGOUT,
 } from './constants';
 
 export function changeAuthAccountInfo(val) {

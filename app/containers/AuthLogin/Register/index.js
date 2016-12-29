@@ -14,6 +14,11 @@ import {
 } from './components';
 
 class Register extends Component {
+
+  handleImgFile = (ev) => {
+    const file = ev.target.files[0];
+  }
+
   render() {
     return (
       <LoginContainer>
@@ -85,6 +90,7 @@ class Register extends Component {
               type="file"
               ref={(ref) => this.upload = ref}    // eslint-disable-line     no-return-assign
               style={{ display: 'none' }}
+              onChange={this.handleImgFile}
             />
           </InputItem>
         </AuthItem>

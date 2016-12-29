@@ -15,30 +15,9 @@ const loadModule = (cb) => (componentModule) => {
 
 const localStorage = global.window.localStorage;
 const checkNRefreshToken = (isHome) => (nextState, replace, callback) => {
-  if (localStorage.access_token && Date.now() < localStorage.expires_in - 10000) {
-    if (isHome) {
-      replace('/home');
-    }
+  if (localStorage.token && Date.now() < localStorage.expiresIn - 10000) {
+    replace('/login');
     return callback();
-  }
-
-  if (!localStorage.refresh_token) {
-    if (window.location.pathname !== '/') {
-      replace('/');
-    }
-    callback();
-  } else {
-    refreshToken()
-      .then(() => {
-        if (isHome) {
-          replace('/home');
-        }
-        callback();
-      })
-      .catch((error) => {
-        replace('/');
-        callback(error);
-      });
   }
   return true;
 };
@@ -51,6 +30,7 @@ export default function createRoutes(store) {
     {
       path: '/login',
       name: 'login',
+      // onEnter: checkNRefreshToken(true),
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/AuthLogin/reducer'),
@@ -72,6 +52,7 @@ export default function createRoutes(store) {
     {
       path: '/',
       name: 'index',
+      // onEnter: checkNRefreshToken(),
       getComponent(nextState, cb) {
         const importModules = Promise.all([
           System.import('containers/MainPage/reducer'),
