@@ -8,7 +8,6 @@ export const LoginContainer = styled.div`
   flex-direction: column;
   overflow: hidden;
   padding: 0.12rem;
-  text-align: center;
 `;
 
 export const AuthItem = styled.div`
@@ -17,31 +16,34 @@ export const AuthItem = styled.div`
   align-items: center;
 `;
 
-export const InputItem = styled.p`
+export const InputItem = styled.div`
   width: 80%;
+  margin-left: 0.15rem;
 `;
 
 export const LabelItem = styled.p`
-  height: 0.45rem;
-  line-height: 0.45rem;
+  width: 30%;
+  height: 0.36rem;
+  line-height: 0.36rem;
   text-align: right;
 `;
 
 export const AuthInput = styled.input`
   flex-grow: 1;
-  width: 85%;
+  width: 100%;
   color: #4B4B4B;
   margin-top: 0.15rem;
   background: rgba(255, 255, 255, 0.75);
   border: 0.01rem solid rgba(255, 255, 255, 0.35);
   border: 1px solid #CCC;
-  height: 0.45rem;
-  line-height: 0.45rem;
-  text-indent: 0.15rem;
+  height: 0.36rem;
+  line-height: 0.36rem;
+  text-indent: 0.1rem;
   border-radius: 2px;
   &:focus {
+    background-color: #FFF;
     border-color: #2E94B9;
-    transition: all 300ms;
+    transition: all 200ms;
   }
 `;
 
@@ -87,40 +89,72 @@ const radioAni = keyframes`
 `;
 
 export const RadioInput = styled.input`
-  width: 0.25rem;
-  height: 0.25rem;
-  background: #FFF;
+  width: 0.2rem;
+  height: 0.2rem;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) left no-repeat, center no-repeat #ebf1f5;
   border-radius: 50%;
   cursor: pointer;
+  margin: 0 0.1rem;
   border: 1px solid #CCC;
   vertical-align: bottom;
   appearance: none;
   box-sizing: border-box;
   position: relative;
-  transition: all 300ms;
   &:active {
-    border-color: #c6c6c6;
+    border-color: #188db8;
     background: #ebebeb;
   }
   &:hover {
-    border-color: #c6c6c6;
-
+    border-color: #AAA;
   }
   &:checked {
-    background: #FFF;
-    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+    border: 2px solid #188db8;
   }
   &:checked::after {
     content: '';
     display: block;
     position: relative;
-    left: 25%;
-    top: 25%;
-    width: 50%;
-    height: 50%;
-    background: #666;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    animation: ${radioAni} 0.3s ease;
+    background-color: #FFF;
+    animation: ${radioAni} 0.2s;
+  }
+`;
+
+export const SimpleTextArea = styled.textarea`
+  flex-grow: 1;
+  width: 100%;
+  color: #4B4B4B;
+  margin-top: 0.15rem;
+  background: rgba(255, 255, 255, 0.75);
+  border: 0.01rem solid rgba(255, 255, 255, 0.35);
+  border: 1px solid #CCC;
+  height: 1rem;
+  outline: none;
+  resize: none;
+  padding: 0.05rem 0.1rem;
+  border-radius: 2px;
+  transition: all 200ms;
+  &:focus {
+    background-color: #FFF;
+    border-color: #2E94B9;
+  }
+`;
+
+export const ImgUpload = styled.button`
+  cursor: pointer;
+  width: 100%;
+  height: 1rem;
+  color: #666;
+  font-size: 0.25rem;
+  text-align: center;
+  line-height: 1rem;
+  border-radius: 2px;
+  background-color: #FFF;
+  border: 1px dotted #CCC;
+  transition: all 200ms;
+  &:hover {
+    color: #31424E
   }
 `;

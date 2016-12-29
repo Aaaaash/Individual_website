@@ -24,6 +24,7 @@ export const AuthInput = styled.input`
   text-indent: 0.15rem;
   border-radius: 2px;
   &:focus {
+    background-color: #FFF;
     border-color: #2E94B9;
     transition: all 300ms;
   }

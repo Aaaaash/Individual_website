@@ -64,6 +64,12 @@ class LeftNav extends Component {
             <i className="fa fa-reorder"></i>
           </li>
         </ul>
+        <p
+          title="退出"
+          style={{ position: 'absolute', bottom: 0 }}
+        >
+          <i className="fa fa-sign-out"></i>
+        </p>
       </div>
     );
   }

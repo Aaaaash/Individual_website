@@ -32,8 +32,13 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
           <div className={styles.auth_cont} key="a">
             <h3>登录</h3>
             <p style={{ textAlign: 'center' }}>还没有账号？<a>点击注册</a></p>
-            {/* <Login /> */}
-            <Register />
+            <Login
+              authInfo={authBaseInfo}
+              accountChangeFunc={this.handleChangeAuthAccount}
+              passwordChangeFunc={this.handleChangeAuthPassword}
+              submitBtnFunc={this.handleOpenMainPage}
+            />
+            {/* <Register /> */}
           </div>
         </QueueAnim>
       </div>

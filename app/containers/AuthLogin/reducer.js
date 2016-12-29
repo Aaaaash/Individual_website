@@ -8,8 +8,8 @@ import { fromJS } from 'immutable';
 
 const initialState = fromJS({
   authBaseInfo: {
-    account: '',
-    password: '',
+    account: 'binshao54@gmail.com',
+    password: 'MAHUAMAHUA520',
   },
   authBaseError: {
     accountErr: 'test',

@@ -31,7 +31,7 @@ class Dialog extends Component {
     return (
       <DialogContainer>
         <Layout />
-        <DialogBox>
+        <DialogBox onClick={this.handleSelfClick}>
           <DialogTitle>删除文章</DialogTitle>
           <DialogContent>
             确认删除
