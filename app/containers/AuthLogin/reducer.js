@@ -4,6 +4,9 @@ import {
   AUTH_SEND_REQUEST,
   SET_LOGEDIN_STATE,
   CHANGE_REGISTER_INFO,
+  SUBMIT_AUTH_REGISTER,
+  SUBMIT_AUTH_REGISTER_SUCCESS,
+  SUBMIT_AUTH_REGISTER_ERROR,
 } from './constants';
 
 import { fromJS } from 'immutable';
@@ -26,6 +29,7 @@ const initialState = fromJS({
     bio: '',
     avatar: '',
   },
+  isLogin: true,
   logedIn: false,
   loading: false,
 });
@@ -42,6 +46,11 @@ function authReducer(state = initialState, action) {
       return state.set('logedIn', action.state);
     case CHANGE_REGISTER_INFO:
       return state.mergeDeep(fromJS({ authRegisterInfo: action.val }));
+    case SUBMIT_AUTH_REGISTER:
+      return state.set('loading', true);
+    case SUBMIT_AUTH_REGISTER_SUCCESS:
+    case SUBMIT_AUTH_REGISTER_ERROR:
+      return state.set('loading', false);
     default:
       return state;
   }

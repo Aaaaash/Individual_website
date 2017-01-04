@@ -29,6 +29,24 @@ const auth = {
         throw new Error(err.message);
       });
   },
+  register(email, password, repsd, name, gender, bio, avatar) {
+    const options = {
+      method: 'PUT',
+      body: JSON.stringify({
+        name,
+        password: sha1(password),
+        email,
+        avatar,
+        gender,
+        bio,
+      }),
+    };
+    return request(`${API_BASE}/register`, options)
+      .then((data) => data)
+      .catch((err) => {
+        throw new Error(err.message);
+      });
+  },
 };
 
 export default auth;

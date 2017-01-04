@@ -18,6 +18,7 @@ import {
   changeAuthAccountInfo,
   authSendRequest,
   changeRegisterInfo,
+  submitRegister,
 } from './actions';
 
 class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stateless-function
@@ -34,6 +35,7 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
       authBaseInfo,
       authRegisterInfo,
       onRegisterChange,
+      onAuthRegister,
     } = this.props;
     return (
       <div style={{ width: '100%', height: '100%' }}>
@@ -51,6 +53,7 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
             <Register
               inputInfo={authRegisterInfo}
               onChangeCallBack={onRegisterChange}
+              onSubmitCallBack={onAuthRegister}
             />
           </div>
         </QueueAnim>
@@ -67,6 +70,7 @@ AuthLogin.propTypes = {
   onAuthBaseInfoChange: PropTypes.func,
   authRegisterInfo: PropTypes.object,
   onRegisterChange: PropTypes.func,
+  onAuthRegister: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -81,6 +85,7 @@ function mapDispatchTpProps(dispatch) {
     onAuthBaseInfoChange: (val) => dispatch(changeAuthAccountInfo(val)),
     onAuthRequest: () => dispatch(authSendRequest()),
     onRegisterChange: (val) => dispatch(changeRegisterInfo(val)),
+    onAuthRegister: () => dispatch(submitRegister()),
   };
 }
 

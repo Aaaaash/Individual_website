@@ -5,6 +5,9 @@ import {
   SET_LOGEDIN_STATE,
   LOGOUT,
   CHANGE_REGISTER_INFO,
+  SUBMIT_AUTH_REGISTER,
+  SUBMIT_AUTH_REGISTER_SUCCESS,
+  SUBMIT_AUTH_REGISTER_ERROR,
 } from './constants';
 
 export function changeAuthAccountInfo(val) {
@@ -38,6 +41,26 @@ export function changeRegisterInfo(val) {
   return {
     type: CHANGE_REGISTER_INFO,
     val,
+  };
+}
+
+export function submitRegister() {
+  return {
+    type: SUBMIT_AUTH_REGISTER,
+  };
+}
+
+export function submitRegisterSuc(data) {
+  return {
+    type: SUBMIT_AUTH_REGISTER_SUCCESS,
+    data,
+  };
+}
+
+export function submitRegisterErr(err) {
+  return {
+    type: SUBMIT_AUTH_REGISTER_ERROR,
+    err,
   };
 }
 

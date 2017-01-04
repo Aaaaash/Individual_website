@@ -8,10 +8,10 @@ import {
   AuthItem,
   InputItem,
   LabelItem,
-  RadioInput,
   SimpleTextArea,
   ImgUpload,
 } from './components';
+import RadioGroup from 'components/RadioGroup';
 
 class Register extends Component {
   state = {
@@ -63,6 +63,7 @@ class Register extends Component {
     const {
       inputInfo,
       onChangeCallBack,
+      onSubmitCallBack,
     } = this.props;
     return (
       <LoginContainer>
@@ -113,14 +114,22 @@ class Register extends Component {
         <AuthItem>
           <LabelItem>性别：</LabelItem>
           <InputItem>
-            <label htmlFor="radioA">
-              男
-              <RadioInput type="radio" id="radioA" name="sex" value="man" />
-            </label>
-            <label htmlFor="radioB">
-              女
-              <RadioInput type="radio" id="radioB" name="sex" value="woman" />
-            </label>
+            <RadioGroup
+              options={{
+                name: 'sex',
+                data: [
+                  {
+                    value: 'm',
+                    label: 'nan',
+                  },
+                  {
+                    value: 'f',
+                    label: 'nv',
+                  },
+                ],
+              }}
+              changeCallBack={(val) => onChangeCallBack({ sex: val })}
+            />
           </InputItem>
         </AuthItem>
         <AuthItem>
@@ -149,7 +158,7 @@ class Register extends Component {
             />
           </InputItem>
         </AuthItem>
-        <BaseButton>
+        <BaseButton onClick={onSubmitCallBack}>
           注册
         </BaseButton>
       </LoginContainer>

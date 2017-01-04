@@ -1,12 +1,15 @@
 import {
   AUTH_SEND_REQUEST,
+  SUBMIT_AUTH_REGISTER,
 } from './constants';
 import auth from './auth';
 import {
   showGlobalPrompt,
   setLogedInState,
+  submitRegisterSuc,
+  submitRegisterErr,
 } from './actions';
-import { selectAuthBaseInfo } from './selector';
+import { selectAuthBaseInfo, selectRegisterInto } from './selector';
 
 import { push } from 'react-router-redux';
 import { takeLatest } from 'redux-saga';
@@ -23,14 +26,40 @@ export function* authLogin() {
   }
 }
 
+export function* authRegister() {
+  try {
+    const {
+      email,
+      password,
+      repsd,
+      nickname,
+      sex,
+      bio,
+      avatar,
+    } = yield select(selectRegisterInto());
+    yield call(
+      auth.register,
+      email,
+      password,
+      repsd,
+      nickname,
+      sex,
+      bio,
+      avatar,
+    );
+  } catch (err) {
+    yield put(showGlobalPrompt({ open: true, type: 'default', timeout: 3000, message: err.message }));
+  }
+}
 export function* watcherLogin() {
-  yield* takeLatest(AUTH_SEND_REQUEST, authLogin);
+  yield fork(takeLatest, AUTH_SEND_REQUEST, authLogin);
 }
 
-export function* root() {
-  yield fork(watcherLogin);
+export function* watchterRegister() {
+  yield fork(takeLatest, SUBMIT_AUTH_REGISTER, authRegister);
 }
 
 export default [
-  root,
+  watcherLogin,
+  watchterRegister,
 ];
