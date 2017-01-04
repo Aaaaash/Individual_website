@@ -56,7 +56,6 @@ export const InputError = styled.span`
   color: #F45E6E;
   height: 0.14rem;
   line-height: 0.14rem;
-  top: 0.05rem;
   text-align: left;
 `;
 

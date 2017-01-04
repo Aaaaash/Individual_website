@@ -17,8 +17,14 @@ const selectLoading = () => createSelector(
   (authState) => authState.get('loading')
 );
 
+const selectRegisterInto = () => createSelector(
+  selectAuth(),
+  (authState) => authState.get('authRegisterInfo').toJS()
+);
+
 export {
   selectAuthBaseInfo,
   selectAuthError,
   selectLoading,
+  selectRegisterInto,
 };

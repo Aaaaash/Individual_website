@@ -4,6 +4,7 @@ import {
   AUTH_SEND_REQUEST,
   SET_LOGEDIN_STATE,
   LOGOUT,
+  CHANGE_REGISTER_INFO,
 } from './constants';
 
 export function changeAuthAccountInfo(val) {
@@ -30,6 +31,13 @@ export function setLogedInState(state) {
   return {
     type: SET_LOGEDIN_STATE,
     state,
+  };
+}
+
+export function changeRegisterInfo(val) {
+  return {
+    type: CHANGE_REGISTER_INFO,
+    val,
   };
 }
 

@@ -12,8 +12,13 @@ import {
   selectAuthBaseInfo,
   selectAuthError,
   selectLoading,
+  selectRegisterInto,
 } from './selector';
-import { changeAuthAccountInfo, authSendRequest } from './actions';
+import {
+  changeAuthAccountInfo,
+  authSendRequest,
+  changeRegisterInfo,
+} from './actions';
 
 class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stateless-function
   handleOpenMainPage = () => {
@@ -24,10 +29,14 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
   handleChangeAuthPassword = (val) => this.props.onAuthBaseInfoChange({ password: val });
 
   render() {
-    const { loading, authBaseInfo } = this.props;
+    const {
+      loading,
+      authBaseInfo,
+      authRegisterInfo,
+      onRegisterChange,
+    } = this.props;
     return (
       <div style={{ width: '100%', height: '100%' }}>
-        <CanvasBg />
         <QueueAnim type="bottom" className={styles.auth_ani}>
           {loading ? <Loading /> : null}
           <div className={styles.auth_cont} key="a">
@@ -39,7 +48,10 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
               passwordChangeFunc={this.handleChangeAuthPassword}
               submitBtnFunc={this.handleOpenMainPage}
             />
-            {/* <Register /> */}
+            <Register
+              inputInfo={authRegisterInfo}
+              onChangeCallBack={onRegisterChange}
+            />
           </div>
         </QueueAnim>
       </div>
@@ -53,18 +65,22 @@ AuthLogin.propTypes = {
   loading: PropTypes.bool,
   onAuthRequest: PropTypes.func,
   onAuthBaseInfoChange: PropTypes.func,
+  authRegisterInfo: PropTypes.object,
+  onRegisterChange: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   authBaseInfo: selectAuthBaseInfo(),
   authBaseError: selectAuthError(),
   loading: selectLoading(),
+  authRegisterInfo: selectRegisterInto(),
 });
 
 function mapDispatchTpProps(dispatch) {
   return {
     onAuthBaseInfoChange: (val) => dispatch(changeAuthAccountInfo(val)),
     onAuthRequest: () => dispatch(authSendRequest()),
+    onRegisterChange: (val) => dispatch(changeRegisterInfo(val)),
   };
 }
 

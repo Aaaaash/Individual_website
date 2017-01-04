@@ -6,9 +6,6 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -moz-transform: translate(-50%,-50%);
-  -o-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
   border-radius: 0.02rem;
   z-index: 1000;
@@ -43,6 +40,12 @@
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
   .auth_ani {
     width: 95%;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    transform: translate(0, 0);
+    border-radius: 0.02rem;
   }
   .login_btn {
     width: 2.25rem;
