@@ -8,7 +8,7 @@ import styles from './styles.css';
 class LeftNav extends Component {
   constructor(props) {
     super(props);
-    this.animation = { height: '1.5rem', yoyo: true, duration: 250 };
+    this.animation = { height: '2rem', yoyo: true, duration: 200 };
   }
   state = {
     open: false,
@@ -36,9 +36,18 @@ class LeftNav extends Component {
               component="ul"
               style={{ height: '0' }}
             >
-              <li onTouchTap={() => browserHistory.push('/')}>Index</li>
-              <li onTouchTap={() => browserHistory.push('/admin')}>Blog</li>
-              <li onTouchTap={() => browserHistory.push('/archives')}>archives</li>
+              <li onTouchTap={() => browserHistory.push('/')}>
+                <i className="fa fa-home"></i>
+                <span className={styles.label}>Index</span>
+              </li>
+              <li onTouchTap={() => browserHistory.push('/archives')}>
+                <i className="fa fa-reorder"></i>
+                <span className={styles.label}>archives</span>
+              </li>
+              <li onTouchTap={authLogout}>
+                <i className="fa fa-sign-out"></i>
+                <span className={styles.label}>退出</span>
+              </li>
             </TweenOne> :
           null}
         <ul className={styles.auth_nav}>
@@ -63,14 +72,14 @@ class LeftNav extends Component {
           >
             <i className="fa fa-reorder"></i>
           </li>
+          <li
+            title="退出"
+            className={styles.logout}
+            onTouchTap={authLogout}
+          >
+            <i className="fa fa-sign-out"></i>
+          </li>
         </ul>
-        <button
-          title="退出"
-          className={styles.logout}
-          onTouchTap={authLogout}
-        >
-          <i className="fa fa-sign-out"></i>
-        </button>
       </div>
     );
   }
