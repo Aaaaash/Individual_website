@@ -169,6 +169,7 @@ class Register extends Component {
 Register.propTypes = {
   inputInfo: PropTypes.object,
   onChangeCallBack: PropTypes.func,
+  onSubmitCallBack: PropTypes.func,
 };
 
 export default Register;

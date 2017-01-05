@@ -3,12 +3,13 @@ import TweenOne from 'rc-tween-one';
 import { browserHistory } from 'react-router';
 
 import MenuBtn from 'components/MenuBtn';
+import ToolTip from 'components/ToolTip'
 import styles from './styles.css';
 
 class LeftNav extends Component {
   constructor(props) {
     super(props);
-    this.animation = { height: '2rem', yoyo: true, duration: 200 };
+    this.animation = { height: '2rem', duration: 200, ease: 'linear' };
   }
   state = {
     open: false,
@@ -52,26 +53,36 @@ class LeftNav extends Component {
           null}
         <ul className={styles.auth_nav}>
           <li
-            title="主页"
             className={navActive === 0 ? styles.active : ''}
             onTouchTap={() => this.handleChangeNavActive(0, '')}
           >
-            <i className="fa fa-home"></i>
+            <ToolTip
+              hintText="主页"
+            >
+              <i className="fa fa-home"></i>
+            </ToolTip>
           </li>
           <li
-            title="文章管理"
             className={navActive === 2 ? styles.active : ''}
             onTouchTap={() => this.handleChangeNavActive(2, 'admin')}
           >
-            <i className="fa fa-gears"></i>
+            <ToolTip
+              hintText="文章管理"
+            >
+              <i className="fa fa-gears"></i>
+            </ToolTip>
           </li>
           <li
-            title="归档"
             className={navActive === 3 ? styles.active : ''}
             onTouchTap={() => this.handleChangeNavActive(3, 'archives')}
           >
-            <i className="fa fa-reorder"></i>
+            <ToolTip
+              hintText="归档"
+            >
+              <i className="fa fa-reorder"></i>
+            </ToolTip>
           </li>
+
           <li
             title="退出"
             className={styles.logout}
@@ -89,6 +100,7 @@ LeftNav.propTypes = {
   authInfo: PropTypes.object,
   navActive: PropTypes.number,
   onNavActiveChange: PropTypes.func,
+  authLogout: PropTypes.func,
 };
 
 export default LeftNav;

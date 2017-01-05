@@ -36,7 +36,7 @@ export const Layout = styled.div`
   height: 100%;
   position: absolute;
   z-index: 1;
-  transition: 250ms;
+  transition: all 250ms;
   background-color: rgba(0,0,0,0.5);
   animation: ${layoutAni} 0.25s ease;
   opacity: ${(props) => props.close ? 0 : ''};
@@ -52,11 +52,11 @@ export const DialogBox = styled.div`
   background-color: #FFF;
   border: 1px solid #FFF;
   z-index: 2;
-  transition: 250ms;
+  transition: all 250ms;
   box-shadow: 0 1px 3px rgba(0, 37, 55, 0.5);
   animation: ${dialogAni} 0.25s ease;
   opacity: ${(props) => props.close ? 0 : ''};
-  transform: ${(props) => props.close ? 'translateY(-40px)' : ''}; 
+  transform: ${(props) => props.close ? 'translateY(-40px)' : ''};
 `;
 
 export const DialogTitle = styled.p`

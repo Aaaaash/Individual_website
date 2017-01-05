@@ -1,5 +1,5 @@
 :root {
-  --color: #3E4149;
+  --color: #384247;
 }
 
 .left_nav {
@@ -66,13 +66,13 @@
 }
 
 .auth_nav li:hover {
-  background-color: #27323A;
+  background-color: #263238;
 }
 
 .auth_nav .active {
   color: #2E94B9;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.65);
-  background-color: #27323A;
+  background-color: #263238;
 }
 
 .nav_btn {
@@ -148,11 +148,12 @@
     display: none;
   }
   .auth_nav_mob {
-    background: #27323A;
+    background: #263238;
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.2) inset;
     width: 100%;
     position: absolute;
     top: 0.64rem;
-    color: #4D4D4D;
+    color: #E6E9ED;
     margin: 0;
     overflow: hidden;
   }
@@ -166,14 +167,12 @@
     font-size: 0.18rem;
     text-indent: 0.15rem;
     border-left: none;
+    transition: all 150ms;
   }
-  .auth_nav_mob li:hover {
-    border-left: none;
-    /*background-color: #FFF;*/
-  }
+
   .auth_nav_mob li:active {
-    transition: all 250ms;
-    background-color: #3E4149;
+    text-indent: 0.25rem;
+    background-color: #384247;
   }
   .label {
     margin-left: 0.2rem;
