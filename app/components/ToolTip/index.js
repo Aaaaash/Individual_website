@@ -5,7 +5,7 @@ import {
   TipText,
 } from './components';
 
-const text = 'this is demo text!';
+let timer = '';
 
 class ToolTip extends Component {
   state = {
@@ -14,12 +14,13 @@ class ToolTip extends Component {
   }
 
   handleMouseEnter = () => {
-    setTimeout(() => {
+    timer = setTimeout(() => {
       this.setState({ open: true });
     }, 500);
   }
 
   handleMouseLeave = () => {
+    clearTimeout(timer);
     this.setState({ close: true });
     setTimeout(() => {
       this.setState({ open: false, close: false });

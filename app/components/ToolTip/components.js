@@ -28,8 +28,8 @@ export const TipText = styled.div`
   background-color: #475053;
   box-shadow: 0 2px 1px rgba(0,0,0,0.4);
   z-index: 1000;
-  bottom: -0.25rem;
-  left: 0.25rem;
+  bottom: -0.3rem;
+  left: 50%;
   transition: all 250ms;
   opacity: ${(props) => props.open ? 0 : ''};
   transform: ${(props) => props.open ? 'translateY(5px)' : ''};
