@@ -103,16 +103,13 @@ class ArticleManage extends Component {
     } = this.props;
     return (
       <div className={styles.admin}>
-        {
-          dialogState ?
-            <Dialog
-              changeDialogState={onDialogStateChange}
-              articleTitle={articleInfo.title}
-              submitCallBack={onDeleteArticle}
-              requesting={deleteRequest}
-            /> :
-            null
-        }
+        <Dialog
+          changeDialogState={onDialogStateChange}
+          dialogState={dialogState}
+          articleTitle={articleInfo.title}
+          submitCallBack={onDeleteArticle}
+          requesting={deleteRequest}
+        />
         <div className={styles.article_list} key="a">
           <h3>文章列表
             <button
