@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import styled, { keyframes } from 'styled-components';
-import QueueAnim from 'rc-queue-anim';
 
 const transformOpen = keyframes`
   from {

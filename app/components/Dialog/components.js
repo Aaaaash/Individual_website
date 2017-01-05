@@ -12,7 +12,7 @@ const layoutAni = keyframes`
 const dialogAni = keyframes`
   from {
     opacity: 0;
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
   to {
     opacity: 1;
@@ -56,7 +56,7 @@ export const DialogBox = styled.div`
   box-shadow: 0 1px 3px rgba(0, 37, 55, 0.5);
   animation: ${dialogAni} 0.25s ease;
   opacity: ${(props) => props.close ? 0 : ''};
-  transform: ${(props) => props.close ? 'scale(1.2)' : ''};
+  transform: ${(props) => props.close ? 'scale(1.1)' : ''};
 `;
 
 export const DialogTitle = styled.p`
