@@ -3,7 +3,7 @@ import TweenOne from 'rc-tween-one';
 import { browserHistory } from 'react-router';
 
 import MenuBtn from 'components/MenuBtn';
-import ToolTip from 'components/ToolTip'
+import ToolTip from 'components/ToolTip';
 import styles from './styles.css';
 
 class LeftNav extends Component {
