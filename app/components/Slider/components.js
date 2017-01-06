@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const SliderBox = styled.div`
-  margin-top: 0.5rem;
-  min-width: 7rem;
-  height: 0.5rem;
+  min-width: 2rem;
   position: relative;
 `;
 

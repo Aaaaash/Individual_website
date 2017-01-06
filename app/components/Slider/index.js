@@ -58,16 +58,6 @@ class Slider extends Component {
           <Slide />
           <TipNum>{this.state.progress}</TipNum>
         </DragBar>
-        <button
-          style={{
-            width: 50,
-            height: 35,
-            marginTop: 50,
-          }}
-          onClick={this.handleClickButton}
-        >
-          dian
-        </button>
       </SliderBox>
     );
   }
