@@ -4,6 +4,7 @@ import Switch from 'components/Switch';
 import DropMenu from 'components/DropMenu';
 import RadioGroup from 'components/RadioGroup';
 import ChcekBox from 'components/CheckBox';
+import Slider from 'components/Slider';
 
 const options = [
   {
@@ -65,6 +66,7 @@ class Demo extends Component {
            }}
         />
         <ChcekBox />
+        <Slider />
       </div>
     );
   }

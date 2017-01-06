@@ -19,7 +19,7 @@ export const TipText = styled.div`
   color: #E6E9ED;
   text-align: left;
   display: inline-block;
-  white-space:nowrap;
+  white-space: nowrap;
   line-height: 0.25rem;
   font-size: 0.12rem;
   border-radius: 2px;
