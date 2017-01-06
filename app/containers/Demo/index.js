@@ -14,7 +14,19 @@ const options = [
   },
   {
     value: 2,
-    text: '测试3',
+    text: '测试dada大大',
+  },
+  {
+    value: 3,
+    text: '测试达大厦',
+  },
+  {
+    value: 4,
+    text: '测试我去',
+  },
+  {
+    value: 5,
+    text: '测试反攻倒算',
   },
 ];
 

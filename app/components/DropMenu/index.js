@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import {
   DropBox,
@@ -66,5 +66,10 @@ class DropMenu extends Component {
     );
   }
 }
+
+DropMenu.propTypes = {
+  options: PropTypes.array,
+  value: PropTypes.number,
+};
 
 export default DropMenu;
