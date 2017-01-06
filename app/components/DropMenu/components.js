@@ -16,7 +16,7 @@ export const DropBox = styled.button`
   height: 0.3rem;
   border-radius: 1px;
   background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0)) left no-repeat, center no-repeat #f5f8fa;
-  box-shadow: 0 1px 1px rgba(16, 22, 26, 0.1);
+  box-shadow: 0 1px 1px 0 rgba(16, 22, 26, 0.1), 0 1px 1px rgba(16, 22, 26, 0.2);
   transition: 250ms;
   cursor: pointer;
   display: flex;

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Switch from 'components/Switch';
 import DropMenu from 'components/DropMenu';
+import RadioGroup from 'components/RadioGroup';
+import ChcekBox from 'components/CheckBox';
 
 const options = [
   {
@@ -47,6 +49,22 @@ class Demo extends Component {
           options={options}
           value={2}
         />
+        <RadioGroup
+          options={{
+            name: 'sex',
+            data: [
+              {
+                value: 'm',
+                label: 'nan',
+              },
+              {
+                value: 'f',
+                label: 'nv',
+              },
+             ],
+           }}
+        />
+        <ChcekBox />
       </div>
     );
   }
