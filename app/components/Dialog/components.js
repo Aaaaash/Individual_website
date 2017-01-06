@@ -12,11 +12,11 @@ const layoutAni = keyframes`
 const dialogAni = keyframes`
   from {
     opacity: 0;
-    transform: scale(1.1);
+    transform: translateY(-30px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 `;
 
@@ -53,10 +53,10 @@ export const DialogBox = styled.div`
   border: 1px solid #FFF;
   z-index: 2;
   transition: all 250ms;
-  box-shadow: 0 1px 3px rgba(0, 37, 55, 0.5);
+  box-shadow: 0 0 0 1px rgba(16, 22, 26, 0.1), 0 4px 8px rgba(16, 22, 26, 0.2), 0 18px 46px 6px rgba(16, 22, 26, 0.2);
   animation: ${dialogAni} 0.25s ease;
   opacity: ${(props) => props.close ? 0 : ''};
-  transform: ${(props) => props.close ? 'scale(1.1)' : ''};
+  transform: ${(props) => props.close ? 'translateY(-30px)' : ''};
 `;
 
 export const DialogTitle = styled.p`
