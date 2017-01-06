@@ -2,6 +2,9 @@ import styled, { keyframes } from 'styled-components';
 
 export const Chcek = styled.p`
   height: 0.18rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 `;
 
 export const CheckItem = styled.button`
@@ -9,7 +12,6 @@ export const CheckItem = styled.button`
   height: 0.18rem;
   border-radius: 2px;
   border: 1px solid;
-  cursor: pointer;
   border-color: rgba(16, 22, 26, 0.1) rgba(16, 22, 26, 0.1) rgba(16, 22, 26, 0.17) rgba(16, 22, 26, 0.1);
   background: ${(props) => props.checked ? 'linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)) left no-repeat, center no-repeat #2E94B9' : 'linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0)) left no-repeat, center no-repeat #f5f8fa'};
   box-shadow: 0 1px 1px rgba(16, 22, 26, 0.1);
@@ -37,4 +39,10 @@ export const CheckIcon = styled.svg`
   overflow: hidden;
   box-sizing: content-box;
   animation: ${checkAni} 0.2s ease;
+`;
+
+export const CheckLabel = styled.span`
+  margin-left: 0.1rem;
+  height: 0.18rem;
+  line-height: 0.18rem;
 `;

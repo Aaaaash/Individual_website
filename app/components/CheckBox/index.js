@@ -4,6 +4,7 @@ import {
   Chcek,
   CheckItem,
   CheckIcon,
+  CheckLabel,
 } from './components';
 import './iconfont.js';
 
@@ -13,17 +14,15 @@ class CheckBox extends Component {
   }
   render() {
     return (
-      <Chcek>
-        <CheckItem
-          checked={this.state.checked}
-          onClick={() => this.setState({ checked: !this.state.checked })}
-        >
+      <Chcek onClick={() => this.setState({ checked: !this.state.checked })}>
+        <CheckItem checked={this.state.checked} >
           {this.state.checked ?
             <CheckIcon>
               <use href="#icon-gou"></use>
             </CheckIcon> :
           null}
         </CheckItem>
+        <CheckLabel>sakura</CheckLabel>
       </Chcek>
     );
   }
