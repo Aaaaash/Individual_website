@@ -28,7 +28,7 @@ class LeftNav extends Component {
           <a className={styles.avatar} href="/">
             <img src={authInfo.avatar} alt={authInfo.avatar} />
           </a>
-          <p className={styles.user_name}>{authInfo.name}</p>
+          {/* <p className={styles.user_name}>{authInfo.name}</p> */}
         </div>
           {this.state.open ?
             <TweenOne
@@ -84,11 +84,14 @@ class LeftNav extends Component {
           </li>
 
           <li
-            title="退出"
             className={styles.logout}
             onTouchTap={authLogout}
           >
-            <i className="fa fa-sign-out"></i>
+            <ToolTip
+              hintText="退出"
+            >
+              <i className="fa fa-sign-out"></i>
+            </ToolTip>
           </li>
         </ul>
       </div>

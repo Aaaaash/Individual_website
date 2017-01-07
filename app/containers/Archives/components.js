@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ArchiveCon = styled.div`
-  margin-left: 1.75rem;
+  margin-left: 1.65rem;
   margin-right: 0.5rem;
   padding-top: 0.25rem;
   flex-grow: 1;
