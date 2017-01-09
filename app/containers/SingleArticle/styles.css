@@ -5,6 +5,7 @@
 .output h1, .output h2, .output h3, .output h4, .output h5, .output h6 {
   margin: 9pt 0;
   color: #555;
+  font-weight: normal;
 }
 
 .output h1, .output h2 {
@@ -14,12 +15,12 @@
 }
 
 .output a {
-  color: #56c4d2;
+  color: #2E94B9;
   text-decoration: none
 }
 
 .output a:hover {
-  color: #00BAD2;
+  color: #188db8;
   text-decoration: underline;
 }
 
@@ -29,14 +30,13 @@
 
 .output pre {
   background-color: #F7F8FA;
-  border: 1px solid #EEE;
   border-radius: 3px;
-  color: #4D4D4D;
+  color: #5a5a5a;
   padding: 10px;
-  font-size: .9em;
+  font-size: .8em;
   overflow: auto;
   font-family: 'monaco';
-  line-height: 1.75;
+  line-height: 1.5;
 }
 
 .output pre code {
@@ -58,8 +58,8 @@
 .output blockquote {
   margin: 0.15rem 0;
   padding: 5px 10px 5px 15px;
-  border-left: 4px solid #00BAD2;
-  background-color: #EEE
+  border-left: 4px solid #188db8;
+  background-color: #f6f6f6
 }
 
 .output table {

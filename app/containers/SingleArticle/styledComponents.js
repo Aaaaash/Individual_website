@@ -7,7 +7,7 @@ const boxShadow = '0 1px 3px rgba(0, 37, 55, 0.05)';
 const smMargin = '0.15rem';
 const bgMargin = '0.25rem';
 const mainColor = '#2E94B9';
-const secondColor = '#F45E6E';
+const secondColor = '#188db8';
 
 export const ArticleContainer = styled.div`
   width: ${full};
@@ -39,12 +39,9 @@ export const Article = styled.div`
 
 export const Titlt = styled.p`
   font-size: 0.2rem;
-  text-indent: ${smMargin};
-  border-left: 4px solid ${secondColor};
 `;
 
 export const Label = styled.div`
-  margin-top: 0.2rem;
   display: flex;
   justify-content: space-between;
 `;
@@ -91,7 +88,7 @@ export const ArticleContent = styled.div`
   width: ${full};
   height: ${full};
   position: relative;
-  margin-top: ${bgMargin};
+  margin-top: ${smMargin};
 `;
 
 export const LoadingCon = styled.div`
