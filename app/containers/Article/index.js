@@ -84,7 +84,7 @@ class Article extends Component {
         <div    // eslint-disable-line
           className={styles.markdownBody}
           title={`${item.content.replace(reg, '').substr(0, 100)}...`}
-          dangerouslySetInnerHTML={{ __html: marked(`${item.content.replace(reg, '').substr(0, 500)}...`) }}
+          dangerouslySetInnerHTML={{ __html: `${item.content.replace(reg, '').substr(0, 500)}...` }}
         >
         </div>
         <div className={styles.foot_tool}>
@@ -94,15 +94,6 @@ class Article extends Component {
           >
             查看更多
           </a>
-          <p>
-            <button className={styles.thumbs_btn}>
-              <i className="fa fa-thumbs-o-up"></i>
-            </button>
-            123
-            <button className={styles.thumbs_btn}>
-              <i className="fa fa-share-alt"></i>
-            </button>
-          </p>
         </div>
       </div>
     );
@@ -137,6 +128,7 @@ class Article extends Component {
                 </QueueAnim>
           }
           <div className={styles.article_footer}>
+            <Loading />
           </div>
         </div>
       </div>

@@ -68,17 +68,15 @@ export const Text = styled.span`
 `;
 
 export const Tag = styled.span`
-  font-size: 0.14rem;
-  margin-right: ${smMargin};
-  border: 1px solid ${secondColor};
+  font-size: 12px;
+  margin-right: 0.1rem;
+  min-width: 0.2rem;
   padding: 0.02rem 0.1rem;
   cursor: pointer;
-  border-radius: 1rem;
-  transition: all 200ms;
-  &:hover {
-    background-color: ${secondColor};
-    color: ${whiteColor};
-  }
+  border-radius: 4px;
+  color: #FFF;
+  margin-left: 0.15rem;
+  background-color: rgb(92, 112, 128);
 `;
 
 export const TimeLabel = styled.span`

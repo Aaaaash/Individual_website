@@ -56,8 +56,6 @@
   color: #656D78;
   margin-bottom: 0.15rem;
   font-weight: normal;
-  text-indent: 0.1rem;
-  border-left: 2px solid #FC5185;
 }
 
 .article_item .title {
@@ -151,6 +149,10 @@
   text-decoration: underline;
 }
 
+.article_footer {
+  position: relative;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
   .container {
     margin: 0;
@@ -176,6 +178,5 @@
   overflow:hidden;
   text-overflow:ellipsis;
   color: #4B4B4B;
-  padding: 0.1rem;
   cursor: pointer;
 }

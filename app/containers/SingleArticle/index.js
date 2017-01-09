@@ -156,10 +156,8 @@ class SingleArticle extends Component {
                   </Author>
                   <Text>发布于</Text>
                   <TimeLabel>{this.getTime(currentArticle.createAt)}</TimeLabel>
-                </p>
-                <div>
                   <Tag>{currentArticle.tags}</Tag>
-                </div>
+                </p>
               </Label>
               <ArticleContent>
                 <div
