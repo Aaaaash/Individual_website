@@ -39,7 +39,6 @@ class Slider extends Component {
   }
   handleMouseUp = () => {
     this.setState({ down: false });
-    console.log(this.state.progress);
   }
 
   render() {

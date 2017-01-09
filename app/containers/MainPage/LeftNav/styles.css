@@ -9,6 +9,7 @@
   color: #E6E9ED;
   background-color: var(--color);
   z-index: 1000;
+  box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.2), 1px 0 1px rgba(16, 22, 26, 0.4);
 }
 
 .auth_avatar {

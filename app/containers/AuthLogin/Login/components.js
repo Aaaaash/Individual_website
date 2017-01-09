@@ -52,7 +52,7 @@ export const BaseButton = styled.button`
   color: #FFF;
   outline: none;
   background-color: #2E94B9;
-  box-shadow: 0 1px 2px rgba(108, 108, 108, 0.24);
+  box-shadow: 0 1px 1px rgba(16, 22, 26, 0.1);
   transition: all 250ms;
   &:hover {
     background-color: #188db8;

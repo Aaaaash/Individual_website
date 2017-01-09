@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
 export const Tag = styled.span`
-  font-size: 14px;
+  font-size: 12px;
   margin-right: 0.1rem;
-  border: 1px solid #FC5185;
+  min-width: 0.2rem;
   padding: 0.02rem 0.1rem;
   cursor: pointer;
-  border-radius: 1rem;
-  &:hover {
-    background-color: #FC5185;
-    color: #FFF;
-    transition: all 200ms;
-  }
+  border-radius: 4px;
+  color: #FFF;
+  background-color: rgb(92, 112, 128);
 `;
