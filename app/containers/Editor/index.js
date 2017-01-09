@@ -47,22 +47,14 @@ class Editor extends Component {
     if (this.markInput.selectionStart !== this.markInput.selectionEnd) {
       const sta = this.markInput.selectionStart;
       const end = this.markInput.selectionEnd;
-      // console.log(sta, end);
       const text = source.substring(sta, end);
       const prevTem = template.substr(0, start);
       const nextTem = template.slice(start);
       const newStr = prevTem + text + nextTem;
       const insertContent = source.replace(text, newStr);
-      // this.markInput.value = insertContent;
       this.setState({ HTML: marked(insertContent) });
       this.props.onArticleInfoChange({ content: insertContent });
     }
-    // const insertTemplate = `${source}${template}`;
-    // this.props.onArticleInfoChange({ content: insertTemplate });
-    // this.markInput.focus();
-    // this.markInput.selectionStart = cursorStart + start;
-    // this.markInput.selectionEnd = cursorStart + start;
-    // this.setState({ HTML: marked(insertTemplate) });
   }
 
   handleChangeEditMode = (mode) => this.setState({ editMode: mode });
