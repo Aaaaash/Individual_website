@@ -54,7 +54,6 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
           type={config.type}
           message={config.message}
         />
-
         {React.Children.toArray(this.props.children)}
       </div>
     );

@@ -117,19 +117,17 @@ class Article extends Component {
             />
           </div>
           {
-            requesting ?      // 谁跟你讲的不能嵌套三目运算符？
-              this.renderLoading() :
-              articleList.length === 0 ?
-                <div>
-                  <p>啥也没有</p>
-                </div> :
-                <QueueAnim type="bottom" className={styles.article_list}>
-                  {this.renderArticleItem(articleList)}
-                </QueueAnim>
+            articleList.length !== 0 ?
+              <QueueAnim type="bottom" className={styles.article_list}>
+                {this.renderArticleItem(articleList)}
+              </QueueAnim> :
+              null
           }
-          <div className={styles.article_footer}>
-            <Loading />
-          </div>
+          {
+             requesting ?
+              this.renderLoading() :
+              null
+          }
         </div>
       </div>
     );
