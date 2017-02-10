@@ -78,6 +78,16 @@ class SingleArticle extends Component {
     this.props.onFetchComments();
   }
 
+  componentDidUpdate(prevProps) {
+    console.log('上一个', prevProps);
+    console.log('当前', this.props);
+    if (prevProps.location.pathname !== this.props.location.pathname && this.props.params.articleID) {
+      const id = this.props.params.articleID;
+      this.props.onCurrentArticleChange({ id });
+      this.props.onFetchArticleContent();
+      this.props.onFetchComments();
+    }
+  }
   getTime = (time) => {
     if (time) {
       const date = new Date(Number(time) * 1000);

@@ -33,7 +33,7 @@ function indexReducer(state = initialState, action) {
       return state.set('requesting', true);
     case FETCH_ALL_ARTICLE_SUCCESS:
       return state.set('articleList', new List(action.data))
-        .set('requesting', true);
+        .set('requesting', false);
     case FETCH_ALL_ARTICLE_ERROR:
       return state.set('requesting', false)
         .set('err', action.err);
