@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import QueueAnim from 'rc-queue-anim';
 import styles from './styles.css';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
@@ -110,7 +109,7 @@ class ArticleManage extends Component {
           submitCallBack={onDeleteArticle}
           requesting={deleteRequest}
         />
-        <div className={styles.article_list} key="a">
+        <div className={styles.article_list}>
           <h3>文章列表
             <button
               className={styles.add_new}

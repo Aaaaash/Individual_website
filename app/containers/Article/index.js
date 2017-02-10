@@ -84,7 +84,7 @@ class Article extends Component {
         <div    // eslint-disable-line
           className={styles.markdownBody}
           title={`${item.content.replace(reg, '').substr(0, 100)}...`}
-          dangerouslySetInnerHTML={{ __html: `${item.content.replace(reg, '').substr(0, 500)}...` }}
+          dangerouslySetInnerHTML={{ __html: `${item.content.replace(reg, '').substr(0, 350)}...` }}
         >
         </div>
         <div className={styles.foot_tool}>

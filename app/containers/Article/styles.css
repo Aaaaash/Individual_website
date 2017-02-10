@@ -173,10 +173,13 @@
   -webkit-text-size-adjust: 100%;
   line-height: 1.5;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.75;
   margin-top: 0.15rem;
   overflow:hidden;
+  padding: 5px 10px 5px 10px;
+  border-left: 4px solid #188db8;
   text-overflow:ellipsis;
-  color: #4B4B4B;
+  color: #4C4C4C;
+  background-color: #F6F6F6;
   cursor: pointer;
 }

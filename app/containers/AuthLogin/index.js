@@ -50,11 +50,11 @@ class AuthLogin extends Component {   // eslint-disable-line   react/prefer-stat
               passwordChangeFunc={this.handleChangeAuthPassword}
               submitBtnFunc={this.handleOpenMainPage}
             />
-            <Register
+            {/** <Register
               inputInfo={authRegisterInfo}
               onChangeCallBack={onRegisterChange}
               onSubmitCallBack={onAuthRegister}
-            />
+            />**/}
           </div>
         </QueueAnim>
       </div>
