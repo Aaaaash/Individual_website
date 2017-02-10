@@ -38,7 +38,8 @@ export const Article = styled.div`
 `;
 
 export const Titlt = styled.p`
-  font-size: 0.2rem;
+  font-size: 0.24rem;
+  color: #444;
 `;
 
 export const Label = styled.div`
@@ -65,7 +66,7 @@ export const Text = styled.span`
 `;
 
 export const Tag = styled.span`
-  font-size: 12px;
+  font-size: 14px;
   margin-right: 0.1rem;
   min-width: 0.2rem;
   padding: 0.02rem 0.1rem;
@@ -112,7 +113,7 @@ export const LoadTitlt = styled.p`
   width: ${(props) => props.width};
   height: 0.2rem;
   margin-top: 0.15rem;
-  background-color: rgb(241, 241, 241);
+  background-color: #f5f5f5;
 `;
 
 export const ReviewCon = styled.div`

@@ -176,10 +176,7 @@
   line-height: 1.75;
   margin-top: 0.15rem;
   overflow:hidden;
-  padding: 5px 10px 5px 10px;
-  border-left: 4px solid #188db8;
   text-overflow:ellipsis;
-  color: #4C4C4C;
-  background-color: #F6F6F6;
+  color: #7c8999;
   cursor: pointer;
 }

@@ -1,5 +1,5 @@
 :root {
-  --color: #384247;
+  --color: #343F4B;
 }
 
 .left_nav {
@@ -19,7 +19,7 @@
   min-height: 1rem;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 1px solid #27323A;
+  border-bottom: 1px solid #222C38;
 }
 
 .avatar {
@@ -41,7 +41,7 @@
 }
 
 .count {
-  color: #2E94B9;
+  color: #35A3E3;
   font-size: 12px;
   margin-left: 0.1rem;
   text-decoration: none;
@@ -65,13 +65,13 @@
 }
 
 .auth_nav li:hover {
-  background-color: #263238;
+  background-color: #222C38;
 }
 
 .auth_nav .active {
-  color: #2E94B9;
+  color: #35A3E3;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.65);
-  background-color: #263238;
+  background-color: #222C38;
 }
 
 .nav_btn {
@@ -110,7 +110,7 @@
 }
 
 .logout:active {
-  color: #2E94B9;
+  color: #35A3E3;
   background-color: #27323A;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.65);
 }
