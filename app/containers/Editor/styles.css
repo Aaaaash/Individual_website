@@ -234,6 +234,7 @@
   }
 }
 
+
 /**
  * Markdown样式
  */
@@ -293,7 +294,7 @@
 .output blockquote {
   margin: 0.15rem 0;
   padding: 5px 10px 5px 15px;
-  border-left: 4px solid #188db8;
+  border-left: 4px solid #DDD;
   background-color: #f6f6f6
 }
 
