@@ -6,21 +6,13 @@ import { is } from 'immutable';
 
 import Editor from '../Editor';
 import {
-  changeArticleInfo,
-  pushArticle,
-  fetchPrivateArticle,
-  changeHightlightCurrent,
-  fetchEditedArticle,
-  deleteArticle,
-  changeDialogDelete,
+  changeArticleInfo, pushArticle, fetchPrivateArticle,
+  changeHightlightCurrent, fetchEditedArticle,
+  deleteArticle, changeDialogDelete,
 } from './actions';
 import {
-  selectAuthInfo,
-  selectArticleInfo,
-  selectPrivateArticle,
-  selectHighlight,
-  selectDeleteRequest,
-  selectDialogState,
+  selectAuthInfo, selectArticleInfo, selectPrivateArticle,
+  selectHighlight, selectDeleteRequest, selectDialogState,
 } from './selector';
 import './iconfont.js';
 import Loading from 'components/Loading';

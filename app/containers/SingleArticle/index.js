@@ -18,35 +18,12 @@ marked.setOptions({
 });
 
 import {
-  ArticleContainer,
-  Article,
-  Titlt,
-  Label,
-  Tag,
-  TimeLabel,
-  Author,
-  ArticleContent,
-  Text,
-  ReviewCon,
-  LoadingCon,
-  ReviewItem,
-  ReviewTit,
-  ReviewAuth,
-  AuthContent,
-  ReviewAuthTime,
-  ReviewTime,
-  EnterComment,
-  CommentArea,
-  SubmitBtn,
-  InputBox,
-  SingleInput,
-  LinkUrl,
-  Paper,
-  PageJump,
-  PageBtn,
-  NoData,
-  Nocomment,
-  LoadTitlt,
+  ArticleContainer, Article, Titlt, ArticleContent,
+  ReviewCon, LoadingCon, ReviewItem,
+  ReviewTit, ReviewAuth, AuthContent, ReviewAuthTime,
+  ReviewTime, EnterComment, CommentArea, SubmitBtn,
+  InputBox, SingleInput, LinkUrl, Paper, PageJump,
+  PageBtn, NoData, Nocomment, LoadTitlt,
 } from './styledComponents';
 import {
   selectCurrentArticle,
@@ -143,12 +120,8 @@ class SingleArticle extends Component {
 
   render() {
     const {
-      currentArticle,
-      requesting,
-      comment,
-      onCommentsChange,
-      comments,
-      metaData,
+      currentArticle, requesting, comment,
+      onCommentsChange, comments, metaData,
     } = this.props;
     return (
       <ArticleContainer>
@@ -157,16 +130,6 @@ class SingleArticle extends Component {
             this.renderLoadingBackground() :
             <Article>
               <Titlt>{currentArticle.title}</Titlt>
-              <Label>
-                <p>
-                  <Author>
-                    {currentArticle.author}
-                  </Author>
-                  <Text>发布于</Text>
-                  <TimeLabel>{this.getTime(currentArticle.createAt)}</TimeLabel>
-                  <Tag>{currentArticle.tags}</Tag>
-                </p>
-              </Label>
               <ArticleContent>
                 <div
                   className={styles.output}

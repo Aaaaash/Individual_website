@@ -5,6 +5,7 @@ import DropMenu from 'components/DropMenu';
 import RadioGroup from 'components/RadioGroup';
 import ChcekBox from 'components/CheckBox';
 import Slider from 'components/Slider';
+import Player from 'components/Player';
 
 const options = [
   {
@@ -45,28 +46,7 @@ class Demo extends Component {
           flexDirection: 'column',
         }}
       >
-        <Switch />
-        <DropMenu
-          options={options}
-          value={2}
-        />
-        <RadioGroup
-          options={{
-            name: 'sex',
-            data: [
-              {
-                value: 'm',
-                label: 'nan',
-              },
-              {
-                value: 'f',
-                label: 'nv',
-              },
-             ],
-           }}
-        />
-        <ChcekBox />
-        <Slider />
+        <Player />
       </div>
     );
   }

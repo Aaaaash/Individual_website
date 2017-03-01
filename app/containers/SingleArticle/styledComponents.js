@@ -38,51 +38,9 @@ export const Article = styled.div`
 `;
 
 export const Titlt = styled.p`
-  font-size: 0.24rem;
+  font-size: 0.30rem;
   color: #444;
-`;
-
-export const Label = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const Author = styled.span`
-  font-size: 0.14rem;
-  color: #3A3A3A;
-  margin-right: ${smMargin};
-  cursor: pointer;
-  transition: all 300ms;
-  &:hover {
-    text-decoration: underline;
-    color: ${secondColor};
-  }
-`;
-
-export const Text = styled.span`
-  font-size: 0.14rem;
-  color: #3A3A3A;
-  margin-left: 0.1rem;
-`;
-
-export const Tag = styled.span`
-  font-size: 14px;
-  margin-right: 0.1rem;
-  min-width: 0.2rem;
-  padding: 0.02rem 0.1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  color: #FFF;
-  margin-left: 0.15rem;
-  background-color: rgb(92, 112, 128);
-`;
-
-export const TimeLabel = styled.span`
-  margin-left: 0.1rem;
-  height: 0.36rem;
-  line-height: 0.36rem;
-  font-size: 0.14rem;
-  color: #B4B4B4;
+  font-weight: bold;
 `;
 
 export const ArticleContent = styled.div`

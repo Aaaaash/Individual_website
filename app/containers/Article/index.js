@@ -108,14 +108,14 @@ class Article extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.article}>
-          <div className={styles.search}>
+          {/* <div className={styles.search}>
             <input
               value={searchTitle}
               placeholder="search some?"
               onChange={(e) => onSearchTitleChange(e.target.value)}
               onKeyDown={this.handleSearchTitle}
             />
-          </div>
+          </div> */}
           {
             articleList.length !== 0 ?
               <QueueAnim type="bottom" className={styles.article_list}>
