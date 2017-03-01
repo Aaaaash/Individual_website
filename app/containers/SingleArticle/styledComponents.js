@@ -40,7 +40,10 @@ export const Article = styled.div`
 export const Titlt = styled.p`
   font-size: 0.30rem;
   color: #444;
-  font-weight: bold;
+  height: 64px;
+  padding: 0 30px;
+  line-height: 64px;
+  border-bottom: 1px solid #e8ecf1;
 `;
 
 export const ArticleContent = styled.div`
@@ -48,6 +51,7 @@ export const ArticleContent = styled.div`
   height: ${full};
   position: relative;
   margin-top: ${smMargin};
+  padding: 10px 30px 30px 30px;
 `;
 
 export const LoadingCon = styled.div`
