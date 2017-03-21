@@ -9,12 +9,12 @@ import Player from 'components/Player';
 import Table from 'components/Table';
 
 const maps = [
-  { title: '余额', iSorter: true, letter: 'amount' },
-  { title: '支出', iSorter: true, letter: 'pay_amount' },
-  { title: '税额', iSorter: false, letter: 'his' },
-  { title: '啥玩意', iSorter: false, letter: 'state' },
-  { title: '时间', iSorter: true, letter: 'time' },
-  { title: '其他', iSorter: false, letter: 'tallage' },
+  { title: '余额', iSorter: true, letter: 'amount', filter: true },
+  { title: '支出', iSorter: true, letter: 'pay_amount', filter: true },
+  { title: '税额', letter: 'his', filter: true },
+  { title: '啥玩意', letter: 'state' },
+  { title: '时间', letter: 'time' },
+  { title: '其他', letter: 'tallage' },
 ];
 
 class Demo extends Component {

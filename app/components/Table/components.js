@@ -4,7 +4,7 @@ export const TableCon = styled.div`
   width: 90%;
   background-color: #FFF;
   border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(0, 37, 55, 0.05);
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
 `;
 
 export const Thead = styled.ul`
@@ -18,6 +18,7 @@ export const Thead = styled.ul`
     list-style: none;
     flex: 1;
     display: flex;
+    position: relative;
   }
 `;
 

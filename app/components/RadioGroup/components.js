@@ -9,8 +9,9 @@ const radioAni = keyframes`
   }
 `;
 export const Radio = styled.input`
-  width: 0.2rem;
-  height: 0.2rem;
+  width: 0.12rem;
+  height: 0.12rem;
+  line-height: 25px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) left no-repeat, center no-repeat #ebf1f5;
   border-radius: 50%;
   cursor: pointer;

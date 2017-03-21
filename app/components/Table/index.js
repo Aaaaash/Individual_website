@@ -17,13 +17,23 @@ class Table extends Component {
     const result = data.sort((a, b) => val === 0 ? a[lat] - b[lat] : b[lat] - a[lat]);  // eslint-disable-line
     this.setState({ data: result });
   }
+  handleFilterDada = (type, val, lat) => {
+    const { data } = this.state;
+    let result = [];
+    if (parseInt(type, 10) === 0) result = data.filter((item) => item[lat] > val);
+    if (parseInt(type, 10) === 1) result = data.filter((item) => item[lat] < val);
+    if (parseInt(type, 10) === 2) result = data.filter((item) => item[lat] == val);
+    this.setState({ data: result });
+  }
   renderThead = (list) =>
     list.map((item, index) =>
       <TableTd
         key={index}
         iSorter={item.iSorter}
         letter={item.letter}
-        handlerSortData={!!item.iSorter && this.handlerSortData}
+        filter={item.filter}
+        handleFilterDada={item.filter ? this.handleFilterDada : function no() {}}
+        handlerSortData={item.iSorter ? this.handlerSortData : function no() {}}
       >
         {item.title}
       </TableTd>

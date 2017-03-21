@@ -10,7 +10,15 @@ class RadioGroup extends Component {
   }
   renderRadioGroup = (map) =>
     map.data.map((item, index) =>
-      <label htmlFor={`radio${index}`} key={index}>
+      <label
+        htmlFor={`radio${index}`}
+        key={index}
+        style={{
+          verticalAlign: 'middle',
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
         {item.label}
         <Radio
           type="radio"
@@ -22,12 +30,19 @@ class RadioGroup extends Component {
       </label>
     );
 
+// options: {
+//   name: 'name',
+//   data: [
+//     value: 0,
+//     label: '>',
+//   ],
+// }
   render() {
     const { options } = this.props;
     return (
-      <div>
+      <p style={{ display: 'flex' }}>
         {this.renderRadioGroup(options)}
-      </div>
+      </p>
     );
   }
 }
